@@ -1,8 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from '../Landing/LandingSections/Home'
-import About from '../Landing/LandingSections/About'
-import Services from '../Landing/LandingSections/Services'
+import { Home, About, Activities ,Team} from "./index";
 
 const LandingRouting = () => {
 
@@ -10,8 +8,9 @@ const LandingRouting = () => {
         <div>
         <Routes>
             <Route index element={<Home/>}/>
-            <Route path="/basic-information" element={<About/>}/>
-            <Route path="/profile-setup" element={<Services/>}/>
+            <Route path="/about" element={<About/>}/>
+            <Route path="/activities" element={<Activities/>}/>
+            <Route path="/team" element={<Activities/>}/>
         </Routes>
         <p>Landing Routes</p>
         </div>
