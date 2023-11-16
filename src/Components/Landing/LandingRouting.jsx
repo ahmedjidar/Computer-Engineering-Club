@@ -10,7 +10,7 @@ const LandingRouting = () => {
             <Route index element={<Home/>}/>
             <Route path="/about" element={<About/>}/>
             <Route path="/activities" element={<Activities/>}/>
-            <Route path="/team" element={<Activities/>}/>
+            <Route path="/team" element={<Team/>}/>
         </Routes>
         <p>Landing Routes</p>
         </div>

@@ -1,5 +1,5 @@
 import LandingRouting from "./LandingRouting";
-import Landing from "./Landing";
+import Landing from "../../Pages/Landing";
 import Home from "./LandingSections/Home";
 import About from "./LandingSections/About";
 import Activities from "./LandingSections/Activities";

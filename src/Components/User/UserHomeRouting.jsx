@@ -5,10 +5,12 @@ import { UserSpaceLayout } from ".";
 const UserHomeRouting = () => {
 
     return(
-        // <Routes>
-        //     <Route path="/home" element={<UserSpaceLayout/>}/>
-        // </Routes>
-        <div>UserHome</div>
+        <div>
+            <Routes>
+                <Route path="/myspace" element={<UserSpaceLayout/>}/>
+            </Routes>  
+            UserHome
+        </div>
     )
 }
 
