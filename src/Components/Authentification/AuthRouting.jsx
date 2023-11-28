@@ -6,13 +6,12 @@ import PreferencesAndNotifications from './PreferencesAndNotifications'
 
 const AuthRouting = () => {
     return(
-        <div>
+        <div> 
             <Routes>
-                <Route index path="/basic" element={<BasicProfileInformation/>}/>
-                <Route path="/organization" element={<OrganizationInformation/>}/>
-                <Route path="/preferences" element={<PreferencesAndNotifications/>}/>
+                <Route index path="/profile-setup" element={<BasicProfileInformation/>}/>
+                {/* <Route path="/organization" element={<OrganizationInformation/>}/>
+                <Route path="/preferences" element={<PreferencesAndNotifications/>}/> */}
             </Routes>
-            <p>Authentification Routes</p>
         </div>
 
     )

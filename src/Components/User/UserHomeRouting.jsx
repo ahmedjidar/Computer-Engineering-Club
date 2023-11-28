@@ -9,7 +9,6 @@ const UserHomeRouting = () => {
             <Routes>
                 <Route path="/myspace" element={<UserSpaceLayout/>}/>
             </Routes>  
-            UserHome
         </div>
     )
 }
