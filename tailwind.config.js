@@ -5,7 +5,12 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      'Poppins': 'sans-serif',
+    },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }
 

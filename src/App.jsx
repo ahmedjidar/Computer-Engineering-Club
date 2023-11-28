@@ -1,14 +1,16 @@
-import { useState } from 'react'
+import SSRProvider from 'react-bootstrap/SSRProvider';
 import { BrowserRouter as Router } from 'react-router-dom'
 import GeneralRoutes from './Components/GeneralRoutes'
-import { About } from './Components/Landing'
+import './App.css'
 
 const App = () => {
 
   return(
-    <Router>
-      <GeneralRoutes/>
-    </Router>
+    <SSRProvider>
+      <Router>
+        <GeneralRoutes/>
+      </Router>
+    </SSRProvider>
   )
 }
 
