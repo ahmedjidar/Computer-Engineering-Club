@@ -4,6 +4,7 @@ import image1 from '../../../assets/Images/ensaoimg.jpg';
 import image2 from '../../../assets/Images/slider-bg.jpg'
 import '../../../assets/styles/activitiesstyle.css'
 import { HeadNav } from '../../Common';
+import Footer from './Footer';
 function Activities() {
   return (
 
@@ -125,6 +126,8 @@ function Activities() {
 
 
         </div>
+
+        <Footer></Footer>
     </div>
   );
 }
