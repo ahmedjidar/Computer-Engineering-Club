@@ -7,19 +7,18 @@ import UserHomeRouting from './User/UserHomeRouting'
 const GeneralRoutes = () => {
 
     return(
-        <div>
+        <div> 
         <Routes>
             {/* Landing */}
             <Route path="/*" element={<LandingRouting/>}/>
 
             {/* main routes */}
-            <Route path="authentificate/*" element={<AuthRouting/>}/>
+            <Route path="get-started/*" element={<AuthRouting/>}/>
 
             {/* default route */}
             <Route path="user/*" element={<UserHomeRouting/>}/>
             
         </Routes>
-            <p>General Route ^ </p><br/>
         </div>
 
     )

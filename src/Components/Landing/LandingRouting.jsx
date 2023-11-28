@@ -12,7 +12,6 @@ const LandingRouting = () => {
             <Route path="/activities" element={<Activities/>}/>
             <Route path="/team" element={<Team/>}/>
         </Routes>
-        <p>Landing Routes</p>
         </div>
     )
 }
