@@ -1,0 +1,143 @@
+.main-container {
+    background-color: #f8f9fa; /* Set the background color for the entire component */
+    padding: 20px; /* Add some padding for better spacing */
+  }
+  
+  .activities-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 20px;
+  }
+  
+  /* .title-activities {
+    text-align: center;
+    color: #007bff; 
+    margin-bottom: 15px;
+  } */
+  
+  .title-activities h1 {
+    color: #1a0f7c;
+    position: relative;
+    font-size:26px; 
+    font-weight:700;  
+    letter-spacing:1px; 
+    text-transform:uppercase; 
+    width:160px; 
+    text-align:center; 
+    margin:auto;
+    margin-bottom:  15px;
+     white-space:nowrap; 
+     padding-bottom:13px;
+  }
+  .title-activities h1:before {
+      background-color: #13aa52;
+      content: '';
+      display: block;
+      height: 3px;
+      width: 75px;
+      margin-bottom: 5px;
+  }
+  .title-activities h1:after {
+      background-color: #13aa52;
+      content: '';
+      display: block;
+      position:absolute; 
+      right:0; 
+      bottom:0;
+      height: 3px;
+      width: 75px;
+      margin-bottom: 0.25em;
+  }
+  
+  .events-container,
+  .projects-container {
+    width: 90%; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white; 
+    margin: auto;
+  }
+  
+  
+  .carousel {
+    width: 100%;
+    margin: auto;
+  }
+  
+  .carousel-item {
+    text-align: center;
+  }
+  .carousel-item img{
+    height: 100%;
+    width: 100%;
+    object-fit:cover;
+  }
+  
+  .carousel-caption {
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+  }
+  
+  .activities-names{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    font-weight: 600;
+    font-size:xx-large;
+  }
+  /*# sourceMappingURL=style.css.map */
+  
+  
+  .button-37 {
+    background-color: #13aa52;
+    border: 1px solid #13aa52;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    outline: 0;
+    padding: 10px 25px;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 150ms, box-shadow 150ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .button-37:hover {
+    box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+    transform: translateY(-2px);
+  }
+  
+  @media (min-width: 768px) {
+    .button-37 {
+      padding: 10px 30px;
+      margin-top: 20px;
+    }
+    .carousel-caption{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+    }
+    .carousel-item{
+      height: 400px;
+    }
+  }
+  
+  @media (max-width: 650px) {
+    .button-37 {
+      padding: 0 4px;
+      font-size: 14px;
+  
+    }
+  
+  }
