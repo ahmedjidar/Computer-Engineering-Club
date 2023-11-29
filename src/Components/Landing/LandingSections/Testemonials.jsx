@@ -8,9 +8,9 @@ import {
   MDBRow,
 } from "mdb-react-ui-kit";
 import '../assets/style/testemonials.css'
-import prof1 from '../assets/images/toumi.jpg'
-import prof2 from '../assets/images/ennaki.jpg'
-import prof3 from '../assets/images/berrich.jpg'
+import prof1 from '../../../assets/Images/toumi.jpg'
+import prof2 from '../../../assets/Images/ennaki.jpg'
+import prof3 from '../../../assets/Images/berrich.jpg'
 
 
 export default function Testemonials() {
