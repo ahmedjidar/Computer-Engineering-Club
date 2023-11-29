@@ -4,6 +4,8 @@ import Show from "./Show";
 import WhyUs from "./WhyUs";
 import Team from "./Team";
 import Footer from "./Footer";
+import Testemonials from "./Testemonials";
+import About from "./About";
 
 const Home = () => {
     return(
@@ -11,6 +13,8 @@ const Home = () => {
             <HeadNav></HeadNav>
             <Show></Show>
             <WhyUs></WhyUs>
+            <About></About>
+            <Testemonials></Testemonials>
             <Team></Team>
             <Footer></Footer>
         </div>
