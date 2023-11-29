@@ -1,8 +1,8 @@
 import React from 'react'
 import '../../../assets/styles/WhyUs.css'
-import s1 from '../../../assets/Images/s1.png'
-import s2 from '../../../assets/Images/s2.png'
-import s3 from '../../../assets/Images/s3.png'
+import s1 from '../../../assets/Images/s1.svg'
+import s2 from '../../../assets/Images/s2.svg'
+import s3 from '../../../assets/Images/s3.svg'
 
 
 function WhyUs() {
@@ -15,8 +15,8 @@ function WhyUs() {
             <h2>
                 WHY <span>US</span>
             </h2>
-            <p>
-                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+            <p className='why-presentation'>
+            Empower your GI journey with comprehensive resources, empowering tools, and invaluable mentorship opportunities at our student-made computer science club website.
             </p>
             </div>
             <div class="row">
@@ -27,11 +27,10 @@ function WhyUs() {
                 </div>
                 <div class="detail-box">
                     <h5>
-                    Team Spirit
+                    Empowering Tools
                     </h5>
                     <p>
-                    when you're part of this club it here where start the feeling of pride and loyalty of belonging ,
-                    we "learn" , "share experiences" , "moments of joy" Together
+                    Utilize our innovative task manager tool, personalized roadmaps, and collaborative platforms to enhance your learning experience .
                     </p>
 
                 </div>
@@ -44,12 +43,11 @@ function WhyUs() {
                 </div>
                 <div class="detail-box">
                     <h5>
-                    Passion 
+                    Mentorship and Connection
                     </h5>
                     <p>
-                    to reach your goal, you have to find the why and ours is the passion, as computer engineering students there is one passion that brings us together,
-                     join us to discover it
-                    </p>
+                    Connect with experienced and higher-ranking students and a supportive community, fostering mentorship opportunities , insights and guidance
+                    <br></br></p>
 
                 </div>
                 </div>
@@ -61,11 +59,10 @@ function WhyUs() {
                 </div>
                 <div class="detail-box">
                     <h5>
-                    One goal
+                    Comprehensive Resources
                     </h5>
                     <p>
-                    neat and efficient work requires a clear objective and ours 
-                    is to share our knowledge with all possible methods
+                    Access an extensive collection of blog posts, resources, and courses tailored for GIS students, providing a one-stop destination for enriching your knowledge.
                     </p>
 
                 </div>

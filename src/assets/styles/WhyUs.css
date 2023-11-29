@@ -3,6 +3,10 @@
 .service_section {
     position: relative;
   }
+
+  .why-presentation{
+    padding: 10px 300px;
+  }
   
   .service_section .boxabout {
     display: -webkit-box;
@@ -20,6 +24,7 @@
     background-color: #f8f8f9;
     padding: 20px;
     border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   }
   
   .service_section .boxabout .img-box {
