@@ -18,6 +18,23 @@
     font-size: 24px;
     color: #ffffff;
   }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    margin-right: 10px; /* Adjust as needed */
+  }
+  
+  .logo-text {
+    color: white; /* Adjust text color */
+    font-size: 1.5rem; /* Adjust font size */
+    font-weight: bold; /* Adjust font weight */
+  }
+
+
   
   .custom_nav-container {
     padding: 0;

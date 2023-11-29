@@ -14,7 +14,6 @@ const Team = () => {
 
     return(
         <div>
-            <HeadNav></HeadNav>
 
             <section class="team_section layout_padding">
     <div class="container-fluid">
@@ -168,7 +167,6 @@ const Team = () => {
     </div>
   </section>
 
-  <Footer></Footer>
         </div>
     )
 }
