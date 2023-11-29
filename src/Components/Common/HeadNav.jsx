@@ -179,10 +179,10 @@ function HeadNav() {
         <div className="container-fluid">
           <Navbar className="navbar-expand-lg custom_nav-container" expand="lg">
             <Navbar.Brand href="index.html">
-              <span>
-                <img src={logo} className='logo' width="50px" alt="Logo" />
-                GI Club
-              </span>
+                <span className="logo-container">
+                  <img src={logo} className='logo' width={70}/>
+                  <span className="logo-text">GI Club</span>
+                </span>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarSupportedContent" className="navbar-toggler" />
             <Navbar.Collapse id="navbarSupportedContent">
