@@ -27,10 +27,11 @@ function WhyUs() {
                 </div>
                 <div class="detail-box">
                     <h5>
-                    Empowering Tools
+                    Team Spirit
                     </h5>
                     <p>
-                    Utilize our innovative task manager tool, personalized roadmaps, and collaborative platforms to enhance your learning experience .
+                    when you're part of this club it here where start the feeling of pride and loyalty of belonging ,
+                    we "learn" , "share experiences" , "moments of joy" Together
                     </p>
 
                 </div>
@@ -43,11 +44,12 @@ function WhyUs() {
                 </div>
                 <div class="detail-box">
                     <h5>
-                    Mentorship and Connection
+                    Passion
                     </h5>
                     <p>
-                    Connect with experienced and higher-ranking students and a supportive community, fostering mentorship opportunities , insights and guidance
-                    <br></br></p>
+                    to reach your goal, you have to find the why and ours is the passion, as computer engineering students there is one passion that brings us together,
+                     join us to discover it                    
+                     <br></br></p>
 
                 </div>
                 </div>
@@ -59,10 +61,11 @@ function WhyUs() {
                 </div>
                 <div class="detail-box">
                     <h5>
-                    Comprehensive Resources
+                    One goal
                     </h5>
                     <p>
-                    Access an extensive collection of blog posts, resources, and courses tailored for GIS students, providing a one-stop destination for enriching your knowledge.
+                    neat and efficient work requires a clear objective and ours 
+                    is to share our knowledge with all possible methods
                     </p>
 
                 </div>

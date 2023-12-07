@@ -198,7 +198,7 @@ function HeadNav() {
                   </a>
                 </li>
                 <li className={`nav-item ${activeMenuItem === 'activities' ? 'active' : ''}`}>
-                  <a href="#" className="nav-link" onClick={() => handleMenuItemClick('activities')}>
+                  <a href="/activities" className="nav-link" onClick={() => handleMenuItemClick('activities')}>
                     Activities
                   </a>
                 </li>
