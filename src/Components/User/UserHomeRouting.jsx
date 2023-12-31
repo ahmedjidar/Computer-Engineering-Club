@@ -1,13 +1,16 @@
-import React from "react";
+import {React, useState} from "react";
 import { Routes, Route } from "react-router-dom";
-import { UserSpaceLayout } from ".";
+import UserSpaceLayout from "./UserSpaceLayout";
+import HeadNav from "../Common/HeadNav";
+import Explore from "./UserSpaceSubComponents/Explore";
 
 const UserHomeRouting = () => {
-
     return(
         <div>
+            <HeadNav/>
             <Routes>
-                <Route path="/myspace" element={<UserSpaceLayout/>}/>
+                <Route index path="/myspace/*" element={<UserSpaceLayout/>}/>
+                <Route path="/*" element={<Explore/>}/>
             </Routes>  
         </div>
     )
