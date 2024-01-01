@@ -1,16 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Home, About, Activities ,Team} from "./index";
-import Show from "./LandingSections/Show";
+import ActivitiesSubRoutes from "./LandingSections/activities-sub-routes/ActivitiesSubRoutes";
 
 const LandingRouting = () => {
-
     return(
         <div>
         <Routes>
-            <Route index element={<Home/>}/>
+            <Route index path="/" element={<Home/>}/>
             <Route path="/about" element={<About/>}/>
-            <Route path="/activities" element={<Activities/>}/>
+            <Route path="/activities/*" element={<ActivitiesSubRoutes/>}/>
             <Route path="/team" element={<Team/>}/>
         </Routes>
         </div>

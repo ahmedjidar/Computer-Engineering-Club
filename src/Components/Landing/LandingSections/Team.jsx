@@ -11,7 +11,6 @@ import Footer from "./Footer";
 
 
 const Team = () => {
-
     return(
         <div>
 

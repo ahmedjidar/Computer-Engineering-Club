@@ -1,5 +1,5 @@
 import React from "react";
-import { Content, UserSidebar, Explore } from "./index.js";
+import { Content, UserSidebar } from "./index.js";
 import { Container, Row, Col } from "react-bootstrap";
 
 const UserSpaceLayout = () => {

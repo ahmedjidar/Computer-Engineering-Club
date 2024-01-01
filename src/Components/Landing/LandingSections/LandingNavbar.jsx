@@ -5,8 +5,8 @@ import Button from 'react-bootstrap/Button';
 import logo from '../../../assets/Images/gi.png';
 import '../../../assets/Styles/navbarstyle.css'
 
-const LandingNavbar = () => {
-  const [activeMenuItem, setActiveMenuItem] = useState('home');
+const LandingNavbar = ({defaultActiveMenuItem}) => {
+  const [activeMenuItem, setActiveMenuItem] = useState(defaultActiveMenuItem);
 
   const handleMenuItemClick = (menuItem) => {
     setActiveMenuItem(menuItem);
@@ -27,12 +27,12 @@ const LandingNavbar = () => {
             <Navbar.Collapse id="navbarSupportedContent">
               <Nav className="navbar-nav">
                 <li className={`nav-item ${activeMenuItem === 'home' ? 'active' : ''}`}>
-                  <a href="#" className="nav-link" onClick={() => handleMenuItemClick('home')}>
+                  <a href="/" className="nav-link" onClick={() => handleMenuItemClick('home')}>
                     Home <span className="sr-only">(current)</span>
                   </a>
                 </li>
                 <li className={`nav-item ${activeMenuItem === 'about' ? 'active' : ''}`}>
-                  <a href="#" className="nav-link" onClick={() => handleMenuItemClick('about')}>
+                  <a href="/about" className="nav-link" onClick={() => handleMenuItemClick('about')}>
                     About
                   </a>
                 </li>
@@ -47,12 +47,12 @@ const LandingNavbar = () => {
                   </a>
                 </li>
                 <li className={`nav-item ${activeMenuItem === 'team' ? 'active' : ''}`}>
-                  <a href="#" className="nav-link" onClick={() => handleMenuItemClick('team')}>
+                  <a href="/team" className="nav-link" onClick={() => handleMenuItemClick('team')}>
                     Team
                   </a>
                 </li>
                 <li className={`nav-item ${activeMenuItem === 'login' ? 'active' : ''}`}>
-                  <a href="#" className="nav-link" onClick={() => handleMenuItemClick('login')}>
+                  <a href="/login" className="nav-link" onClick={() => handleMenuItemClick('login')}>
                     <i className="fa fa-user" aria-hidden="true"></i> Login
                   </a>
                 </li>

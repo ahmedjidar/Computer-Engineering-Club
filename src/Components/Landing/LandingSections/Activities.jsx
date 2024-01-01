@@ -5,7 +5,14 @@ import image2 from '../../../assets/Images/slider-bg.jpg'
 import '../../../assets/styles/activitiesstyle.css'
 import LandingNavbar from './LandingNavbar';
 import Footer from './Footer';
+import ActivitiesSubRoutes from './activities-sub-routes/ActivitiesSubRoutes';
+import { useNavigate } from 'react-router-dom';
+
 function Activities() {
+
+  const navigator = useNavigate();
+
+
   return (
 
     <div className='main-container'>
@@ -25,7 +32,7 @@ function Activities() {
                   />
                   <Carousel.Caption>
                     <h3 className='activities-names'>Computer Science Day Ed1</h3>
-                    <button class="button-37" role="button">Read More</button>
+                    <button class="button-37" role="button" onClick={() =>navigator('/activities/event1')}>(Event1) Read More</button>
 
                   </Carousel.Caption>
                 </Carousel.Item>
