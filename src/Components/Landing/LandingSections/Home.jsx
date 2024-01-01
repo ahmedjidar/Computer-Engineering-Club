@@ -9,9 +9,11 @@ import About from "./About";
 import LandingNavbar from "./LandingNavbar";
 
 const Home = () => {
+    const activeItem = 'home';
+
     return(
         <div>
-            <LandingNavbar/>
+            <LandingNavbar defaultActiveMenuItem={activeItem}/>
             <Show/>
             <WhyUs/>
             <About/>

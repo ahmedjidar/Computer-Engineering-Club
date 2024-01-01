@@ -4,11 +4,11 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import pfp from '../../assets/Images/pfp.png'
 import gi from '../../assets/Images/gi.png';
-import { Link } from "react-router-dom";
 
 const navigation = [
     { name: 'Dashboard', href: '/user/myspace', current: true },
     { name: 'My Courses', href: '/user/courses', current: false },
+    { name: 'Roadmaps', href: '/user/roadmaps', current: false },
     { name: 'Community/Forum', href: '/user/forum', current: false },
   ]
 

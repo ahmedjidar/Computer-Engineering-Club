@@ -1,8 +1,6 @@
-import { HeadNav } from "../Common";
-import React, { useState } from "react";
-import { Content, UserSidebar, Explore } from "./index.js";
+import React from "react";
+import { Content, UserSidebar } from "./index.js";
 import { Container, Row, Col } from "react-bootstrap";
-import BlogPost from "./UserSpaceSubComponents/CommunityFeed.jsx";
 
 const UserSpaceLayout = () => {
 
