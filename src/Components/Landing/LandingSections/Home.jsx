@@ -6,17 +6,20 @@ import Team from "./Team";
 import Footer from "./Footer";
 import Testemonials from "./Testemonials";
 import About from "./About";
+import LandingNavbar from "./LandingNavbar";
 
 const Home = () => {
+    const activeItem = 'home';
+
     return(
         <div>
-            <HeadNav></HeadNav>
-            <Show></Show>
-            <WhyUs></WhyUs>
-            <About></About>
-            <Testemonials></Testemonials>
-            <Team></Team>
-            <Footer></Footer>
+            <LandingNavbar defaultActiveMenuItem={activeItem}/>
+            <Show/>
+            <WhyUs/>
+            <About/>
+            <Testemonials/>
+            <Team/>
+            <Footer/>
         </div>
     )
 }
