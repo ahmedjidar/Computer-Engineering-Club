@@ -4,10 +4,12 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import layers from '../../assets/Images/layers.png'
 import Button from "react-bootstrap/Button";
-
+const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 const BasicProfileInformation = () => {
     // states
     const [userData, setUserData] = useState({});
+
+  
 
     return(
     <div className="w-full flex justify-between">
@@ -30,7 +32,7 @@ const BasicProfileInformation = () => {
       </Card>
       {/* card ends here */}
       </div>
-      <form className="basis-3/5 p-20 border-l-4 border-l-blue-500 rounded-xl">
+      <form  className="basis-3/5 p-20 border-l-4 border-l-blue-500 rounded-xl">
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">
             <h2 className="text-xl font-semibold leading-7 text-gray-900">Profile</h2>

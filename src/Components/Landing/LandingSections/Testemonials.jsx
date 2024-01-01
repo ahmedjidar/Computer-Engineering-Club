@@ -12,7 +12,7 @@ function Testemonials() {
 		<h5>Dive into the accolades bestowed upon our Computer Science Club website by esteemed professors. These testimonials capture the essence of the students' exceptional work, highlighting the fusion of innovative design and technical prowess. Discover why our website stands as a testament to the dedication and skill of our budding computer scientists.</h5>
 	</div>
     <div className='cont-test'>
-<div class="testimonials-container">
+<div class="testimonials-container basis-1/2">
 	
 	<div class="fa fa-quote-right fa-quote"></div>
 	<div class="fa fa-quote-left fa-quote"></div>
@@ -32,7 +32,7 @@ function Testemonials() {
 	</div>
 </div>
 
-<div class="testimonials-container">
+<div class="testimonials-container basis-1/2">
 	
 	<div class="fa fa-quote-right fa-quote"></div>
 	<div class="fa fa-quote-left fa-quote"></div>
