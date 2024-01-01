@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import posts from '../../../Constants/userSpace';
+import posts from '../../../Constants/userPosts'
 
 const MyBlogs = () => {
     const [blogs, setBlogs] = useState(posts);

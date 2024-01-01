@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import layers from '../../assets/Images/layers.png'
 import Button from "react-bootstrap/Button";
-
+const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 const BasicProfileInformation = () => {
     // states
+    const [userData, setUserData] = useState({});
+
+  
 
     return(
     <div className="w-full flex justify-between">
@@ -29,7 +32,7 @@ const BasicProfileInformation = () => {
       </Card>
       {/* card ends here */}
       </div>
-      <form className="basis-3/5 p-20 border-l-4 border-l-blue-500 rounded-xl">
+      <form  className="basis-3/5 p-20 border-l-4 border-l-blue-500 rounded-xl">
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">
             <h2 className="text-xl font-semibold leading-7 text-gray-900">Profile</h2>
@@ -51,7 +54,7 @@ const BasicProfileInformation = () => {
                       id="username"
                       autoComplete="username"
                       className="outline-none block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                      placeholder="janesmith"
+                      placeholder="username"
                     />
                   </div>
                 </div>
@@ -101,7 +104,7 @@ const BasicProfileInformation = () => {
                         className="relative cursor-pointer rounded-md bg-white font-semibold text-blue-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-600 focus-within:ring-offset-2 hover:text-indigo-500"
                       >
                         <span>Upload a file</span>
-                        <input id="file-upload" name="file-upload" type="file" className="outline-none sr-only" />
+                        <input id="file-upload" name="image" type="file" className="outline-none sr-only" />
                       </label>
                       <p className="pl-1">or drag and drop</p>
                     </div>
@@ -124,7 +127,7 @@ const BasicProfileInformation = () => {
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="first-name"
+                    name="name"
                     id="first-name"
                     autoComplete="given-name"
                     className="outline-none block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
@@ -139,7 +142,7 @@ const BasicProfileInformation = () => {
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="last-name"
+                    name="familyName"
                     id="last-name"
                     autoComplete="family-name"
                     className="outline-none block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
@@ -162,7 +165,35 @@ const BasicProfileInformation = () => {
                 </div>
               </div>
 
-              <div className="sm:col-span-3">
+              <div className="sm:col-span-4">
+                <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                  Password
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    className="outline-none block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+
+              <div className="sm:col-span-4">
+                <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                  Repeat password
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="rpassword"
+                    name="rpassword"
+                    type="password"
+                    className="outline-none block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+
+              {/* <div className="sm:col-span-3">
                 <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
                   Country
                 </label>
@@ -178,11 +209,11 @@ const BasicProfileInformation = () => {
                     <option>Mexico</option>
                   </select>
                 </div>
-              </div>
+              </div> */}
 
               <div className="col-span-full">
                 <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
-                  Street address
+                  City
                 </label>
                 <div className="mt-2">
                   <input
@@ -195,7 +226,7 @@ const BasicProfileInformation = () => {
                 </div>
               </div>
 
-              <div className="sm:col-span-2 sm:col-start-1">
+              {/* <div className="sm:col-span-2 sm:col-start-1">
                 <label htmlFor="city" className="block text-sm font-medium leading-6 text-gray-900">
                   City
                 </label>
@@ -208,9 +239,9 @@ const BasicProfileInformation = () => {
                     className="outline-none block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
                   />
                 </div>
-              </div>
+              </div> */}
 
-              <div className="sm:col-span-2">
+              {/* <div className="sm:col-span-2">
                 <label htmlFor="region" className="block text-sm font-medium leading-6 text-gray-900">
                   State / Province
                 </label>
@@ -223,9 +254,9 @@ const BasicProfileInformation = () => {
                     className="outline-none block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
                   />
                 </div>
-              </div>
+              </div> */}
 
-              <div className="sm:col-span-2">
+              {/* <div className="sm:col-span-2">
                 <label htmlFor="postal-code" className="block text-sm font-medium leading-6 text-gray-900">
                   ZIP / Postal code
                 </label>
@@ -238,7 +269,72 @@ const BasicProfileInformation = () => {
                     className="outline-none block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
                   />
                 </div>
-              </div>
+              </div> */}
+            </div>
+          </div>
+
+          <div className="border-b border-gray-900/10 pb-12">
+            <h2 className="text-xl font-semibold leading-7 text-gray-900">Contact Information</h2>
+            <p className="mt-1 text-sm leading-6 text-gray-600">Use a permanent phone number</p>
+
+            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+              {/* phone */}
+              <div className="sm:col-span-4">
+                  <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
+                    Phone Number
+                  </label>
+                  <div className="mt-2">
+                    <div className="flex rounded-md ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-600 sm:max-w-md">
+                      <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">+212 </span>
+                      <input
+                        type="number"
+                        name="phone"
+                        id="phone"
+                        autoComplete="phone"
+                        className="outline-none block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                        placeholder="X XXXX XXXX"
+                      />
+                    </div>
+                  </div>
+                </div>
+              {/* linkedIn */}
+              <div className="sm:col-span-4">
+                  <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
+                    LinkedIn
+                  </label>
+                  <div className="mt-2">
+                    <div className="flex rounded-md ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-600 sm:max-w-md">
+                      <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm"></span>
+                      <input
+                        type="text"
+                        name="linkedin"
+                        id="linkedin"
+                        autoComplete="linkedin"
+                        className="outline-none block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                        placeholder="in-url"
+                      />
+                    </div>
+                  </div>
+                </div>
+                {/* GitHub */}
+                <div className="sm:col-span-4">
+                  <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
+                    GitHub
+                  </label>
+                  <div className="mt-2">
+                    <div className="flex rounded-md ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-600 sm:max-w-md">
+                      <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">github.com/</span>
+                      <input
+                        type="text"
+                        name="github"
+                        id="github"
+                        autoComplete="github"
+                        className="outline-none block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                        placeholder="git-username"
+                      />
+                    </div>
+                  </div>
+                </div>
             </div>
           </div>
 
