@@ -1,0 +1,73 @@
+.containerDomaines {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    justify-content: space-evenly;
+}
+
+.cardStyle {
+    width: 350px; /* 100% of the container width with gap subtracted, for mobile view */
+    max-width: 290px;
+    height: 250px;
+    border-radius: 8px;
+    color: white;
+    padding: 10px;
+    margin: 0 7px 14px 7px; /* Adjust margin to half of the gap */
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.card-primary { background-color: #011522; }
+.card-success { background-color: #4CAF50; }
+.card-info { background-color: #2196F3; }
+.card-warning { background-color: #FFC107; }
+.card-danger { background-color: #FF5252; }
+.card-secondary { background-color: #757575; }
+.card-dark { background-color: #323232; }
+.card-primary-dark { background-color: #00161F; }
+
+.cardStyle:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+/* Additional styles for larger screens (adjust as needed) */
+@media (min-width: 768px) {
+    
+}
+
+   .tools {
+    display: flex;
+    align-items: center;
+    padding: 9px;
+   }
+   
+   .circle {
+    padding: 0 4px;
+   }
+   
+   .box {
+    display: inline-block;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 50%;
+   }
+   
+   .red {
+    background-color: #ff605c;
+   }
+   
+   .yellow {
+    background-color: #ffbd44;
+   }
+   
+   .green {
+    background-color: #00ca4e;
+   }
+   
+
+   .domaineTitle{
+    font-weight: bold;
+   }
