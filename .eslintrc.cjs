@@ -11,12 +11,14 @@ module.exports = {
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: '18.2' } },
   plugins: ['react-refresh'],
-   rules: {
+  rules: {
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
     ],
-     'react/prop-types': 'off', // Turn off prop-types check
+    'react/prop-types': 'off', // Turn off prop-types check
+
+    // Add this rule to allow unused imports without triggering errors
+    'no-unused-vars': 'off',
   },
- 
-}
+};

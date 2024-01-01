@@ -3,13 +3,13 @@ import Carousel from 'react-bootstrap/Carousel';
 import image1 from '../../../assets/Images/ensaoimg.jpg';
 import image2 from '../../../assets/Images/slider-bg.jpg'
 import '../../../assets/styles/activitiesstyle.css'
-import { HeadNav } from '../../Common';
+import LandingNavbar from './LandingNavbar';
 import Footer from './Footer';
 function Activities() {
   return (
 
     <div className='main-container'>
-        <HeadNav></HeadNav>
+        <LandingNavbar/>
         <div className='activities-container'>
           <div className='events-container'>
             <div class="title-activities">

@@ -24,13 +24,13 @@
 .cont-test{
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	gap: 20px;
 }
 
 
 .testimonials-container {
 	background-color: #ffffff;
-
 	border-radius: 15px;
 	color: #000000;
 	font-family: 'Montserrat';
@@ -39,6 +39,8 @@
 	padding: 30px 80px;
 	position: relative;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 30px 20px; /* Adjust padding as needed */
+  overflow: hidden; /* Add overflow property */
 }
 
 .fa-quote {
@@ -59,11 +61,16 @@
 .testimonial {
 	line-height: 28px;
 	text-align: justify;
+	max-height: 20vh; /* Set a max height for the testimonial text */
+	overflow-y: auto; /* Add vertical scrollbar if needed */
+	margin: 1rem;
+	padding: 1.2rem;
+	
 }
 
 .centered-items {
 	display: flex;
-	justify-content: center;
+	/* justify-content: center; */
 	align-items: center;
 }
 
@@ -76,6 +83,8 @@
 
 .user-details {
 	margin-left: 10px;
+	text-align: left; /* Adjust alignment as needed */
+
 }
 
 .username {
@@ -104,6 +113,23 @@
 @media (max-width: 768px) {
 	.testimonials-container {
 		padding: 20px 30px;
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+	.testimonial {
+		line-height: 20px;
+		text-align: justify;
+		max-height: 40vh; /* Set a max height for the testimonial text */
+		overflow-y: auto; /* Add vertical scrollbar if needed */
+		margin: 1rem;
+		padding: 0.7rem;
+		
+	}
+	.centered-items {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
 	
 	.fa-quote {
