@@ -1,7 +1,7 @@
-import React from "react";
 import { HeadNav } from "../Common";
-import { Content, UserSidebar } from "./index.js";
+import {  UserSidebar } from "./index.js";
 import { Container, Row, Col } from "react-bootstrap";
+import BlogPost from "./UserSpaceSubComponents/blogPost.jsx";
 
 
 const UserSpaceLayout = () => {
@@ -16,7 +16,7 @@ const UserSpaceLayout = () => {
                     <UserSidebar/>
                 </Col>
                 <Col xs={12} md={9}>
-                    <Content/>
+                    <BlogPost/>
                 </Col>
             </Row>
         </Container>

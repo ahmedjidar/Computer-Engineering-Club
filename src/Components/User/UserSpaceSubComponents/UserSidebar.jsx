@@ -37,7 +37,7 @@ const UserSidebar = ({ onSearch }) => {
 
     return(
     <Navbar collapseOnSelect expand="lg">
-        <Nav defaultActiveKey="/"  className="flex-column w-full h-full py-2 px-2">
+        <Nav defaultActiveKey="/"  className="flex-column w-full h-screen py-2 px-2">
             {/* searchBox */}
             <Form inline className=" mb-10 mt-4 px-2 py-1 flex rounded ring-2 ring-gray-300 focus-within:ring-blue-600 focus-within:ring-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="border-none w-10 h-10 flex select-none items-center pl-3 text-gray-400 sm:text-sm">

@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import React from "react";
+import { Routes, Route } from "react-router-dom";
 import LandingRouting from './Landing/LandingRouting'
 import AuthRouting from './Authentification/AuthRouting'
 import UserHomeRouting from './User/UserHomeRouting'

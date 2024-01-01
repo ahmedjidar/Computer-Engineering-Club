@@ -1,10 +1,10 @@
-import React from "react";
+import BlogPost from "../Components/User/UserSpaceSubComponents/blogPost";
 
 const UserSpace = () => {
 
     return(
         <div>
-
+            <BlogPost/>
         </div>
     )
 }
