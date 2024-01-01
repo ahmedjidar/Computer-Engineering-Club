@@ -9,7 +9,8 @@ const UserHomeRouting = () => {
         <div>
             <HeadNav/>
             <Routes>
-                <Route index path="/myspace/*" element={<UserSpaceLayout/>}/>
+                <Route index path="/" element={<UserSpaceLayout/>}/>
+                <Route path="/myspace/*" element={<UserSpaceLayout/>}/>
                 <Route path="/*" element={<Explore/>}/>
             </Routes>  
         </div>

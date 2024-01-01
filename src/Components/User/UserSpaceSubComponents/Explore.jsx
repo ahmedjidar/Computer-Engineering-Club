@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { MyCourses, CommunityForum } from '../index';
+import RoadmapsSubRoutes from "./Roadmaps/RoadmapsSubRoutes";
 
 const Explore = () => {
 
@@ -9,6 +10,7 @@ const Explore = () => {
             <Routes>
                 {/* headnav explorer routes */}
                 <Route path="/courses" element={<MyCourses/>}/>
+                <Route path="/roadmaps/*" element={<RoadmapsSubRoutes/>}/>
                 <Route path="/forum" element={<CommunityForum/>}/>
             </Routes>
         </div>
