@@ -1,16 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Select from 'react-select'
-
-const options = [
-  { value: 'Genie-Informatique-3', label: 'Genie Informatique 3' },
-  { value: 'Genie-Informatique-4', label: 'Genie Informatique 4' },
-  { value: 'Genie-Informatique-5', label: 'Genie Informatique 5' }
-]
+import categories from '../../../Constants/categories';
+import courses from '../../../Constants/courses'
 
 const MyCourses = () => {
+  const [myCourses, setMyCourses] = useState(courses);
 
     return(
         <div className="p-4">
@@ -28,22 +25,20 @@ const MyCourses = () => {
                 </div>
                 <div className="w-1/2 flex items-center">
                     <p className="text-base">Category:</p>
-                    <Select options={options} className="w-full px-4 py-2 rounded-md"/>
+                    <Select options={categories} className="w-full px-4 py-2 rounded-md"/>
                 </div>
             </div>
 
             {/* courses */}
-            <Row xs={1} md={2} className="g-4">
-              {Array.from({ length: 4 }).map((_, idx) => (
+            <Row xs={1} md={3} className="g-4">
+              {courses.map((course, idx) => (
                 <Col key={idx}>
                   <Card>
-                    <Card.Img variant="top" src="https://www.datocms-assets.com/48401/1628644950-javascript.png" />
+                    <Card.Img variant="top" src={course.imageUrl}/>
                     <Card.Body>
-                      <Card.Title>Card title</Card.Title>
+                      <Card.Title>{course.title}</Card.Title>
                       <Card.Text>
-                        This is a longer card with supporting text below as a natural
-                        lead-in to additional content. This content is a little bit
-                        longer.
+                          {course.description}
                       </Card.Text>
                     </Card.Body>
                   </Card>
