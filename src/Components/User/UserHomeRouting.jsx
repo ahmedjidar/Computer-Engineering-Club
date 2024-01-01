@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 import {React, useState} from "react";
->>>>>>> 635f9a06448d991105886ad63ac22e21ccc7fa28
 import { Routes, Route } from "react-router-dom";
 import UserSpaceLayout from "./UserSpaceLayout";
 import HeadNav from "../Common/HeadNav";
