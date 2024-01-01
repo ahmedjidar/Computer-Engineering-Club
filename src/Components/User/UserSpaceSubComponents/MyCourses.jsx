@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Select from 'react-select'
 import categories from '../../../Constants/categories';
 import courses from '../../../Constants/courses'
+import { Link } from "react-router-dom";
 
 const MyCourses = () => {
   const [myCourses, setMyCourses] = useState(courses);
@@ -33,15 +34,17 @@ const MyCourses = () => {
             <Row xs={1} md={3} className="g-4">
               {courses.map((course, idx) => (
                 <Col key={idx}>
-                  <Card>
-                    <Card.Img variant="top" src={course.imageUrl}/>
-                    <Card.Body>
-                      <Card.Title>{course.title}</Card.Title>
-                      <Card.Text>
-                          {course.description}
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
+                  <Link to={`/user/courses/${course.id}`}>
+                    <Card>
+                        <Card.Img variant="top" src={course.imageUrl}/>
+                        <Card.Body>
+                          <Card.Title>{course.title}</Card.Title>
+                          <Card.Text>
+                              {course.description}
+                          </Card.Text>
+                        </Card.Body>
+                      </Card>
+                  </Link>
                 </Col>
               ))}
             </Row>

@@ -3,14 +3,9 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import pfp from '../../assets/Images/pfp.png'
-import gi from '../../assets/Images/gi.png';
-
-const navigation = [
-    { name: 'Dashboard', href: '/user/myspace', current: true },
-    { name: 'My Courses', href: '/user/courses', current: false },
-    { name: 'Roadmaps', href: '/user/roadmaps', current: false },
-    { name: 'Community/Forum', href: '/user/forum', current: false },
-  ]
+import gi from '../../assets/Images/gi.png'
+import navigation from '../../Constants/navigation'
+import { Link } from "react-router-dom";
 
   const classNames = (...classes) => {
     return classes.filter(Boolean).join(' ');
@@ -37,14 +32,16 @@ const HeadNav = () => {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center justify-start">
-                  <img
-                    className="ml-4 h-10 w-auto"
-                    src={gi}
-                    alt="ComputeSphere"
-                  />
-                  <p className="text-white font-Poppins font-semibold">Gi Club</p>
-                </div>
+                <Link to={`/`}>
+                  <div className="flex flex-shrink-0 items-center justify-start">
+                    <img
+                      className="ml-4 h-10 w-auto cursor-pointer"
+                      src={gi}
+                      alt="ComputeSphere"
+                    />
+                    <p className="text-white font-Poppins font-semibold cursor-pointer">Gi Club</p>
+                  </div>
+                </Link>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
@@ -99,7 +96,7 @@ const HeadNav = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="/user//myspace/portfolio"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Your Profile
@@ -109,7 +106,7 @@ const HeadNav = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="/user//myspace/settings"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Settings
@@ -119,7 +116,7 @@ const HeadNav = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="/"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Sign out
