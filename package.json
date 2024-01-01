@@ -31,12 +31,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.18.0",
     "react-search-box": "^3.0.0",
-<<<<<<< HEAD
-    "swiper": "^11.0.5"
-=======
     "react-select": "^5.8.0",
     "styled-components": "^6.1.6"
->>>>>>> 635f9a06448d991105886ad63ac22e21ccc7fa28
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

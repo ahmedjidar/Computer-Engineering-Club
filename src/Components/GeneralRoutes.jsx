@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-// import React from "react";
-=======
 import React from "react";
->>>>>>> 635f9a06448d991105886ad63ac22e21ccc7fa28
 import { Routes, Route } from "react-router-dom";
 import LandingRouting from './Landing/LandingRouting'
 import AuthRouting from './Authentification/AuthRouting'
