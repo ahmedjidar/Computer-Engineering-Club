@@ -1,9 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import layers from '../../assets/Images/layers.png'
+import { useSelector } from "react-redux";
+import { authActions } from "../../Store/authSlice";
+import { useDispatch } from "react-redux";
+const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
 const Login = () => {
+  const dispatch = useDispatch();
     const navigator = useNavigate();
+
+  const { auth } = useSelector(state => state.auth);
+  
+  const [err, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const submitHandler = (e) => {
+   
+
+    
+ const body = { email: email, password: password };
+    setLoading(true);
+  fetch(apiUrl+"/login", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json", // Set the content type to JSON
+  },
+  body: JSON.stringify(body), // Convert the body object to JSON
+})
+      .then((response) => {
+
+        if (!response.ok) {
+          setError(`HTTP error! status:`);
+          setLoading(false)
+          
+          
+
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (!data.success) {
+          setError(data.message);
+          setLoading(false)
+
+        } else {
+          setError('');
+          setLoading(false);
+          window.localStorage.setItem("token",data.token)
+          setMsg("You loged in successfully!");
+
+         
+        
+        }
+      });
+
+    e.preventDefault();
+  };
+
+
+
+
+
 
     return(
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -17,15 +79,25 @@ const Login = () => {
             Sign in to your account
           </h2>
         </div>
-
+ <p className="text-red-500 font-bold text-xl text-center w-full">
+            {err}
+        </p>
+          <p className="text-green-500 font-bold text-xl text-center w-full">
+            {msg}
+          </p>
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form onSubmit={submitHandler}
+            className="space-y-6" >
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Email address
               </label>
               <div className="mt-2">
                 <input
+                   onChange={(event) => {
+                setEmail(event.target.value);
+                  }}
+                 
                   id="email"
                   name="email"
                   type="email"
@@ -49,6 +121,10 @@ const Login = () => {
               </div>
               <div className="mt-2">
                 <input
+                  onChange={(event) => {
+                setPassword(event.target.value);
+                  }}
+                 
                   id="password"
                   name="password"
                   type="password"
@@ -62,9 +138,10 @@ const Login = () => {
             <div>
               <button
                 type="submit"
+                disabled={loading}
                 className="flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
               >
-                Sign in
+               {loading? 'Login in...':'Sign in'}
               </button>
             </div>
           </form>

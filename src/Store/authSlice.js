@@ -5,10 +5,13 @@ const authSlice = createSlice({
   name: 'auth',
   initialState:{auth:"hello redux working"},
   reducers: {
-    increment: state => state + 1,
+    login: (state, action) => {
+      state.isAuthenticated = true;
+      state.user = action.payload;
+    },
     decrement: state => state - 1,
   },
 });
 
-export const { increment, decrement } = authSlice.actions;
+export const authActions = authSlice.actions;
 export default authSlice.reducer;
