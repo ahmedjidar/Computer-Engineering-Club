@@ -18,7 +18,7 @@
 	margin-bottom: 22px;
 }
 .test-presentation h5{
-	padding: 10px 100px;
+	padding: 10px 60px;
 }
 
 .cont-test{
@@ -112,6 +112,7 @@
 
 @media (max-width: 768px) {
 	.testimonials-container {
+		max-width: 550px;
 		padding: 20px 30px;
 		margin-left: 20px;
 		margin-right: 20px;
@@ -134,6 +135,9 @@
 	
 	.fa-quote {
 		display: none;
+	}
+	.test-presentation h5{
+		padding: 10px 30px;
 	}
 }
 

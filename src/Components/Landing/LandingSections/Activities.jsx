@@ -1,7 +1,9 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import image1 from '../../../assets/Images/ensaoimg.jpg';
+import image1 from '../../../assets/Images/ensao.jpg';
 import image2 from '../../../assets/Images/slider-bg.jpg';
+import picjourne from '../../../assets/Images/picjournée.jpeg'
+import picprosolving from '../../../assets/Images/probsolvcover.jpg';
 import '../../../assets/styles/activitiesstyle.css';
 import LandingNavbar from './LandingNavbar';
 import Footer from './Footer';
@@ -27,11 +29,11 @@ function Activities() {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src={image2}
+                    src={picjourne}
                     alt="First slide"
                   />
                   <Carousel.Caption>
-                    <h3 className='activities-names'>Computer Science Day Ed1</h3>
+                    <h3 className='activities-names text-md'>CS Day 2022/2023</h3>
                     <button class="button-37" role="button" onClick={() =>navigator('/activities/event1')}>View More</button>
 
                   </Carousel.Caption>
@@ -43,8 +45,8 @@ function Activities() {
                     alt="Second slide"
                   />
                   <Carousel.Caption>
-                    <h3 className='activities-names'>Event 1</h3>
-                    <button class="button-37" role="button">Read More</button>
+                    <h3 className='activities-names'>Event 2</h3>
+                    <button class="button-37" role="button">View More</button>
                   </Carousel.Caption>
                 </Carousel.Item>
 
@@ -55,8 +57,8 @@ function Activities() {
                     alt="Second slide"
                   />
                   <Carousel.Caption>
-                    <h3 className='activities-names'>Event 1</h3>
-                    <button class="button-37" role="button">Read More</button>
+                    <h3 className='activities-names'>Event 3</h3>
+                    <button class="button-37" role="button">View More</button>
                   </Carousel.Caption>
                 </Carousel.Item>
 
@@ -67,8 +69,8 @@ function Activities() {
                     alt="Second slide"
                   />
                   <Carousel.Caption>
-                    <h3 className='activities-names'>Event 1</h3>
-                    <button class="button-37" role="button">Read More</button>
+                    <h3 className='activities-names'>Event 4</h3>
+                    <button class="button-37" role="button">View More</button>
                   </Carousel.Caption>
                 </Carousel.Item>
 
@@ -83,12 +85,12 @@ function Activities() {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src={image1}
+                    src={picprosolving}
                     alt="First slide"
                   />
                   <Carousel.Caption>
-                    <h3 className='activities-names'>Event 1</h3>
-                    <button class="button-37" role="button">Read More</button>
+                    <h3 className='activities-names'>Pro Solving ed1</h3>
+                    <button class="button-37" role="button">View More</button>
                   </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -98,20 +100,8 @@ function Activities() {
                     alt="Second slide"
                   />
                   <Carousel.Caption>
-                    <h3 className='activities-names'>Event 1</h3>
-                    <button class="button-37" role="button">Read More</button>
-                  </Carousel.Caption>
-                </Carousel.Item>
-
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src={image1}
-                    alt="Second slide"
-                  />
-                  <Carousel.Caption>
-                    <h3 className='activities-names'>Event 1</h3>
-                    <button class="button-37" role="button">Read More</button>
+                    <h3 className='activities-names'>Project 2</h3>
+                    <button class="button-37" role="button">View More</button>
                   </Carousel.Caption>
                 </Carousel.Item>
 
@@ -122,8 +112,20 @@ function Activities() {
                     alt="Second slide"
                   />
                   <Carousel.Caption>
-                    <h3 className='activities-names'>Event 1</h3>
-                    <button class="button-37" role="button">Read More</button>
+                    <h3 className='activities-names'>Project 3</h3>
+                    <button class="button-37" role="button">View More</button>
+                  </Carousel.Caption>
+                </Carousel.Item>
+
+                <Carousel.Item>
+                  <img
+                    className="d-block w-100"
+                    src={image1}
+                    alt="Second slide"
+                  />
+                  <Carousel.Caption>
+                    <h3 className='activities-names'>Project 4</h3>
+                    <button class="button-37" role="button">View More</button>
                   </Carousel.Caption>
                 </Carousel.Item>
 

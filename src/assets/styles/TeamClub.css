@@ -1,3 +1,15 @@
+.imgClub-container{
+  margin-top: 10px;
+  width: 100%;
+  height: 410px;
+}
+
+.imgClub-container img{
+   width: inherit;
+   height: inherit;
+   object-fit:cover;
+}
+
 .text-blk {
     margin-top: 0px;
     margin-right: 0px;
@@ -35,7 +47,7 @@
     max-width: 1320px;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 25px;
     margin-right: auto;
     margin-bottom: 50px;
     margin-left: auto;
@@ -66,7 +78,13 @@
   }
   
   .img-wrapper {
-    width: 100%;
+    width: 230px;
+    height: 230px;
+    margin-bottom: 10px;
+  }
+  .img-wrapper2 {
+    width: 180px;
+    height: 180px;
   }
   
   .team-card {
@@ -107,11 +125,14 @@
   .team-img {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
   }
   
   .team-card-container {
     width: 270px;
-    margin: 0 0 40px 0;
+    height: 270px;
+    margin: 0 0 100px 0;
   }
   .team-card-container2{
     width: 200px;
@@ -119,6 +140,17 @@
   }
   
   @media (max-width: 500px) {
+    .imgClub-container{
+      margin-top: 10px;
+      width: 100%;
+      height: 350px;
+    }
+    .imgClub-container img{
+      width: inherit;
+      height: inherit;
+      object-fit:contain;
+   }
+
     .outer-container {
       padding: 10px 20px 10px 20px;
     }
@@ -128,11 +160,19 @@
     }
 
     .team-card-container {
-        width: 200px;
+        width: 170px;
         margin: 0 0 40px 0;
       }
       .team-card-container2{
-        width: 170px;
+        width: 150px;
         margin: 0 0 40px 0;
+      }
+      .img-wrapper {
+        width: 170px;
+        height: 170px;
+      }
+      .img-wrapper2 {
+        width: 150px;
+        height: 150px;
       }
   }
