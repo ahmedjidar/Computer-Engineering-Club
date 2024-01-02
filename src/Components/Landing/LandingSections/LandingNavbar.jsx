@@ -42,7 +42,7 @@ const LandingNavbar = ({defaultActiveMenuItem}) => {
                   </a>
                 </li>
                 <li className={`nav-item ${activeMenuItem === 'my space' ? 'active' : ''}`}>
-                  <a href="#" className="nav-link" onClick={() => handleMenuItemClick('my space')}>
+                  <a href="/user/myspace" className="nav-link" onClick={() => handleMenuItemClick('my space')}>
                     My Space
                   </a>
                 </li>
