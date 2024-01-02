@@ -1,21 +1,27 @@
 import React from 'react';
 import '../../../assets/styles/TeamClub.css';
 import LandingNavbar from './LandingNavbar';
+import pic1 from '../../../assets/Images/GiFamily.jpg';
+import mouadpic from '../../../assets/Images/MouadPic.jpg'
 
 function TeamClub() {
   return (
     <div>
 
         <LandingNavbar defaultActiveMenuItem={"team"} />
+        <div className='imgClub-container'>
 
+            <img src={pic1} alt="Gi Family" />
+
+        </div>
 
 <div class="responsive-container-block outer-container">
   <div class="responsive-container-block inner-container">
     <p class="text-blk section-head-text">
-      Meet Our Expert Instructors
+      Executive Team Board For 2023/2024
     </p>
     <p class="text-blk section-subhead-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      The Best is Yet To Come in chaa allah 
     </p>
     <div class="responsive-container-block">
       <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container">
@@ -37,7 +43,7 @@ function TeamClub() {
       <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container">
         <div class="team-card">
           <div class="img-wrapper">
-            <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
+            <img class="team-img" src={mouadpic}/>
           </div>
           <p class="text-blk name">
             KHARTOUCH Mouad
@@ -87,7 +93,7 @@ function TeamClub() {
 
       <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container2">
         <div class="team-card">
-          <div class="img-wrapper">
+          <div class="img-wrapper2">
             <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
           </div>
           <p class="text-blk name">
@@ -105,7 +111,7 @@ function TeamClub() {
 
       <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container2">
         <div class="team-card">
-          <div class="img-wrapper">
+          <div class="img-wrapper2">
             <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
           </div>
           <p class="text-blk name">
@@ -123,7 +129,7 @@ function TeamClub() {
 
       <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container2">
         <div class="team-card">
-          <div class="img-wrapper">
+          <div class="img-wrapper2">
             <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
           </div>
           <p class="text-blk name">
@@ -141,7 +147,7 @@ function TeamClub() {
 
       <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container2">
         <div class="team-card">
-          <div class="img-wrapper">
+          <div class="img-wrapper2">
             <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
           </div>
           <p class="text-blk name">
@@ -158,7 +164,7 @@ function TeamClub() {
 
       <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container2">
         <div class="team-card">
-          <div class="img-wrapper">
+          <div class="img-wrapper2">
             <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
           </div>
           <p class="text-blk name">
@@ -176,7 +182,7 @@ function TeamClub() {
 
       <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container2">
         <div class="team-card">
-          <div class="img-wrapper">
+          <div class="img-wrapper2">
             <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
           </div>
           <p class="text-blk name">

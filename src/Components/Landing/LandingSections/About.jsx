@@ -1,6 +1,7 @@
 import React from "react";
 import '../../../assets/styles/about.css'
 import dvc from '../../../assets/Images/dvc.png'
+import LandingNavbar from "./LandingNavbar";
 const About = () => {
     return(
         <div>

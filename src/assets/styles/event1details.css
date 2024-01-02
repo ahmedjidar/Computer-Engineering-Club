@@ -113,6 +113,9 @@
 
 }
 
+.act img{
+   object-fit: contain;
+}
 
 .act  .carousel-control-prev-icon {
     opacity: 1 !important;
@@ -227,7 +230,11 @@
             flex-wrap: wrap;
             padding: 0;
             margin: 20px 0;
-    }    
+    }   
+    .act img{
+      object-fit: cover;
+   }
+    
 
 
   

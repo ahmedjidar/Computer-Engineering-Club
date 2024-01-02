@@ -3,7 +3,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import logo from '../../../assets/Images/gi.png';
-import '../../../assets/Styles/navbarstyle.css'
+import '../../../assets/Styles/navbarstyle.css';
+import { Link } from 'react-router-dom';
 
 const LandingNavbar = ({defaultActiveMenuItem}) => {
   const [activeMenuItem, setActiveMenuItem] = useState(defaultActiveMenuItem);
@@ -17,7 +18,7 @@ const LandingNavbar = ({defaultActiveMenuItem}) => {
       <header className="header_section">
         <div className="container-fluid">
           <Navbar className="navbar-expand-lg custom_nav-container" expand="lg">
-            <Navbar.Brand href="index.html">
+            <Navbar.Brand href="/">
                 <span className="logo-container">
                   <img src={logo} className='logo' width={70}/>
                   <span className="logo-text">GI Club</span>
@@ -27,34 +28,34 @@ const LandingNavbar = ({defaultActiveMenuItem}) => {
             <Navbar.Collapse id="navbarSupportedContent">
               <Nav className="navbar-nav">
                 <li className={`nav-item ${activeMenuItem === 'home' ? 'active' : ''}`}>
-                  <a href="/" className="nav-link" onClick={() => handleMenuItemClick('home')}>
+                  <Link to="/" className="nav-link" onClick={() => handleMenuItemClick('home')}>
                     Home <span className="sr-only">(current)</span>
-                  </a>
+                  </Link>
                 </li>
                 <li className={`nav-item ${activeMenuItem === 'about' ? 'active' : ''}`}>
-                  <a href="/about" className="nav-link" onClick={() => handleMenuItemClick('about')}>
+                  <Link to="/about" className="nav-link" onClick={() => handleMenuItemClick('about')}>
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li className={`nav-item ${activeMenuItem === 'activities' ? 'active' : ''}`}>
-                  <a href="/activities" className="nav-link" onClick={() => handleMenuItemClick('activities')}>
+                  <Link to="/activities" className="nav-link" onClick={() => handleMenuItemClick('activities')}>
                     Activities
-                  </a>
+                  </Link>
                 </li>
                 <li className={`nav-item ${activeMenuItem === 'my space' ? 'active' : ''}`}>
-                  <a href="/user/myspace" className="nav-link" onClick={() => handleMenuItemClick('my space')}>
+                  <Link to="/user/myspace" className="nav-link" onClick={() => handleMenuItemClick('my space')}>
                     My Space
-                  </a>
+                  </Link>
                 </li>
                 <li className={`nav-item ${activeMenuItem === 'team' ? 'active' : ''}`}>
-                  <a href="/team" className="nav-link" onClick={() => handleMenuItemClick('team')}>
+                  <Link to="/team" className="nav-link" onClick={() => handleMenuItemClick('team')}>
                     Team
-                  </a>
+                  </Link>
                 </li>
                 <li className={`nav-item ${activeMenuItem === 'login' ? 'active' : ''}`}>
-                  <a href="/login" className="nav-link" onClick={() => handleMenuItemClick('login')}>
+                  <Link to="/login" className="nav-link" onClick={() => handleMenuItemClick('login')}>
                     <i className="fa fa-user" aria-hidden="true"></i> Login
-                  </a>
+                  </Link>
                 </li>
                 <form className="form-inline">
                   <button className="btn my-2 my-sm-0 nav_search-btn" type="submit">
