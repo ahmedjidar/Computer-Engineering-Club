@@ -21,7 +21,7 @@ const Home = () => {
                             </svg>
                             <p>Write a Post</p>
                         </button>
-                        <button className="flex items-center gap-2 text-sm text-gray-600 rounded px-3 py-2 hover:bg-slate-100">Add image</button>
+                        <button className="flex items-center gap-2 text-sm text-gray-600 rounded px-3 py-2 hover:bg-slate-100">Post Question</button>
                     </div>
                 </form>
             </div>
