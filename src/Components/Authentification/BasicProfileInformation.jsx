@@ -17,9 +17,9 @@ const BasicProfileInformation = () => {
     try {
       const formData = new FormData(e.target);
       // setLoading(true);
-      const response = await fetch("http://localhost:5050/signup", {
+      const response = await fetch(apiUrl+"/signup", {
         method: "POST",
-        body: formData,
+          body: JSON.stringify(formData),
 
         // headers: {
         //   'Authorization': 'Bearer ' + token,

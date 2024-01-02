@@ -10,6 +10,7 @@
     text-align: center;
     background-color: #00204a;
     color: #ffffff;
+    margin: 40px 0;
   }
   
   .team_section .heading_container {
@@ -26,6 +27,8 @@
     padding: 35px 0 0 0;
     border-radius: 5px;
     overflow: hidden;
+    width: 280px;
+    height: 370px;
     -webkit-transition: all .1s;
     transition: all .1s;
     margin-top: 45px;
@@ -118,6 +121,9 @@
   
   .client_section .box .img-box img {
     border-radius: 100%;
+    width: inherit;
+    height: inherit;
+    object-fit: fill;
   }
   
   .client_section .box .client_id {
@@ -261,3 +267,10 @@
       opacity: 1;
     }
   }
+
+@media (max-width: 768px) {
+  .team_section .team_container .box {
+    width: 280px;
+  }
+  
+}

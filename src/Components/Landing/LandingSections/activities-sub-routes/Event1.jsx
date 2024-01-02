@@ -4,7 +4,7 @@ import '../../../../assets/styles/event1details.css';
 import image1 from '../../../../assets/Images/ensao.jpg';
 import LandingNavbar from '../LandingNavbar';
 import mic from '../../../../assets/Images/mic.png' ;
-
+import pic1galery from '../../../../assets/Images/PicsCsDay1.jpg'
 
 function Event1() {
 
@@ -43,7 +43,7 @@ function Event1() {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src={image1}
+                    src={pic1galery}
                     alt="First slide"
                   />
 
