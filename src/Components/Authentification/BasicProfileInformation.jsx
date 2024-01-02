@@ -4,11 +4,13 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import layers from "../../assets/Images/layers.png";
 import Button from "react-bootstrap/Button";
+import { useSelector } from "react-redux";
 const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 const BasicProfileInformation = () => {
   // states
   // const [userData, setUserData] = useState({});
-
+  const auth = useSelector(state => state.auth);
+  console.log(auth);
   const submitHandler = async (e) => {
     e.preventDefault();
     // const token = localStorage.getItem('token');
@@ -78,6 +80,7 @@ const BasicProfileInformation = () => {
         </Card>
         {/* card ends here */}
       </div>
+      <p>auth:{auth.auth}</p>
       <form
         onSubmit={submitHandler}
         className="basis-3/5 p-20 border-l-4 border-l-blue-500 rounded-xl"
