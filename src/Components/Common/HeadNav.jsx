@@ -96,7 +96,7 @@ const HeadNav = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="/user//myspace/portfolio"
+                            href="/user/myspace/portfolio"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Your Profile
@@ -106,7 +106,7 @@ const HeadNav = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="/user//myspace/settings"
+                            href="/user/myspace/settings"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Settings
