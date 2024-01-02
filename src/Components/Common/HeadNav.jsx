@@ -6,6 +6,7 @@ import pfp from '../../assets/Images/pfp.png'
 import gi from '../../assets/Images/gi.png'
 import navigation from '../../Constants/navigation'
 import { Link } from "react-router-dom";
+import CustomDisclosureButton from "./Buttons/CustomDisclosureButton";
 
   const classNames = (...classes) => {
     return classes.filter(Boolean).join(' ');
@@ -49,8 +50,8 @@ const HeadNav = () => {
                         key={item.name}
                         to={item.href}
                         className={classNames(
-                          item.current ? 'bg-blue-900 text-white' : 'text-gray-300 hover:bg-blue-900 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium'
+                          'text-gray-300 hover:bg-blue-900 hover:text-white',
+                          'rounded-md px-3 py-2 text-sm font-medium focus:text-white focus:bg-blue-900'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
@@ -130,21 +131,22 @@ const HeadNav = () => {
             </div>
           </div>
 
+          {/* i've created a custom disclosure button that is based on a Link tag since the old one 
+          uses anchor tags, for performance enhamcement */}
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block rounded-md px-3 py-2 text-sm font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
-                </Disclosure.Button>
+                <CustomDisclosureButton
+                    key={item.name}
+                    href={item.href}
+                    className={classNames(
+                      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                      'block rounded-md px-3 py-2 text-sm font-medium'
+                    )}
+                    aria-current={item.current ? 'page' : undefined}
+                  >
+                    {item.name}
+                </CustomDisclosureButton>
               ))}
             </div>
           </Disclosure.Panel>
