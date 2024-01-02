@@ -53,11 +53,7 @@ const LandingNavbar = ({defaultActiveMenuItem}) => {
                   </Link>
                 </li>
                 <li className={`nav-item ${activeMenuItem === 'login' ? 'active' : ''}`}>
-<<<<<<< HEAD
-                  <Link to="/login" className="nav-link" onClick={() => handleMenuItemClick('login')}>
-=======
-                  <a href="/get-started/login" className="nav-link" onClick={() => handleMenuItemClick('login')}>
->>>>>>> ceaf9b6e74148f497decf97dbe58e2e42e42ea1d
+                  <Link to="/get-started/login" className="nav-link" onClick={() => handleMenuItemClick('login')}>
                     <i className="fa fa-user" aria-hidden="true"></i> Login
                   </Link>
                 </li>
