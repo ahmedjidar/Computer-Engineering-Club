@@ -1,7 +1,7 @@
 import React from "react";
 
-import prs1 from '../../../assets/Images/team-1.jpg'
-import prs2 from '../../../assets/Images/MouadPic.jpg'
+import prs1 from '../../../assets/Images/team-1.jpeg'
+import prs2 from '../../../assets/Images/team-2.jpg'
 import prs3 from '../../../assets/Images/team-3.jpg'
 import prs4 from '../../../assets/Images/team-4.jpg'
 import '../../../assets/styles/team.css'

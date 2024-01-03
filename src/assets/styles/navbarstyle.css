@@ -1,3 +1,5 @@
+
+
 .test{
   background: linear-gradient(130deg, #231a6f, #0f054c);
   z-index: 99;
@@ -62,17 +64,8 @@
     font-weight: 600;
   }
   
-  .custom_nav-container .nav_search-btn {
-    width: 35px;
-    height: 35px;
-    padding: 0;
-    border: none;
-    color: white;
-  }
   
-  .custom_nav-container .nav_search-btn:hover {
-    color: #00bbf0;
-  }
+  
   
   .custom_nav-container .navbar-toggler {
     outline: none;
