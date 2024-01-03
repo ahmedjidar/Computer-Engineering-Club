@@ -5,6 +5,13 @@ import image1 from '../../../../assets/Images/ensao.jpg';
 import LandingNavbar from '../LandingNavbar';
 import mic from '../../../../assets/Images/mic.png' ;
 import pic1galery from '../../../../assets/Images/PicsCsDay1.jpg'
+import guestsPic1 from '../../../../assets/Images/abdelilahjabriPic.jpg';
+import guestsPic2 from '../../../../assets/Images/borelliPic.jpg';
+import guestsPic3 from '../../../../assets/Images/LazaarPic1.jpg';
+import csdaypic1 from '../../../../assets/Images/CsdayPic.jpg';
+import csdaypic2 from '../../../../assets/Images/CsDayPic2.jpg';
+
+
 
 function Event1() {
 
@@ -51,7 +58,7 @@ function Event1() {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src={image1}
+                    src={csdaypic1}
                     alt="Second slide"
                   />
 
@@ -60,7 +67,7 @@ function Event1() {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src={image1}
+                    src={csdaypic2}
                     alt="Second slide"
                   />
    
@@ -148,7 +155,7 @@ de l'informatique à relever les défis de cette nouvelle
 
             <ul class="speackers">
                 <li class="transition">
-                    <div class="wrapper rounded shadow-md"> <img class="transition" src="http://dooreight.com/codepen/people/img_01.png"/>
+                    <div class="wrapper rounded shadow-md"> <img class="transition" src={guestsPic1}/>
 
                     <span class="transition">
                     <h3>Abdelilah Jabri <em>Senior Full-stack PHP Developer <em> at Cobbleweb</em></em></h3>
@@ -156,7 +163,7 @@ de l'informatique à relever les défis de cette nouvelle
                 </li>
 
                 <li class="transition">
-                    <div class="wrapper rounded shadow-md"> <img class="transition" src="http://dooreight.com/codepen/people/img_01.png"/>
+                    <div class="wrapper rounded shadow-md"> <img class="transition" src={guestsPic2}/>
                     
                     <span class="transition">
                     <h3>Pascal Borreli <em>Consultant Technique <em>at Les-Tilleuls.coop</em> </em></h3>
@@ -164,7 +171,7 @@ de l'informatique à relever les défis de cette nouvelle
                 </li>
 
                 <li class="transition">
-                    <div class="wrapper rounded shadow-md"> <img class="transition" src="http://dooreight.com/codepen/people/img_01.png"/>
+                    <div class="wrapper rounded shadow-md"> <img class="transition" src={guestsPic3}/>
                     
                     <span class="transition">
                     <h3>Ilyass Lazaar <em>Unit Manager / IT Architect </em> <em> Frontend & Mobile Specialist</em></h3>
