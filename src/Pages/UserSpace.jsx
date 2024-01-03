@@ -1,4 +1,4 @@
-import BlogPost from "../Components/User/UserSpaceSubComponents/CommunityFeed";
+import BlogPost from "../Components/User/UserSpaceSubComponents/BlogPostElements/FullPost";
 
 const UserSpace = () => {
 

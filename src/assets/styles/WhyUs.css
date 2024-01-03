@@ -4,9 +4,6 @@
     position: relative;
   }
 
-  .why-presentation{
-    padding: 10px 300px;
-  }
   
   .service_section .boxabout {
     display: -webkit-box;
@@ -116,7 +113,7 @@
   }
   
   .layout_padding {
-    padding: 90px 0;
+    padding: 30px 0;
   }
   
   .layout_padding2 {

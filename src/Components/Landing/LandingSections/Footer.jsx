@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../../assets/styles/footer.css'
+import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
@@ -17,19 +18,19 @@ function Footer() {
               <a href="">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
-                  Location
+                  ENSAO
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                  06............
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  demo@gmail.com
+                  GiClub@gmail.com
                 </span>
               </a>
             </div>
@@ -55,7 +56,8 @@ function Footer() {
               Info
             </h4>
             <p>
-              necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful
+Empower your GI journey with comprehensive resources, empowering tools, and invaluable mentorship opportunities at our student-made computer science club website.
+
             </p>
           </div>
         </div>
@@ -65,21 +67,21 @@ function Footer() {
               Links
             </h4>
             <div class="info_links">
-              <a class="active" href="index.html">
+              <Link class="active" to="/">
                 Home
-              </a>
-              <a class="" href="about.html">
+              </Link>
+              <Link class="" to="/about">
                 About
-              </a>
-              <a class="" href="service.html">
-                Services
-              </a>
-              <a class="" href="why.html">
-                Why Us
-              </a>
-              <a class="" href="team.html">
+              </Link>
+              <Link class="" to="/activities">
+                Activities
+              </Link>
+              <Link class="" to="/user/myspace">
+                My Space
+              </Link>
+              <Link class="" to="/team">
                 Team
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -96,6 +98,7 @@ function Footer() {
         </div>
       </div>
     </div>
+    
   </section>
 
 
@@ -103,7 +106,7 @@ function Footer() {
     <div class="container">
       <p>
         &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="https://html.design/">Free Html Templates</a>
+        <a href="https://html.design/"> Gi Club</a>
       </p>
     </div>
   </section></>

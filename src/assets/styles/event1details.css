@@ -1,0 +1,250 @@
+.title-event{
+    margin: 20px;
+    text-align: center;
+    color: #13aa52;
+    font-size: xx-large;
+    font-weight: bolder;
+    font-family: 'Times New Roman', Times, ;
+}
+
+.title-activitie h1 {
+    color: #1a0f7c;
+    position: relative;
+    font-size:26px; 
+    font-weight:700;  
+    letter-spacing:1px; 
+    text-transform:uppercase; 
+    width:160px; 
+    text-align:center; 
+    margin:auto;
+    margin-bottom:  15px;
+     white-space:nowrap; 
+     padding-bottom:13px;
+  }
+  .title-activitie h1:before {
+      background-color: #13aa52;
+      content: '';
+      display: block;
+      height: 3px;
+      width: 75px;
+      margin-bottom: 5px;
+  }
+  .title-activitie h1:after {
+      background-color: #13aa52;
+      content: '';
+      display: block;
+      position:absolute; 
+      right:0; 
+      bottom:0;
+      height: 3px;
+      width: 75px;
+      margin-bottom: 0.25em;
+  }
+
+.infos-activitie{
+    width: 90%; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white; 
+    margin: auto;
+    margin-bottom: 15px;
+
+    }
+    .infos-activitie p{
+        font-size: larger;
+    }
+
+.galery-container{
+    margin: 25px;
+}
+
+
+.Goals-activitie{
+    width: 90%; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white; 
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    }
+
+.Goals-activitie ul{
+    list-style: disc;
+    padding: 15px;
+    margin: 10px;
+    } 
+    
+.Goals-activitie li{
+    font-size: larger;
+
+}
+
+
+.Speakers-Guests{
+    width: 90%; 
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white; 
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    }
+
+
+.act .carousel-indicators [data-bs-target] {
+    /* width: 10px !important;
+    height: 10px !important;
+    background-color: green  !important;
+    border: 1px solid transparent !important;
+    border-radius: 10px; */
+    opacity: 0 !important;
+  }
+  
+
+
+.act .carousel-indicators  button.active {
+  /* width: 14px !important;
+  height: 14px !important;
+  opacity: 1.7 !important; */
+  opacity: 0 !important;
+
+}
+
+.act img{
+   object-fit: contain;
+}
+
+.act  .carousel-control-prev-icon {
+    transform: scaleX(-1);
+    opacity: 1 !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50%;
+    background-image: url('../Images/skip.png');
+  }
+  
+.act  .carousel-control-next-icon {
+    opacity: 1 !important;
+    width: 50px !important;
+    height: 50px !important;
+    background-image: url('../Images/skip.png');
+
+  }
+
+.Goals-activitie h3{
+    font-size: x-large;
+    font-weight: bolder;
+    color: #1a0f7c;
+}
+
+
+
+/* --------- ONE --------- */ 
+
+
+.speackers {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 20px 0;
+  }
+  .speackers > li {
+    background: #FFFFFF;
+    width: 250px;
+    height: 400px;
+    display: inline-block !important;
+    margin: 0 20px;
+    text-align: center;
+  }
+  .speackers > li img {
+    margin-top: 20px;
+    display: inline !important;
+  }
+  .transition{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: fill;
+
+  }
+
+
+  .speackers > li .wrapper {
+    overflow: hidden;
+    position: absolute;
+    width: 250px;
+    height: 400px;
+  }
+  .speackers > li span {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    height: 500px;
+    width: 500px;
+    background: #1a0f7c;
+    display: block;
+    position: absolute;
+    bottom: -300px;
+    left: -125px;
+  }
+  .speackers > li span img {
+    margin-top: 10px;
+    width: 50px;
+  }
+
+  .speackers p {
+    color: white;
+  }
+
+  .speackers > li h3 {
+    margin-top: 40px;
+    color: rgba(255,255,255,1);
+  }
+  .speackers > li h3 em {
+    display: block;
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+
+
+
+  @media (max-width: 650px) {
+    .carousel-control-next-icon ,
+    .carousel-control-prev-icon {
+      height: 35px !important; 
+      width: 35px !important; 
+  
+    }
+
+    .speackers {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            padding: 0;
+            margin: 20px 0;
+    }   
+    .act img{
+      object-fit: cover;
+   }
+    
+
+
+  
+  }
+

@@ -7,7 +7,7 @@ import UserSidebar from "./UserSpaceSubComponents/UserSidebar";
 
 import Home from "./UserSpaceSubComponents/Home";
 import MyBlogs from './UserSpaceSubComponents/MyBlogs';
-import CommunityFeed from "./UserSpaceSubComponents/CommunityFeed";
+import CommunityFeed from "./UserSpaceSubComponents/BlogPostElements/FullPost";
 import UserFeedback from "./UserSpaceSubComponents/UserFeedback";
 import Portfolio from "./UserSpaceSubComponents/Portfolio";
 import Progress from "./UserSpaceSubComponents/Progress";

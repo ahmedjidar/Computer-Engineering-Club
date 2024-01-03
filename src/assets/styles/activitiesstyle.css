@@ -83,10 +83,11 @@
   }
   
   .activities-names{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: white;
     font-weight: 600;
     font-size:xx-large;
+    margin-bottom: 15px;
+
   }
   /*# sourceMappingURL=style.css.map */
   
@@ -138,6 +139,12 @@
       padding: 0 4px;
       font-size: 14px;
   
+    }
+    .activities-names{
+      color: white;
+      font-weight: 600;
+      font-size:large;
+      margin-bottom: 15px;
     }
   
   }

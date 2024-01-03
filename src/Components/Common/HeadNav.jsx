@@ -3,23 +3,24 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import pfp from '../../assets/Images/pfp.png'
-import gi from '../../assets/Images/gi.png';
-
-const navigation = [
-    { name: 'Dashboard', href: '/user/myspace', current: true },
-    { name: 'My Courses', href: '/user/courses', current: false },
-    { name: 'Roadmaps', href: '/user/roadmaps', current: false },
-    { name: 'Community/Forum', href: '/user/forum', current: false },
-  ]
+import gi from '../../assets/Images/gi.png'
+import navigation from '../../Constants/navigation'
+import { Link } from "react-router-dom";
+import CustomDisclosureButton from "./Buttons/CustomDisclosureButton";
+import { useSelector } from 'react-redux';
+import { useDispatch } from "react-redux";
+import {logout} from "/src/Store/authSlice.js"
+const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
   const classNames = (...classes) => {
     return classes.filter(Boolean).join(' ');
   }
 
 const HeadNav = () => {
-
+  const dispatch = useDispatch();
+  const auth = useSelector(state => state.auth);
     return(
-    <Disclosure as="nav" className="bg-blue-950 rounded-t-md shadow-sm">
+    <Disclosure as="nav" className="bg-blue-950 rounded-t-md shadow-sm sticky top-0 z-50">
       {({ open }) => (
         <>
           <div className="mx-auto px-4 sm:px-6 lg:px-8">
@@ -37,51 +38,59 @@ const HeadNav = () => {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center justify-start">
-                  <img
-                    className="ml-4 h-10 w-auto"
-                    src={gi}
-                    alt="ComputeSphere"
-                  />
-                  <p className="text-white font-Poppins font-semibold">Gi Club</p>
-                </div>
+                <Link to="/">
+                  <div className="flex flex-shrink-0 items-center justify-start">
+                    <img
+                      className="ml-4 h-10 w-auto cursor-pointer"
+                      src={gi}
+                      alt="ComputeSphere"
+                    />
+                    <p className="text-white font-Poppins font-semibold cursor-pointer">Gi Club</p>
+                  </div>
+                </Link>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         className={classNames(
-                          item.current ? 'bg-blue-900 text-white' : 'text-gray-300 hover:bg-blue-900 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium'
+                          'text-gray-300 hover:bg-blue-900 hover:text-white',
+                          'rounded-md px-3 py-2 text-sm font-medium focus:text-white focus:bg-blue-900'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
-              </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                </div>
+              
+                
+              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 ">
                 <button
                   type="button"
-                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 mr-2"
                 >
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6 text-blue-400" aria-hidden="true"/>
                 </button>
-
-                {/* Profile dropdown */}
-                <Menu as="div" className="relative ml-3">
+                  {/* Profile dropdown */}
+              <div className="flex items-center  gap-1">
+                    <p className="hidden xl:block text-white">{auth.userName}</p>
+                  <p className="text-6xl text-green-400 pb-9">.</p>
+                    
+                </div>
+                  <Menu as="div" className="relative ml-2">
                   <div>
-                    <Menu.Button className="mx-4 relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <Menu.Button className="mr-4 relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
                       <img
-                        className="h-8 w-8 rounded-full"
-                        src={pfp}
+                        className="h-8 w-8 rounded-full object-cover"
+                        src={apiUrl+"/"+auth.userImg}
                         alt="pfp"
                       />
                     </Menu.Button>
@@ -98,32 +107,33 @@ const HeadNav = () => {
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            to="/user/myspace/portfolio"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Your Profile
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            to="/user/myspace/settings"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Settings
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                              to="/"
+                              onClick={() =>  dispatch(logout())}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Sign out
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                     </Menu.Items>
@@ -133,21 +143,22 @@ const HeadNav = () => {
             </div>
           </div>
 
+          {/* i've created a custom disclosure button that is based on a Link tag since the old one 
+          uses anchor tags, for performance enhamcement */}
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block rounded-md px-3 py-2 text-sm font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
-                </Disclosure.Button>
+                <CustomDisclosureButton
+                    key={item.name}
+                    href={item.href}
+                    className={classNames(
+                      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                      'block rounded-md px-3 py-2 text-sm font-medium'
+                    )}
+                    aria-current={item.current ? 'page' : undefined}
+                  >
+                    {item.name}
+                </CustomDisclosureButton>
               ))}
             </div>
           </Disclosure.Panel>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Event1 from "./Event1";
 import Activities from "../Activities";
+import Event1 from "./Event1";
 
 const ActivitiesSubRoutes = () => {
 
