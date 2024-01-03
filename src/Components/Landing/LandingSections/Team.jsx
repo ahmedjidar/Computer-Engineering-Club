@@ -34,7 +34,7 @@ const Team = () => {
                   Ankri Mohamed Khalil
                 </h5>
                 <p>
-                  CS Enginner
+                  CS Engineer
                 </p>
               </div>
               <div class="social_box">
@@ -70,7 +70,7 @@ const Team = () => {
                   Khartouch Mouad
                 </h5>
                 <p>
-                CS Enginner
+                CS Engineer
                 </p>
               </div>
               <div class="social_box">
@@ -100,7 +100,7 @@ const Team = () => {
                   Jidar Ahmed Amin
                 </h5>
                 <p>
-                CS Enginner
+                CS Engineer
                 </p>
               </div>
               <div class="social_box">
@@ -130,7 +130,7 @@ const Team = () => {
                   Khribech Hamza
                 </h5>
                 <p>
-                CS Enginner
+                CS Engineer
                 </p>
               </div>
               <div class="social_box">
