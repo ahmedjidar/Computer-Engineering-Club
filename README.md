@@ -57,10 +57,10 @@ We welcome contributions from the community!
 
 ## Contributers
     
-- JIDAR Ahmed Amin [Github](github.com/ahmedjidar).
-- Ankri Mohammed Khalil [Github](github.com/khalilAnkri).
-- Khribech Hamza [Github](github.com/MKsokili).
-- Khartouch Mouad [Github](github.com/hamzakhribech).
+- JIDAR Ahmed Amin [Github](https://github.com/ahmedjidar).
+- Ankri Mohammed Khalil [Github](https://github.com/khalilAnkri).
+- Khribech Hamza [Github](https://github.com/MKsokili).
+- Khartouch Mouad [Github](https://github.com/hamzakhribech).
 
 
 ## License
