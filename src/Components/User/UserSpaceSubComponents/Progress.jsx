@@ -36,14 +36,17 @@ const Progress = () => {
     return(
         <div className="w-full h-screen bg-white py-4">
             <p className="text-3xl font-bold mb-4 pl-4">Progress Kanban</p>
-            <Board key={boardKey} initialBoard={board}/>
             <button 
-                className="text-white bg-blue-800 hover:bg-blue-900 px-3 py-2 rounded mt-16 ml-4"
+                className="text-white bg-blue-800 hover:bg-blue-900 px-3 py-2 rounded ml-4"
                 onClick={handleShowModal}
             >
                 Add Task
             </button>
 
+            {/* kanban board */}
+            <Board key={boardKey} initialBoard={board}/>
+
+            {/* modal to fill task data */}
             <Modal show={showModal} onHide={handleCloseModal}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add New Task</Modal.Title>
