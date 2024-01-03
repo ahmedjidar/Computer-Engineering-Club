@@ -20,7 +20,7 @@ const PostCreation = () => {
             <div className="relative">
                 <form action="">
                     <textarea name="postContent" id="postContent" cols="20" rows="5" placeholder="Start a community question"
-                        className="resize-none outline-none block w-full rounded-md px-4 py-3 border-0 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                        className="resize-none outline-none block w-full rounded-md px-4 py-3 border-0 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                     <div className="absolute bottom-4 left-6 flex items-center gap-2">
                         <button onClick={(e) => {e.preventDefault(); setModalShow(true)}} className="flex items-center gap-2 text-sm text-white bg-indigo-500 rounded px-3 py-2 hover:bg-indigo-600">
