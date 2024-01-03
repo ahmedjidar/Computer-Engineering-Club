@@ -67,7 +67,7 @@
     height: 35px;
     padding: 0;
     border: none;
-    color: #ffffff;
+    color: white;
   }
   
   .custom_nav-container .nav_search-btn:hover {
@@ -131,3 +131,6 @@
             transform: rotate(90deg);
     top: 0;
   }
+
+
+
