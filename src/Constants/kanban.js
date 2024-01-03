@@ -32,6 +32,17 @@ const board = {
             description: 'Drink so much coffee'
           },
         ]
+      },
+      {
+        id: 4,
+        title: 'Traced',
+        cards: [
+          {
+            id: 4,
+            title: 'Traced Card',
+            description: 'Community Discussion'
+          },
+        ]
       }
     ]
   }
