@@ -46,12 +46,12 @@ const UserSidebar = ({ onSearch, setShowSidebar }) => {
                         </svg>
                         <p className="text-sm">Feed</p>
                     </div>
-                    <Dropdown>
-                        <Dropdown.Toggle id="dropdown-basic" className="text-sm border-none bg-blue-50 text-gray-600 hover:bg-blue-100 hover:text-blue-600 active:bg-blue-100 active:text-blue-600 focus:text-blue-600 focus:bg-blue-50">
+                    <Dropdown drop="start">
+                        <Dropdown.Toggle id="dropdown-basic" className="ml-2 text-sm border-none bg-blue-50 text-gray-600 hover:bg-blue-100 hover:text-blue-600 active:bg-blue-100 active:text-blue-600 focus:text-blue-600 focus:bg-blue-50">
                             From
                         </Dropdown.Toggle>
 
-                        <Dropdown.Menu className="absolute text-sm mt-2 border-none ring-2 ring-blue-600">
+                        <Dropdown.Menu className="absolute text-sm border-none ring-2 ring-blue-600">
                             <Dropdown.Item>
                                 <Link to="/user/myspace/myblogs" onClick={() => setShowSidebar(false)}>My Blogs</Link>
                             </Dropdown.Item>

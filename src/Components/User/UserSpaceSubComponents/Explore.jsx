@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { MyCourses, CommunityForum } from '../index';
 import RoadmapsSubRoutes from "./Roadmaps/RoadmapsSubRoutes";
-import CourseDetailsComponent from "./CourseDetailsComponent";
+import CourseDetailsComponent from "./Courses&Related/CourseDetailsComponent";
 
 const Explore = () => {
 

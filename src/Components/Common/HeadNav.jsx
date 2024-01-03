@@ -15,7 +15,7 @@ import CustomDisclosureButton from "./Buttons/CustomDisclosureButton";
 const HeadNav = () => {
 
     return(
-    <Disclosure as="nav" className="bg-blue-950 rounded-t-md shadow-sm">
+    <Disclosure as="nav" className="bg-blue-950 rounded-t-md shadow-sm sticky top-0 z-50">
       {({ open }) => (
         <>
           <div className="mx-auto px-4 sm:px-6 lg:px-8">
