@@ -2,16 +2,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import layers from '../../assets/Images/layers.png'
 import { useSelector } from "react-redux";
-import { authActions } from "../../Store/authSlice";
+import { login } from "../../Store/authSlice";
 import { useDispatch } from "react-redux";
 const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
 const Login = () => {
   const dispatch = useDispatch();
-    const navigator = useNavigate();
-
-  const { auth } = useSelector(state => state.auth);
-  
+const auth = useSelector(state => state.auth);
+  console.log(auth.hi);
   const [err, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
@@ -46,16 +44,19 @@ const Login = () => {
       .then((data) => {
         if (!data.success) {
           setError(data.message);
-          setLoading(false)
+          setLoading(false);
 
         } else {
           setError('');
           setLoading(false);
-          window.localStorage.setItem("token",data.token)
           setMsg("You loged in successfully!");
+          const loginData = { userId: data.id, userName: data.userName, email: data.email,userImg:data.userImg, token: data.token, isAdmin: data.isAdmin };
+          console.log(loginData)
+          dispatch(login(loginData));
+          setTimeout(() => {
+            navigate('/');
+          }, 2000);
 
-         
-        
         }
       });
 
@@ -79,6 +80,8 @@ const Login = () => {
             Sign in to your account
           </h2>
         </div>
+        {/* <p>userName:{auth.userName}</p>
+        <img src={apiUrl+"/"+auth.userImg} alt="" width={50}/> */}
  <p className="text-red-500 font-bold text-xl text-center w-full">
             {err}
         </p>

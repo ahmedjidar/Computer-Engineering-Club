@@ -80,7 +80,7 @@ const BasicProfileInformation = () => {
         </Card>
         {/* card ends here */}
       </div>
-      <p>auth:{auth.auth}</p>
+      <p>auth:{auth.hi}</p>
       <form
         onSubmit={submitHandler}
         className="basis-3/5 p-20 border-l-4 border-l-blue-500 rounded-xl"
