@@ -1,7 +1,7 @@
 
-# ComputeSphere Society
+# ComputeSphere
 
-ComputeSphere Society is a comprehensive platform built using React for the frontend and Node.js with Express for the backend. It serves as a hub for computer science enthusiasts, providing a wide array of features and resources within the field.
+ComputeSphere society is a comprehensive platform built using React for the frontend and Node.js with Express for the backend. It serves as a hub for computer science enthusiasts, providing a wide array of features and resources within the field and also This Platform is designed to serve as the central hub for our esteemed Computer Science Club. This platform aims to represent the club, its dynamic team, and provide valuable insights into various events, projects, and activities conducted by the club.
 
 ## Features
 
