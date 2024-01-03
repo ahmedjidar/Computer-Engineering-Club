@@ -1,25 +1,70 @@
 import React, { useState } from "react";
 import { AddBlogPostModal } from "../../../Common/index";
 import pfp from '../../../../assets/Images/pfp.png';
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
 
-const PostCreation = () => {
+const PostCreation = ({syncPosts}) => {
     // state to handle the modal
+    const navigate = useNavigate();
     const [modalShow, setModalShow] = useState(false);
+      const [loading, setLoading] = useState(false);
 
+    const auth = useSelector(state => state.auth)
+     const submitHandler = async (e) => {
+    e.preventDefault();
+    // const token = localStorage.getItem('token');
+    try {
+      const formData = new FormData(e.target);
+      setLoading(true);
+      const response = await fetch(apiUrl+"/userSpace/post", {
+        method: "POST",
+        body: formData,
+
+        // headers: {
+        //   'Authorization': 'Bearer ' + token,
+        // },
+      });
+
+      if (!response.ok) {
+        setLoading(false);
+        console.log("err ok");
+      } else {
+        const data = await response.json();
+        if (data.success === true) {
+          // setErr(data.message);
+          setLoading(false);
+            document.getElementById('myForm').reset()
+            syncPosts();
+          
+        } else if (data.success === false) {
+          setLoading(false);
+          // navigate('/admin/projects/'+prjctId);
+          console.log("added");
+        }
+      }
+    } catch (error) {
+      // setErr("fetch problem");
+    }
+    };
     return(
         <div className="p-4">
             <div className="flex gap-2 items-end justify-start mb-2">
                 <img 
-                    src={pfp} alt="user" 
-                    className="w-12 h-auto rounded-full ring-2 ring-indigo-600"
+                    src={apiUrl+"/"+auth.userImg} alt="user" 
+                    className="w-12 h-12 rounded-full ring-2 ring-indigo-600  object-cover"
                 />
                 <p className="text-sm font-medium text-indigo-500 mb-2 bg-indigo-50 p-4 rounded">What do you think about?</p>
             </div>
             {/* add content area */}
             <div className="relative">
-                <form action="">
-                    <textarea name="postContent" id="postContent" cols="20" rows="5" placeholder="Start a community question"
+                <form id="myForm" onSubmit={submitHandler} encType="multipart/form-data">
+                <input type="hidden" name="ownerid" value={auth.userId}/>
+                <input type="hidden" name="title" value={"Question!"}/>
+                    
+                    <textarea name="content" id="postContent" cols="20" rows="5" placeholder="Start a community question"
                         className="resize-none outline-none block w-full rounded-md px-4 py-3 border-0 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
                     />
                     <div className="absolute bottom-4 left-6 flex items-center gap-2">
@@ -29,14 +74,17 @@ const PostCreation = () => {
                             </svg>
                             <p>Write a Post</p>
                         </button>
-                        <button className="flex items-center gap-2 text-sm text-gray-600 rounded px-3 py-2 hover:bg-slate-100">Post Question</button>
+                        <button type="submit" disabled={loading} className="flex items-center gap-2 text-sm text-gray-600 rounded px-3 py-2 hover:bg-slate-100">  {loading? 'posting...':'Post Question'}</button>
                     </div>
                 </form>
             </div>
             {/* modal to render */}
             <AddBlogPostModal
                 show={modalShow}
-                onHide={() => setModalShow(false)}
+                onHide={() => {
+                    syncPosts();
+                    setModalShow(false)
+                }}
             />
         </div>
     )
