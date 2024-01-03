@@ -8,8 +8,6 @@ const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
 const Login = () => {
   const dispatch = useDispatch();
-    const navigator = useNavigate();
-
 const auth = useSelector(state => state.auth);
   console.log(auth.hi);
   const [err, setError] = useState("");
@@ -55,9 +53,9 @@ const auth = useSelector(state => state.auth);
           const loginData = { userId: data.id, userName: data.userName, email: data.email,userImg:data.userImg, token: data.token, isAdmin: data.isAdmin };
           console.log(loginData)
           dispatch(login(loginData));
-          // setTimeout(() => {
-          //   navigate('/');
-          // }, 2000);
+          setTimeout(() => {
+            navigate('/');
+          }, 2000);
 
         }
       });

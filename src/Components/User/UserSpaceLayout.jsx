@@ -49,7 +49,7 @@ const UserSpaceLayout = () => {
                         </button>
                     </div>
                 )}
-                <Col md={3} className={`sticky top-0 h-full border border-gray-800 bg-white shadow-sm ${isSmallScreen && !showSidebar ? 'hidden' : 'block z-50'}`}>
+                <Col md={3} className={`overflow-y-auto sticky top-16 h-full border border-gray-800 bg-white shadow-sm ${isSmallScreen && !showSidebar ? 'hidden' : 'block z-20'}`}>
                     <UserSidebar setShowSidebar={setShowSidebar}/>
                 </Col>
                 <Col xs={12} md={9}>

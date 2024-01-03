@@ -31,16 +31,42 @@ const authSlice = createSlice({
       window.localStorage.setItem("userName", state.userName);
       window.localStorage.setItem("email", state.email);
       window.localStorage.setItem("isAdmin", state.isAdmin);
-      window.localStorage.setItem("isLoged", state.isLogged);
+      window.localStorage.setItem("isLogged", state.isLogged);
 
       console.log(state);
       console.log("done in redux state");
     },
-    init: (state, action) => { 
-
-    }
+    logout: (state) => {
+    // Reset state
+    state.isLogged = false;
+    state.userId = null;
+    state.userName = '';
+    state.userImg = '';
+    state.email = '';
+    state.token = '';
+    state.isAdmin = false;
+    // Clear localStorage
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('userImg');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('email');
+    localStorage.removeItem('isAdmin');
+    localStorage.removeItem('isLogged');
   },
+  init: (state) => {
+    state.isLogged= localStorage.getItem('isLogged') === 'true'
+   state.userId= localStorage.getItem('userId') || null
+   state.userImg= localStorage.getItem('userImg') || null
+   state.userName= localStorage.getItem('userName') || ''
+   state.email=localStorage.getItem('email') || ''
+   state.token=localStorage.getItem('token') || ''
+    state.isAdmin = localStorage.getItem('isAdmin') === 'true'
+    console.log("init data...")
+  }
+  },
+ 
 });
 
-export const {login} = authSlice.actions;
+export const {login,logout,init} = authSlice.actions;
 export default authSlice.reducer;

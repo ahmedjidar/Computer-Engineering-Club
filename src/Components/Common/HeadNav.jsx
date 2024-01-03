@@ -7,15 +7,20 @@ import gi from '../../assets/Images/gi.png'
 import navigation from '../../Constants/navigation'
 import { Link } from "react-router-dom";
 import CustomDisclosureButton from "./Buttons/CustomDisclosureButton";
+import { useSelector } from 'react-redux';
+import { useDispatch } from "react-redux";
+import {logout} from "/src/Store/authSlice.js"
+const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
   const classNames = (...classes) => {
     return classes.filter(Boolean).join(' ');
   }
 
 const HeadNav = () => {
-
+  const dispatch = useDispatch();
+  const auth = useSelector(state => state.auth);
     return(
-    <Disclosure as="nav" className="bg-blue-950 rounded-t-md shadow-sm">
+    <Disclosure as="nav" className="bg-blue-950 rounded-t-md shadow-sm sticky top-0 z-50">
       {({ open }) => (
         <>
           <div className="mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,26 +65,32 @@ const HeadNav = () => {
                     ))}
                   </div>
                 </div>
-              </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                </div>
+              
+                
+              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 ">
                 <button
                   type="button"
-                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 mr-2"
                 >
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6 text-blue-400" aria-hidden="true"/>
                 </button>
-
-                {/* Profile dropdown */}
-                <Menu as="div" className="relative ml-3">
+                  {/* Profile dropdown */}
+              <div className="flex items-center  gap-1">
+                    <p className="hidden xl:block text-white">{auth.userName}</p>
+                  <p className="text-6xl text-green-400 pb-9">.</p>
+                    
+                </div>
+                  <Menu as="div" className="relative ml-2">
                   <div>
-                    <Menu.Button className="mx-4 relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <Menu.Button className="mr-4 relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
                       <img
-                        className="h-8 w-8 rounded-full"
-                        src={pfp}
+                        className="h-8 w-8 rounded-full object-cover"
+                        src={apiUrl+"/"+auth.userImg}
                         alt="pfp"
                       />
                     </Menu.Button>
@@ -117,7 +128,8 @@ const HeadNav = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            to="/"
+                              to="/"
+                              onClick={() =>  dispatch(logout())}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Sign out
