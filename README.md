@@ -1,8 +1,8 @@
 # Computer Engineering Club
 ##🎥 **Watch Our Introductory Video!**
-- [**computer engineering Club Website Overview**](https://drive.google.com/file/d/1mB8yCyDIW0hmsddBERKqlOuYoid5NjU9/view?usp=drivesdk) - Click here to get a visual tour of our website and its features
+ #[**computer engineering Club Website Overview**](https://drive.google.com/file/d/1mB8yCyDIW0hmsddBERKqlOuYoid5NjU9/view?usp=drivesdk) - Click here to get a visual tour of our website and its features
 ##🔧 **Backend Repository**
-[**Node.js Backend Repository**](https://github.com/hamzakhribech/backend-Computer-Engineering-Club) - Explore the backend code powering our website.
+#[**Node.js Backend Repository**](https://github.com/hamzakhribech/backend-Computer-Engineering-Club) - Explore the backend code powering our website.
 ## Overview
 This GitHub repository hosts the source code for the Computer Engineering Club website, a platform dedicated to showcasing the activities of the our branch in Ensao. The website provides valuable features, including user authentication, a personalized user space, and interactive sections for collaborative engagement.
 
