@@ -1,82 +1,48 @@
+# Computer Engineering Club
 
-# ComputeSphere
-
-ComputeSphere society is a comprehensive platform built using React for the frontend and Node.js with Express for the backend. It serves as a hub for computer science enthusiasts, providing a wide array of features and resources within the field and also This Platform is designed to serve as the central hub for our esteemed Computer Science Club. This platform aims to represent the club, its dynamic team, and provide valuable insights into various events, projects, and activities conducted by the club.
+## Overview
+This GitHub repository hosts the source code for the Computer Engineering Club website, a platform dedicated to showcasing the activities of the our branch in Ensao. The website provides valuable features, including user authentication, a personalized user space, and interactive sections for collaborative engagement.
 
 ## Features
 
-- **Kanban Board Integration:** Utilizes the `@asseinfo/react-kanban` library for managing tasks and workflows.
-- **React Bootstrap Modal:** Incorporates modal functionality for a user-friendly task addition interface.
-- **Node.js with Express:** Employs the Node.js backend along with the Express framework to handle server-side operations.
-- **NPM and Various Libraries:** Leverages numerous NPM packages and libraries to enhance functionality and streamline development.
-- **Community Collaboration:** Enables collaboration among computer science enthusiasts by providing a shared platform for discussions, projects, and resource sharing.
+### User Authentication
+- **Login and Signup**: Users can securely log in or sign up using their email and password.
 
-## Technologies Used
+### User Space
+- **Home/Blog Post**: Users can create, submit, and interact with blog posts, fostering communication and collaboration.
+  - **Post Interaction**: Users can like, comment, and engage with posts.
 
-- **Frontend:** React.js, React Bootstrap
-- **Backend:** Node.js, Express
-- **Database:** MongoDB Atlas Cluster based
-- **Other Libraries:** `@mui/core` elements... 
+- **Portfolio**: A dedicated space for users to showcase personal information and achievements.
 
-## Getting Started
+### Kanban Task Manager
+- **Task Management**: Utilizes a Kanban board to manage tasks efficiently.
 
-### Prerequisites
+### Courses
+- **Course Information**: Displays courses, exams, and PTs for Computer Engineering students.
 
-- Node.js installed on your machine
-- NPM package manager
+### Roadmaps
+- **Learning Roadmaps**: Guides users and students in their journey of learning new skills.
 
-### Installation
+### Forums
+- **Discussion Forums**: Allows users to participate in forums and create new discussions.
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/ahmedjidar/Computer-Engineering-Club.git
+## How to Use
+1. **Clone Repository**: Clone this repository to your local machine.
+   ```
+   git clone https://github.com/your-username/informatik-club-website.git
    ```
 
-2. Navigate to the project directory:
+2. **Setup Environment**: Follow the setup instructions in the provided documentation to configure your development environment.
 
-   ```bash
-   cd Computer-Engineering-Club
+3. **Run the Website**: Launch the website locally to explore its features.
    ```
-
-3. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-4. Start the development server:
-
-   ```bash
    npm start
    ```
 
-## Contributing
-
-We welcome contributions from the community! 
-
-## Contributers
-    
-- JIDAR Ahmed Amin [Github](https://github.com/ahmedjidar).
-- Ankri Mohammed Khalil [Github](https://github.com/khalilAnkri).
-- Khribech Hamza [Github](https://github.com/MKsokili).
-- Khartouch Mouad [Github](https://github.com/hamzakhribech).
-
+## Contribution Guidelines
+We welcome contributions! Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file for details on how to contribute to the development of the Informatik Club website.
 
 ## License
+This project is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute the code as per the terms of the license.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- **[React Bootstrap](https://react-bootstrap.github.io/)**: For providing a set of Bootstrap components as React components, aiding in rapid UI development.
-
-- **[Tailwind CSS](https://tailwindcss.com/)**: A utility-first CSS framework that streamlined the styling process and facilitated a scalable design system.
-
-- **[Heroicons](https://heroicons.com/)**: An open-source icon set that provided a collection of beautifully crafted SVG icons for use within the project.
-
-- **[Material-UI](https://mui.com/)**: A popular React UI framework that offered a wide range of components following Google's Material Design principles, contributing to a consistent and user-friendly interface.
-
-## Contact
-
-For inquiries or suggestions, feel free to contact us at [Mail Us](mailto:justup1080@gmail.com).
+For more information, please visit our [website](https://informatik-club.example.com)
