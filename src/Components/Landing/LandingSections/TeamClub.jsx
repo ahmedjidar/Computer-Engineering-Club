@@ -2,7 +2,8 @@ import React from 'react';
 import '../../../assets/styles/TeamClub.css';
 import LandingNavbar from './LandingNavbar';
 import pic1 from '../../../assets/Images/GiFamily.jpg';
-import mouadpic from '../../../assets/Images/MouadPic.jpg'
+import mouadpic from '../../../assets/Images/team-2.jpg';
+import hamzapic from '../../../assets/Images/team-4.jpg';
 
 function TeamClub() {
   return (
@@ -30,10 +31,10 @@ function TeamClub() {
             <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert1.png"/>
           </div>
           <p class="text-blk name">
-            Maxwell Doe
+            Imane Legsir
           </p>
           <p class="text-blk position">
-            Instructor
+            Team Leader
           </p>
           <div class="social-media-links">
 
@@ -62,10 +63,11 @@ function TeamClub() {
             <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert1.png"/>
           </div>
           <p class="text-blk name">
-            Maxwell Doe
+            Person
           </p>
           <p class="text-blk position">
-            Instructor
+          general secretary
+
           </p>
           <div class="social-media-links">
 
@@ -78,10 +80,10 @@ function TeamClub() {
             <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
           </div>
           <p class="text-blk name">
-            Maxwell Doe
+            Person
           </p>
           <p class="text-blk position">
-            Instructor
+          treasurer
           </p>
           <div class="social-media-links">
 
@@ -97,10 +99,28 @@ function TeamClub() {
             <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
           </div>
           <p class="text-blk name">
-            Maxwell Doe
+            Person
           </p>
           <p class="text-blk position">
-            Instructor
+            Vp Media
+          </p>
+          <div class="social-media-links">
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container2">
+        <div class="team-card">
+          <div class="img-wrapper2">
+            <img class="team-img" src={hamzapic}/>
+          </div>
+          <p class="text-blk name">
+            Khribech Hamza
+          </p>
+          <p class="text-blk position">
+            Vp. Design
           </p>
           <div class="social-media-links">
 
@@ -115,10 +135,10 @@ function TeamClub() {
             <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
           </div>
           <p class="text-blk name">
-            Maxwell Doe
+            Person
           </p>
           <p class="text-blk position">
-            Instructor
+            Vp. Logistic
           </p>
           <div class="social-media-links">
 
@@ -133,28 +153,10 @@ function TeamClub() {
             <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
           </div>
           <p class="text-blk name">
-            Maxwell Doe
+            Person
           </p>
           <p class="text-blk position">
-            Instructor
-          </p>
-          <div class="social-media-links">
-
-          </div>
-        </div>
-      </div>
-
-
-      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container2">
-        <div class="team-card">
-          <div class="img-wrapper2">
-            <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
-          </div>
-          <p class="text-blk name">
-            Maxwell Doe
-          </p>
-          <p class="text-blk position">
-            Instructor
+            Vp. Formation
           </p>
           <div class="social-media-links">
 
@@ -168,10 +170,10 @@ function TeamClub() {
             <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
           </div>
           <p class="text-blk name">
-            Maxwell Doe
+            Person
           </p>
           <p class="text-blk position">
-            Instructor
+            Vp. Redaction
           </p>
           <div class="social-media-links">
 
@@ -179,23 +181,6 @@ function TeamClub() {
         </div>
       </div>
 
-
-      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container2">
-        <div class="team-card">
-          <div class="img-wrapper2">
-            <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
-          </div>
-          <p class="text-blk name">
-            Maxwell Doe
-          </p>
-          <p class="text-blk position">
-            Instructor
-          </p>
-          <div class="social-media-links">
-
-          </div>
-        </div>
-      </div>
 
 
 

@@ -1,7 +1,7 @@
 import React from "react";
 
-import prs1 from '../../../assets/Images/team-1.jpg'
-import prs2 from '../../../assets/Images/MouadPic.jpg'
+import prs1 from '../../../assets/Images/team-1.jpeg'
+import prs2 from '../../../assets/Images/team-2.jpg'
 import prs3 from '../../../assets/Images/team-3.jpg'
 import prs4 from '../../../assets/Images/team-4.jpg'
 import '../../../assets/styles/team.css'
@@ -34,7 +34,7 @@ const Team = () => {
                   Ankri Mohamed Khalil
                 </h5>
                 <p>
-                  CS Enginner
+                  CS Engineer
                 </p>
               </div>
               <div class="social_box">
@@ -70,7 +70,7 @@ const Team = () => {
                   Khartouch Mouad
                 </h5>
                 <p>
-                CS Enginner
+                CS Engineer
                 </p>
               </div>
               <div class="social_box">
@@ -100,7 +100,7 @@ const Team = () => {
                   Jidar Ahmed Amin
                 </h5>
                 <p>
-                CS Enginner
+                CS Engineer
                 </p>
               </div>
               <div class="social_box">
@@ -130,7 +130,7 @@ const Team = () => {
                   Khribech Hamza
                 </h5>
                 <p>
-                CS Enginner
+                CS Engineer
                 </p>
               </div>
               <div class="social_box">

@@ -25,7 +25,9 @@ const auth =useSelector(state=>state.auth)
                         <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">Personal details and application.</p>
                     </div>
                     <div>
+
                         <img src={apiUrl+"/"+auth.userImg} alt="user" className="w-16 h-16 object-cover rounded-full mr-4 shadow-sm"/>
+
                     </div>
                 </div>
               <div className="mt-6 border-t border-gray-100">

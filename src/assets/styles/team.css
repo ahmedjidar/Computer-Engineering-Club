@@ -54,6 +54,7 @@
     border: 5px solid #ffffff;
     width: cover;
     aspect-ratio: 1/1;
+    object-fit: cover;
   }
   
   .team_section .team_container .box .detail-box {
@@ -223,9 +224,9 @@
     background-color: #d62976;
     transition-duration: .3s;
   }
-  /* twitter*/
+  /* youtube*/
   .containerTwo:hover {
-    background-color: #00acee;
+    background-color: #d63325;
     transition-duration: .3s;
   }
   /* linkdin*/
@@ -233,9 +234,9 @@
     background-color: #0072b1;
     transition-duration: .3s;
   }
-  /* Whatsapp*/
+  /* facebook*/
   .containerFour:hover {
-    background-color: #128C7E;
+    background-color: #002fbd;
     transition-duration: .3s;
   }
   
