@@ -61,13 +61,11 @@ function Show() {
             <div className="hero-text">
                 <h1>{text}</h1>
                 <p>Live Your Best Experiences</p>
-<<<<<<< HEAD
                 <button className="btn-default">Explore</button>
-=======
+
                 <button className="btn-default" onClick={navigateToLogin}>
       Explore
     </button>
->>>>>>> b7f250c4a528cc27cadf0727337c07855ca6f67d
             </div>
 
             <svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="-300 0 950 270" >
