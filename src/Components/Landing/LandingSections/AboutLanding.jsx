@@ -2,11 +2,11 @@ import React from "react";
 import '../../../assets/styles/about.css'
 import dvc from '../../../assets/Images/dvc.png'
 import LandingNavbar from "./LandingNavbar";
-const activeMenu = 'activities';
+import {Link} from "react-router-dom"
 
-function navigateToLogin() {
-  window.location.href = '/get-started/login'; // Use window.location.href to navigate
-}
+const activeMenu = 'about';
+
+
 
 const AboutLanding = () => {
     return(<>
@@ -40,8 +40,9 @@ const AboutLanding = () => {
             <p>
             Embark on a digital journey with our Computer Science Club website, meticulously crafted to cater to the dynamic needs of GI students. Immerse yourself in a wealth of resources, including insightful blog posts, curated courses, and a comprehensive repository of materials tailored for your academic voyage. Seamlessly manage your tasks with our intuitive task manager tool, while a carefully designed roadmap guides you through your learning path.
             </p>
-               <button className="btn-default" onClick={navigateToLogin}> Lets get Started    </button>
-          </div>
+            <Link to='/get-started/login' >
+              Get Started
+            </Link>          </div>
         </div>
       </div>
     </div>
