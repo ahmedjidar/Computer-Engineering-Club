@@ -15,10 +15,10 @@ function Activities() {
   const activeMenu = 'activities';
 
 
-  return (
-
+  return ( <>
+  <LandingNavbar defaultActiveMenuItem={activeMenu}/>
     <div className='main-container'>
-        <LandingNavbar defaultActiveMenuItem={activeMenu}/>
+        
         <div className='activities-container'>
           <div className='events-container'>
             <div className="title-activities">
@@ -136,8 +136,10 @@ function Activities() {
 
         </div>
 
-        <Footer></Footer>
+        
     </div>
+    <Footer></Footer>
+    </>
   );
 }
 
