@@ -42,6 +42,9 @@ function Show() {
       setDelta(300);
     }
   };
+  function navigateToLogin() {
+    window.location.href = '/get-started/login'; // Use window.location.href to navigate
+  }
 
 
   return (
@@ -55,10 +58,12 @@ function Show() {
         </div> */}
 
         <div className='backgr'>
-            <div class="hero-text">
+            <div className="hero-text">
                 <h1>{text}</h1>
                 <p>Live Your Best Experiences</p>
-                <button class="btn-default">Explore</button>
+                <button className="btn-default" onClick={navigateToLogin}>
+      Explore
+    </button>
             </div>
 
             <svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="-300 0 950 270" >
