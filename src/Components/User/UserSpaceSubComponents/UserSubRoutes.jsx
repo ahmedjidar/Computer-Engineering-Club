@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { MyBlogs, CommunityFeed, UserFeedback, Portfolio, Calendar, Progress, Settings, Home, MyCourses, CommunityForum } from '../index';
-import { useSelector } from "react-redux";
-// import getPosts from '/src/utils/getPosts.js'
-import {fetchPosts} from '/src/Store/blogSlice.js'
-import { useDispatch } from "react-redux";
 
 const UserSubRoutes = () => {
-     const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchPosts());
+    // dispatch(fetchPosts());
   }, [])
     return(
         <div>

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { AddBlogPostModal } from "../../../Common/index";
 import pfp from '../../../../assets/Images/pfp.png';
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useDataContext } from "../../../../utils/useContext";
 const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
 
@@ -12,7 +12,8 @@ const PostCreation = ({syncPosts}) => {
     const [modalShow, setModalShow] = useState(false);
       const [loading, setLoading] = useState(false);
 
-    const auth = useSelector(state => state.auth)
+   const {auth} =useDataContext();
+
      const submitHandler = async (e) => {
     e.preventDefault();
     // const token = localStorage.getItem('token');

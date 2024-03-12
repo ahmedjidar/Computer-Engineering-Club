@@ -5,9 +5,9 @@ import LandingNavbar from "./LandingNavbar";
 const About = () => {
     return(
         <div>
-                <section class="about_section layout_padding">
-    <div class="container  ">
-      <div class="heading_container heading_center">
+                <section className="about_section layout_padding">
+    <div className="container  ">
+      <div className="heading_container heading_center">
         <h2>
           About <span>Us</span>
         </h2>
@@ -16,14 +16,14 @@ const About = () => {
         Elevate your GI journey with our Computer Science Club—Your Hub for Resources, Courses, Mentors, and More
         </p>
       </div>
-      <div class="row">
-        <div class="col-md-6 ">
-          <div class="img-box">
+      <div className="row">
+        <div className="col-md-6 ">
+          <div className="img-box">
             <img src={dvc} alt=""/>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="detail-box">
+        <div className="col-md-6">
+          <div className="detail-box">
             <h3>
               We Are GI Club
             </h3>

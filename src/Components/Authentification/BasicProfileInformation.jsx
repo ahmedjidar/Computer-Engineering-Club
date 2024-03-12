@@ -1,25 +1,31 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState } from "react";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import layers from "../../assets/Images/layers.png";
 import Button from "react-bootstrap/Button";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useDataContext } from "../../utils/useContext";
 const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 const BasicProfileInformation = () => {
   // states
-  // const [userData, setUserData] = useState({});
-  const auth = useSelector(state => state.auth);
+  const navigate =useNavigate()
+  const [loading, setLoading] = useState(false);
+  const [err, setErr] = useState("");
+  const [msg, setMsg] = useState("");
+ const {auth} =useDataContext();
+
   console.log(auth);
   const submitHandler = async (e) => {
     e.preventDefault();
     // const token = localStorage.getItem('token');
     try {
       const formData = new FormData(e.target);
-      // setLoading(true);
+      setLoading(true);
       const response = await fetch(apiUrl+"/signup", {
         method: "POST",
-          body: JSON.stringify(formData),
+          body: formData,
 
         // headers: {
         //   'Authorization': 'Bearer ' + token,
@@ -27,24 +33,30 @@ const BasicProfileInformation = () => {
       });
 
       if (!response.ok) {
-        // setErr("try again")
+        setErr("try again")
         // navigate('/login');
-        // setLoading(false);
+        setLoading(false);
         console.log("err ok");
       } else {
         const data = await response.json();
         if (data.success === false) {
-          // setErr(data.message);
-          // setLoading(false);
+          setErr(data.message);
+          setMsg('');
+          setLoading(false);
           console.log("err success");
         } else if (data.success === true) {
-          // setLoading(true);
-          // navigate('/admin/projects/'+prjctId);
+          setLoading(true);
+          setErr('')
+          setMsg("You signed up successfully!");
+           setTimeout(() => {
+                      navigate('/get-started/login');
+
+          }, 2000);
           console.log("added");
         }
       }
     } catch (error) {
-      // setErr("fetch problem");
+      setErr("fetch problem");
     }
   };
 
@@ -67,14 +79,12 @@ const BasicProfileInformation = () => {
             <Card.Link
               href="#"
               className="text-blue-600 border-l-2 border-l-blue-600 px-2"
-            >
-              Home
+            >Home
             </Card.Link>
             <Card.Link
               href="#"
               className="text-blue-600 border-l-2 border-l-blue-600 px-2"
-            >
-              Team
+            >Team
             </Card.Link>
           </Card.Body>
         </Card>
@@ -325,7 +335,6 @@ const BasicProfileInformation = () => {
                   <input
                     type="text"
                     name="city"
-                    defaultValue={"oujda"}
 
                     id="city"
                     autoComplete="street-address"
@@ -346,7 +355,6 @@ const BasicProfileInformation = () => {
                     name="promo"
                     id="street-address"
                     min={2002}
-                    defaultValue={2024}
                     autoComplete="street-address"
                     className="outline-none block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
                   />
@@ -363,7 +371,6 @@ const BasicProfileInformation = () => {
                   <input
                     type="text"
                     name="status"
-                    defaultValue={"student"}
 
                     id="city"
                     autoComplete="street-address"
@@ -380,7 +387,7 @@ const BasicProfileInformation = () => {
                 </label>
                 <div className="mt-2">
                   <input
-                   type="date" name="birthdate" min="1995-01-24" defaultValue="01/10/2002"
+                   type="date" name="birthdate" min="1995-01-24" 
                     id="street-address"
                     autoComplete="street-address"
                     className="outline-none block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
@@ -460,7 +467,6 @@ const BasicProfileInformation = () => {
                       type="number"
                       name="phone"
                       id="phone"
-                      defaultValue={6521464531}
                       autoComplete="phone"
                       className="outline-none block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                       placeholder="X XXXX XXXX"
@@ -482,7 +488,6 @@ const BasicProfileInformation = () => {
                     <input
                       type="text"
                       name="linkedin"
-                      defaultValue={"dfghjkl;kjbhvgcfghjkl"}
 
                       id="linkedin"
                       autoComplete="linkedin"
@@ -657,7 +662,8 @@ const BasicProfileInformation = () => {
             </div>
           </div>
         </div>
-
+        <div className=" flex flex-col w-full items-center justify-evenly ">
+          
         <div className="mt-6 flex items-center justify-end gap-x-6">
           <button
             type="button"
@@ -669,9 +675,19 @@ const BasicProfileInformation = () => {
             type="submit"
             className="rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
           >
-            Save
+           {loading? 'saving ...':'save'}
           </button>
-        </div>
+          
+          </div>
+          <div className="mt-6 flex items-center justify-start ">
+          <p className="text-red-500 font-bold text-md text-center w-full">
+            {err}
+        </p>
+          <p className="text-green-500 font-bold text-md text-center w-full">
+            {msg}
+          </p>
+</div>
+       </div>
       </form>
     </div>
   );

@@ -3,41 +3,23 @@ import { Row, Col } from "react-bootstrap";
 import MembersList from "./HomeSection/MembersList";
 import PostCreation from "./HomeSection/PostCreation";
 import FeedSection from "./HomeSection/FeedSection";
-import { useSelector } from "react-redux";
-import {fetchPosts} from '/src/Store/blogSlice.js'
-import { useDispatch } from "react-redux";
 import getPosts from "/src/utils/getPosts.js"
+import { useDataContext } from "../../../utils/useContext";
 
 const Home = () => {
-//   const dispatch = useDispatch();
-//     const postss = useSelector(state => state.posts);
- const [posts, setPosts] = useState([]);
-   
-    useEffect(() => {
-        getPosts().then(posts => {
-         setPosts(posts)
-         console.log("new posts:", posts);
-      }) }, [])
-     const syncPosts = async() => {
-    //  dispatch(fetchPosts());
-     getPosts().then(posts => {
-         setPosts(posts)
-         console.log("new posts:", posts);
-      })
 
-        console.log("synced",posts)
-       
-}
     return(
             <Row>
                 <Col md={8} className="overflow-auto">
                     {/* post creation section */}
-                    <Row>
-                        <PostCreation syncPosts={syncPosts}/>
-                    </Row>
+                    {/* <Row>
+                    </Row> */}
                     {/* feed section */}
-                    <Row>
-                    <FeedSection posts={posts} syncPosts={syncPosts} />
+                <Row>
+                    <div className="lg:px-[10%]">
+                    <FeedSection   />
+
+                    </div>
                     </Row>
                 </Col>
                 <Col className="sticky top-16 h-full overflow-auto">

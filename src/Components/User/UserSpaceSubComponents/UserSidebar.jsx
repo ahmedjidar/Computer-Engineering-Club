@@ -5,15 +5,12 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { Form, FormControl } from 'react-bootstrap';
 
 const UserSidebar = ({ onSearch, setShowSidebar }) => {
-
-
     // search handling
     const handleSearch = (event) => {
         // search listener
         const searchText = event.target.value;
         onSearch(searchText);
     }
-
     return(
     <>
         {/* sidebar */}

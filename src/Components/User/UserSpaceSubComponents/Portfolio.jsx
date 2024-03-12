@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { PaperClipIcon } from '@heroicons/react/20/solid'
-import pfp from '../../../assets/Images/pfp.png'
-import { useSelector } from "react-redux";
-import getUser from "/src/utils/getUser.js"
+import pfp from '../../../assets/Images/pfp.png';
+import { useDataContext } from "../../../utils/useContext";
 const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
 const Portfolio = () => {
-  // states for editing
-  // const [user, setUser] = useState();
-  // useEffect(() => {
-  //   getUser(auth.userId).then(res => {
-  //     setUser(res);
-  //     console.log("user:", user);
-  //   })
+  const {getUser} =useDataContext();
+  const {auth} =useDataContext();
+  const [user, setUser] = useState();
+  useEffect(() => {
+    getUser(auth.userId).then(res => {
+      setUser(res);
+      console.log("user:", user);
+    })
  
-  // },[])
+  },[])
     // const [userProfileData, setUserProfileData] = useState();
-const auth =useSelector(state=>state.auth)
+
     return (
             <div className="bg-white p-4">
                 <div className="flex justify-between items-center">

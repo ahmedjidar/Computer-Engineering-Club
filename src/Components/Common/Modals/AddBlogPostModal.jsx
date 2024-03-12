@@ -1,12 +1,13 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { PhotoIcon } from '@heroicons/react/24/solid';
-import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import { useDataContext } from '../../../utils/useContext';
 const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
 const AddBlogPostModal = (props) => {
-    const auth = useSelector(state => state.auth)
+    const {auth} =useDataContext();
+
       const [loading, setLoading] = useState(false);
 
     const submitHandler = async (e) => {

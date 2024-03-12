@@ -7,9 +7,7 @@ import gi from '../../assets/Images/gi.png'
 import navigation from '../../Constants/navigation'
 import { Link } from "react-router-dom";
 import CustomDisclosureButton from "./Buttons/CustomDisclosureButton";
-import { useSelector } from 'react-redux';
-import { useDispatch } from "react-redux";
-import {logout} from "/src/Store/authSlice.js"
+import { useDataContext } from "../../utils/useContext";
 const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
   const classNames = (...classes) => {
@@ -17,8 +15,8 @@ const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
   }
 
 const HeadNav = () => {
-  const dispatch = useDispatch();
-  const auth = useSelector(state => state.auth);
+ const {setLogin,auth,logout} =useDataContext();
+
     return(
     <Disclosure as="nav" className="bg-blue-950 rounded-t-md shadow-sm sticky top-0 z-50">
       {({ open }) => (
@@ -66,7 +64,7 @@ const HeadNav = () => {
                   </div>
                 </div>
                 </div>
-                  <p className="hidden xl:block text-white">{auth.userName}</p>
+                
                 
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 ">
                 <button
@@ -129,7 +127,7 @@ const HeadNav = () => {
                         {({ active }) => (
                           <Link
                               to="/"
-                              onClick={() =>  dispatch(logout())}
+                              onClick={() => logout()}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Sign out

@@ -21,7 +21,7 @@ function Activities() {
         <LandingNavbar defaultActiveMenuItem={activeMenu}/>
         <div className='activities-container'>
           <div className='events-container'>
-            <div class="title-activities">
+            <div className="title-activities">
               <h1>Events</h1>
             </div>
 
@@ -34,7 +34,7 @@ function Activities() {
                   />
                   <Carousel.Caption>
                     <h3 className='activities-names text-md'>CS Day 2022/2023</h3>
-                    <button class="button-37" role="button" onClick={() =>navigator('/activities/event1')}>View More</button>
+                    <button className="button-37" role="button" onClick={() =>navigator('/activities/event1')}>View More</button>
 
                   </Carousel.Caption>
                 </Carousel.Item>
@@ -46,7 +46,7 @@ function Activities() {
                   />
                   <Carousel.Caption>
                     <h3 className='activities-names'>Event 2</h3>
-                    <button class="button-37" role="button">View More</button>
+                    <button className="button-37" role="button">View More</button>
                   </Carousel.Caption>
                 </Carousel.Item>
 
@@ -58,7 +58,7 @@ function Activities() {
                   />
                   <Carousel.Caption>
                     <h3 className='activities-names'>Event 3</h3>
-                    <button class="button-37" role="button">View More</button>
+                    <button className="button-37" role="button">View More</button>
                   </Carousel.Caption>
                 </Carousel.Item>
 
@@ -70,7 +70,7 @@ function Activities() {
                   />
                   <Carousel.Caption>
                     <h3 className='activities-names'>Event 4</h3>
-                    <button class="button-37" role="button">View More</button>
+                    <button className="button-37" role="button">View More</button>
                   </Carousel.Caption>
                 </Carousel.Item>
 
@@ -78,7 +78,7 @@ function Activities() {
           </div>
 
           <div className='projects-container'>
-              <div class="title-activities">
+              <div className="title-activities">
                 <h1>Projects</h1>
               </div>
               <Carousel fade>
@@ -90,7 +90,7 @@ function Activities() {
                   />
                   <Carousel.Caption>
                     <h3 className='activities-names'>Pro Solving ed1</h3>
-                    <button class="button-37" role="button">View More</button>
+                    <button className="button-37" role="button">View More</button>
                   </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -101,7 +101,7 @@ function Activities() {
                   />
                   <Carousel.Caption>
                     <h3 className='activities-names'>Project 2</h3>
-                    <button class="button-37" role="button">View More</button>
+                    <button className="button-37" role="button">View More</button>
                   </Carousel.Caption>
                 </Carousel.Item>
 
@@ -113,7 +113,7 @@ function Activities() {
                   />
                   <Carousel.Caption>
                     <h3 className='activities-names'>Project 3</h3>
-                    <button class="button-37" role="button">View More</button>
+                    <button className="button-37" role="button">View More</button>
                   </Carousel.Caption>
                 </Carousel.Item>
 
@@ -125,7 +125,7 @@ function Activities() {
                   />
                   <Carousel.Caption>
                     <h3 className='activities-names'>Project 4</h3>
-                    <button class="button-37" role="button">View More</button>
+                    <button className="button-37" role="button">View More</button>
                   </Carousel.Caption>
                 </Carousel.Item>
 
