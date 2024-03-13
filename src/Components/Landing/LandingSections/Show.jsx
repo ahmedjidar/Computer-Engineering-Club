@@ -61,7 +61,6 @@ function Show() {
             <div className="hero-text">
                 <h1>{text}</h1>
                 <p>Live Your Best Experiences</p>
-                <button className="btn-default">Explore</button>
 
                 <button className="btn-default" onClick={navigateToLogin}>
       Explore
