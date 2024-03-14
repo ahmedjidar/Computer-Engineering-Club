@@ -43,7 +43,7 @@ const MyCourses = () => {
                               {course.description}
                           </Card.Text>
                         </Card.Body>
-                      </Card>
+                      </Card> 
                   </Link>
                 </Col>
               ))}
