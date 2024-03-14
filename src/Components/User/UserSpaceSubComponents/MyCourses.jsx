@@ -37,25 +37,6 @@ const MyCourses = () => {
           />
         </div>
       </div>
-
-            {/* courses */}
-            {/* <Row xs={1} md={3} className="g-4">
-              {courses.map((course, idx) => (
-                <Col key={idx}>
-                  <Link to={`/user/courses/${course.id}`}>
-                    <Card>
-                        <Card.Img variant="top" src={course.imageUrl}/>
-                        <Card.Body>
-                          <Card.Title>{course.title}</Card.Title>
-                          <Card.Text>
-                              {course.description}
-                          </Card.Text>
-                        </Card.Body>
-                      </Card>
-                  </Link>
-                </Col>
-              ))}
-            </Row> */}
             <Row xs={1} md={3} className="g-4">
               {Object.keys(courses).map(category => 
                 courses[category].map((course, idx) => (
@@ -75,7 +56,7 @@ const MyCourses = () => {
                 ))
               )}
             </Row>
-        </div>
+      </div>
     )
 }
 

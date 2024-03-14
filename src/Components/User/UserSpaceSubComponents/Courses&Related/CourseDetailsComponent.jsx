@@ -6,12 +6,9 @@ const CourseDetailsComponent = () => {
   const { id } = useParams();
   let selectedCourse;
 
-  // Iterate over each category in courses
   for (let category in courses) {
-    // Find the course with the matching id in the current category
     const course = courses[category].find(course => course.id === id);
     
-    // If a course was found, assign it to selectedCourse and break the loop
     if (course) {
       selectedCourse = course;
       break;
@@ -23,7 +20,7 @@ const CourseDetailsComponent = () => {
       {selectedCourse && (
         <div>
           <p className='text-xl font-semibold'>{selectedCourse.title}</p>
-          {/* display related content (exams, practicals, etc.) for this course */}
+          {/* display related content assi khalil (exams, practicals, etc.) for this course */}
         </div>
       )}
     </div>
