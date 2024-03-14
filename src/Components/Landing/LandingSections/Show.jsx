@@ -49,11 +49,11 @@ function Show() {
 
   return (
     <div>
-        {/* <div class="hero-image">
-            <div class="hero-text">
+        {/* <div className="hero-image">
+            <div className="hero-text">
                 <h1>{text}</h1>
                 <p>Live Your Best Experiences</p>
-                <button class="btn-default">Explore</button>
+                <button className="btn-default">Explore</button>
             </div>
         </div> */}
 

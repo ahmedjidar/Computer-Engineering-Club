@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import '../../../../assets/styles/event1details.css';
@@ -42,7 +43,7 @@ function Event1() {
         </div>
 
         <div className='galery-container'>
-            <div class="title-activities">
+            <div className="title-activities">
               <h1>Galery</h1>
             </div>
 
@@ -149,31 +150,31 @@ de l'informatique à relever les défis de cette nouvelle
 
         <div className='Speakers-Guests'>
 
-            <div class="title-activitie">
+            <div className="title-activitie">
               <h1>Speakers</h1>
             </div>
 
-            <ul class="speackers">
-                <li class="transition">
-                    <div class="wrapper rounded shadow-md"> <img class="transition" src={guestsPic1}/>
+            <ul className="speackers">
+                <li className="transition">
+                    <div className="wrapper rounded shadow-md"> <img className="transition" src={guestsPic1}/>
 
-                    <span class="transition">
+                    <span className="transition">
                     <h3>Abdelilah Jabri <em>Senior Full-stack PHP Developer <em> at Cobbleweb</em></em></h3>
                     <img src={mic}/> </span> </div>
                 </li>
 
-                <li class="transition">
-                    <div class="wrapper rounded shadow-md"> <img class="transition" src={guestsPic2}/>
+                <li className="transition">
+                    <div className="wrapper rounded shadow-md"> <img className="transition" src={guestsPic2}/>
                     
-                    <span class="transition">
+                    <span className="transition">
                     <h3>Pascal Borreli <em>Consultant Technique <em>at Les-Tilleuls.coop</em> </em></h3>
                     <img src={mic}/> </span> </div>
                 </li>
 
-                <li class="transition">
-                    <div class="wrapper rounded shadow-md"> <img class="transition" src={guestsPic3}/>
+                <li className="transition">
+                    <div className="wrapper rounded shadow-md"> <img className="transition" src={guestsPic3}/>
                     
-                    <span class="transition">
+                    <span className="transition">
                     <h3>Ilyass Lazaar <em>Unit Manager / IT Architect </em> <em> Frontend & Mobile Specialist</em></h3>
                     <img src={mic}/> </span> </div>
                 </li>

@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable react/display-name */
 import React, { useState } from "react";
 import DataTable from "react-data-table-component";
 import "bootstrap/dist/js/bootstrap.bundle.js";
@@ -244,7 +246,7 @@ function AdminCheckUsers() {
   return (
     <>
     <div className="container mt-5">
-        <h1 class="text-center mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Check Pending Users</h1>
+        <h1 className="text-center mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Check Pending Users</h1>
         <DataTable
           customStyles={ tableHeaderstyle}
           columns={columns}

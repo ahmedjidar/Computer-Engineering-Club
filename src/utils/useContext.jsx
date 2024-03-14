@@ -130,6 +130,51 @@ export const DataProvider = ({ children }) => {
       console.log(err);
     }
   };
+  const getUsers = async () => {
+    console.log("start in fetch users:",)
+    try {
+      const response = await fetch(apiUrl + "/user/all");
+
+      if (!response.ok) {
+        console.log("err ok");
+      } else {
+        const data = await response.json();
+        if (data) {
+          console.log("success");
+          console.log("userdata", data);
+          return data;
+        } else {
+          console.log("added");
+        }
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  //  const acceptUser = async ( userId) => {
+  //   console.log("start in do like");
+  //   try {
+  //     // setLoading(true);
+  //     const response = await fetch(
+  //       apiUrl + "/admin/post/" + postId + "?uId=" + userId,
+  //       {
+  //         method: "POST",
+  //       }
+  //     );
+
+  //     if (!response.ok) {
+  //       console.log("err ok");
+  //     } else {
+  //       const data = await response.json();
+  //       if (data.success === true) {
+  //         console.log("added in do like");
+  //         // syncPosts();
+  //       }
+  //     }
+  //   } catch (error) {
+  //     console.log("fetch problem" + error);
+  //   }
+  // };
   const doLike = async (postId, userId) => {
     console.log("start in do like");
     try {
