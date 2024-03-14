@@ -4,7 +4,19 @@ import courses from '../../../../Constants/courses';
 
 const CourseDetailsComponent = () => {
   const { id } = useParams();
-  const selectedCourse = courses.find(course => course.id === id);
+  let selectedCourse;
+
+  // Iterate over each category in courses
+  for (let category in courses) {
+    // Find the course with the matching id in the current category
+    const course = courses[category].find(course => course.id === id);
+    
+    // If a course was found, assign it to selectedCourse and break the loop
+    if (course) {
+      selectedCourse = course;
+      break;
+    }
+  }
 
   return (
     <div className='p-4'>
@@ -19,3 +31,4 @@ const CourseDetailsComponent = () => {
 };
 
 export default CourseDetailsComponent;
+

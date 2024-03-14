@@ -142,7 +142,7 @@ const HeadNav = () => {
           </div>
 
           {/* i've created a custom disclosure button that is based on a Link tag since the old one 
-          uses anchor tags, for performance enhamcement */}
+          uses anchor tags, for performance enhancement */}
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navigation.map((item) => (
