@@ -8,10 +8,10 @@ import s3 from '../../../assets/Images/s3.svg'
 function WhyUs() {
   return (
     <div>
-    <section class="service_section layout_padding">
-        <div class="service_container">
-        <div class="container ">
-            <div class="heading_container heading_center">
+    <section className="service_section layout_padding">
+        <div className="service_container">
+        <div className="container ">
+            <div className="heading_container heading_center">
             <h2>
                 WHY <span>US</span>
             </h2>
@@ -19,13 +19,13 @@ function WhyUs() {
             Empower your GI journey with comprehensive resources, empowering tools, and invaluable mentorship opportunities at our student-made computer science club website.
             </p>
             </div>
-            <div class="row">
-            <div class="col-md-4 ">
-                <div class="boxabout ">
-                <div class="img-box">
+            <div className="row">
+            <div className="col-md-4 ">
+                <div className="boxabout ">
+                <div className="img-box">
                     <img src={s1} alt="" />
                 </div>
-                <div class="detail-box">
+                <div className="detail-box">
                     <h5>
                     Team Spirit
                     </h5>
@@ -37,12 +37,12 @@ function WhyUs() {
                 </div>
                 </div>
             </div>
-            <div class="col-md-4 ">
-                <div class="boxabout ">
-                <div class="img-box">
+            <div className="col-md-4 ">
+                <div className="boxabout ">
+                <div className="img-box">
                     <img src={s2} alt="" />
                 </div>
-                <div class="detail-box">
+                <div className="detail-box">
                     <h5>
                     Passion
                     </h5>
@@ -54,12 +54,12 @@ function WhyUs() {
                 </div>
                 </div>
             </div>
-            <div class="col-md-4 ">
-                <div class="boxabout ">
-                <div class="img-box">
+            <div className="col-md-4 ">
+                <div className="boxabout ">
+                <div className="img-box">
                     <img src={s3} alt="" />
                 </div>
-                <div class="detail-box">
+                <div className="detail-box">
                     <h5>
                     One goal
                     </h5>
@@ -72,7 +72,7 @@ function WhyUs() {
                 </div>
             </div>
             </div>
-            <div class="btn-box">
+            <div className="btn-box">
             <a href="">
                 View All
             </a>
