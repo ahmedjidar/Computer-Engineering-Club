@@ -65,6 +65,7 @@ function Show() {
                 <button className="btn-default" onClick={navigateToLogin}>
       Explore
     </button>
+
     
             </div>
 

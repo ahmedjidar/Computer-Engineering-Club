@@ -87,24 +87,26 @@ const MyCourses = () => {
         </div>
       </div>
 
-      {/* courses */}
-      <Row xs={1} md={3} className="g-4">
-        {selectedCategory && coursesByCategory[selectedCategory.value].map((course) => (
-          <Col key={course.id}>
-            <a href={course.folderLink}>
-              <Card>
-                <Card.Img variant="top" src={course.imageUrl} />
-                <Card.Body>
-                  <Card.Title>{course.title}</Card.Title>
-                  <Card.Text>{course.description}</Card.Text>
-                </Card.Body>
-              </Card>
-              </a>
-          </Col>
-        ))}
-      </Row>
-    </div>
-  );
-};
+            {/* courses */}
+            <Row xs={1} md={3} className="g-4">
+              {courses.map((course, idx) => (
+                <Col key={idx}>
+                  <Link to={`/user/courses/${course.id}`}>
+                    <Card>
+                        <Card.Img variant="top" src={course.imageUrl}/>
+                        <Card.Body>
+                          <Card.Title>{course.title}</Card.Title>
+                          <Card.Text>
+                              {course.description}
+                          </Card.Text>
+                        </Card.Body>
+                      </Card>
+                  </Link>
+                </Col>
+              ))}
+            </Row>
+        </div>
+    )
+}
 
 export default MyCourses;
