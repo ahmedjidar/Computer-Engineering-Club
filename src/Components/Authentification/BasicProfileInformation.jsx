@@ -37,7 +37,8 @@ const BasicProfileInformation = () => {
         // navigate('/login');
         setLoading(false);
         console.log("err ok");
-      } else {
+      } 
+      else {
         const data = await response.json();
         if (data.success === false) {
           setErr(data.message);

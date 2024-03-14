@@ -1,28 +1,50 @@
-const courses = [
+const courses = {
+  "Genie Informatique 3": [
     {
       id: '1',
-      title: 'Introduction to JavaScript',
-      description: 'Learn the fundamentals of JavaScript programming.',
-      imageUrl: 'https://www.datocms-assets.com/48401/1628644950-javascript.png'
+      title: 'S5',
+      description: 'Learn the basics of programming.',
+      imageUrl: 'https://via.placeholder.com/150',
+      folderLink:'https://drive.google.com/drive/folders/1lMN81VkRXHEF23Dw8_-AlpDIEcCQyBdP'
     },
     {
       id: '2',
-      title: 'React Masterclass',
-      description: 'Master React.js and build powerful web applications.',
-      imageUrl: 'https://www.unicorn.dev/wp-content/uploads/2023/01/react.png'
+      title: 'S6',
+      description: 'Explore data structures and algorithms.',
+      imageUrl: 'https://via.placeholder.com/150',
+      folderLink:'https://drive.google.com/drive/folders/1lMN81VkRXHEF23Dw8_-AlpDIEcCQyBdP'
+
     },
+  ],
+  "Genie Informatique 4": [
     {
       id: '3',
-      title: 'Python for Data Science',
-      description: 'Explore Python programming for data analysis and visualization.',
-      imageUrl: 'https://www.ntuclearninghub.com/documents/39367/4216797/Python-Symbol.png/369e410e-a90f-f887-c2dc-61f7ef761476/'
+      title: 'S7',
+      description: 'Learn object-oriented programming concepts.',
+      imageUrl: 'https://via.placeholder.com/150',
+      folderLink:'https://drive.google.com/drive/home'
+
     },
     {
       id: '4',
-      title: 'UX/UI Design Principles',
-      description: 'Learn the principles and tools of user experience and interface design.',
-      imageUrl: 'https://graffersid.com/wp-content/uploads/2020/02/ux-ui-1024x529.png'
+      title: 'S8',
+      description: 'Introduction to database management systems.',
+      imageUrl: 'https://via.placeholder.com/150',
+      folderLink:'https://drive.google.com/drive/home'
+
     },
-  ];  
+  ],
+  "Genie Informatique 5": [
+    {
+      id: '5',
+      title: 'S9',
+      description: 'Learn web development technologies.',
+      imageUrl: 'https://via.placeholder.com/150',
+      folderLink:'https://drive.google.com/drive/spam'
+
+    },
+ 
+  ],
+};
 
 export default courses;

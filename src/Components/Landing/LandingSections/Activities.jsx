@@ -33,8 +33,8 @@ function Activities() {
                     alt="First slide"
                   />
                   <Carousel.Caption>
-                    <h3 className='activities-names text-md'>CS Day 2022/2023</h3>
-                    <button className="button-37" role="button" onClick={() =>navigator('/activities/event1')}>View More</button>
+                    <h3 className='activities-names text-md'>CS Day 2021/2022</h3>
+                    <button className="button-37" role="button" onClick={() =>navigator('/activities/Cs-Day1')}>View More</button>
 
                   </Carousel.Caption>
                 </Carousel.Item>
@@ -45,8 +45,8 @@ function Activities() {
                     alt="Second slide"
                   />
                   <Carousel.Caption>
-                    <h3 className='activities-names'>Event 2</h3>
-                    <button className="button-37" role="button">View More</button>
+                    <h3 className='activities-names'>CS Day 2022/2023</h3>
+                    <button className="button-37" role="button" onClick={() =>navigator('/activities/Cs-Day2')}>View More</button>
                   </Carousel.Caption>
                 </Carousel.Item>
 
@@ -57,22 +57,11 @@ function Activities() {
                     alt="Second slide"
                   />
                   <Carousel.Caption>
-                    <h3 className='activities-names'>Event 3</h3>
-                    <button className="button-37" role="button">View More</button>
+                    <h3 className='activities-names'>Cs Day 2023/2024 </h3>
+                    <button className="button-37" role="button" onClick={() =>navigator('/activities/Cs-Day3')}>View More</button>
                   </Carousel.Caption>
                 </Carousel.Item>
 
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src={image1}
-                    alt="Second slide"
-                  />
-                  <Carousel.Caption>
-                    <h3 className='activities-names'>Event 4</h3>
-                    <button className="button-37" role="button">View More</button>
-                  </Carousel.Caption>
-                </Carousel.Item>
 
               </Carousel>
           </div>
@@ -89,8 +78,8 @@ function Activities() {
                     alt="First slide"
                   />
                   <Carousel.Caption>
-                    <h3 className='activities-names'>Pro Solving ed1</h3>
-                    <button className="button-37" role="button">View More</button>
+                    <h3 className='activities-names'>Problem Solving ed1</h3>
+                    <button className="button-37" role="button" onClick={() =>navigator('/activities/Pr-Solving1')}>View More</button>
                   </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -100,20 +89,8 @@ function Activities() {
                     alt="Second slide"
                   />
                   <Carousel.Caption>
-                    <h3 className='activities-names'>Project 2</h3>
-                    <button className="button-37" role="button">View More</button>
-                  </Carousel.Caption>
-                </Carousel.Item>
-
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src={image1}
-                    alt="Second slide"
-                  />
-                  <Carousel.Caption>
-                    <h3 className='activities-names'>Project 3</h3>
-                    <button className="button-37" role="button">View More</button>
+                    <h3 className='activities-names'>Problem Solving ed2</h3>
+                    <button className="button-37" role="button" onClick={() =>navigator('/activities/Pr-Solving2')}>View More</button>
                   </Carousel.Caption>
                 </Carousel.Item>
 
@@ -124,8 +101,8 @@ function Activities() {
                     alt="Second slide"
                   />
                   <Carousel.Caption>
-                    <h3 className='activities-names'>Project 4</h3>
-                    <button className="button-37" role="button">View More</button>
+                    <h3 className='activities-names'>Problem Solving ed3</h3>
+                    <button className="button-37" role="button" onClick={() =>navigator('/activities/Pr-Solving3')}>View More</button>
                   </Carousel.Caption>
                 </Carousel.Item>
 
