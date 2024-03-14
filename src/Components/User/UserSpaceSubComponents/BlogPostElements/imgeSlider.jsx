@@ -6,7 +6,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-
+const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
+ 
 
 export  function ImageSwiper({images}) {
 
@@ -34,7 +35,7 @@ export  function ImageSwiper({images}) {
           return (
             <SwiperSlide key={url} className="p-0 m-0 h-[350px] w-full  relative">
           <div className="absolute top-0 left-0 right-0 bottom-0">
-            <img className="w-full h-full object-cover" src={url} alt="heeeeeey me" />
+            <img className="w-full h-full object-cover" src={apiUrl+"/"+url} alt="image not workin" />
           </div>
         </SwiperSlide>
           )

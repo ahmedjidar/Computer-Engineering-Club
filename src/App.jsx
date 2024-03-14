@@ -1,15 +1,17 @@
 import SSRProvider from 'react-bootstrap/SSRProvider';
 import { BrowserRouter as Router } from 'react-router-dom'
-import GeneralRoutes from './Components/GeneralRoutes'
+import GeneralRoutes from '/src/Components/GeneralRoutes'
 import './App.css'
-import { useDispatch } from 'react-redux';
-import {init} from './Store/authSlice'
 import { useEffect } from 'react';
+import { useDataContext } from './utils/useContext';
 const App = () => {
-  const dispatch = useDispatch();
+const {initiateLogin,} =useDataContext();
+
   useEffect(() => {
-    dispatch(init());
+    initiateLogin();
+    
   },[])
+  
   return(
     <SSRProvider>
       <Router>

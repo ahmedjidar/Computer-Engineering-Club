@@ -1,9 +1,54 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { PhotoIcon } from '@heroicons/react/24/solid';
+import { useState } from 'react';
+import { useDataContext } from '../../../utils/useContext';
+const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
 const AddBlogPostModal = (props) => {
+    const {auth} =useDataContext();
 
+      const [loading, setLoading] = useState(false);
+
+    const submitHandler = async (e) => {
+    e.preventDefault();
+    // const token = localStorage.getItem('token');
+    try {
+      const formData = new FormData(e.target);
+      setLoading(true);
+      const response = await fetch(apiUrl+"/userSpace/post", {
+        method: "POST",
+        body: formData,
+
+        // headers: {
+        //   'Authorization': 'Bearer ' + token,
+        // },
+      });
+
+      if (!response.ok) {
+        // setErr("try again")
+        // navigate('/login');
+        setLoading(false);
+        console.log("err ok");
+      } else {
+        const data = await response.json();
+        if (data.success === true) {
+          // setErr(data.message);
+          setLoading(false);
+          console.log("err success");
+         document.getElementById('myForm').reset()
+
+          props.onHide();
+        } else if (data.success === false) {
+          setLoading(false);
+          // navigate('/admin/projects/'+prjctId);
+          console.log("added");
+        }
+      }
+    } catch (error) {
+      // setErr("fetch problem");
+    }
+    };
   return (
     <Modal
       {...props}
@@ -19,8 +64,10 @@ const AddBlogPostModal = (props) => {
       </Modal.Header>
       <Modal.Body className='p-4'>
         {/* form to fill the blog post */}
-        <form action="">
-            {/* post title */}
+        <form id="myForm" onSubmit={submitHandler} encType="multipart/form-data">
+          {/* post title */}
+                <input type="hidden" name="ownerid" value={auth.userId}/>
+          
             <div className="sm:col-span-3 mb-3">
                 <label htmlFor="post-title" className="block text-sm font-medium leading-6 text-gray-600">
                   Title
@@ -28,7 +75,7 @@ const AddBlogPostModal = (props) => {
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="post-title"
+                    name="title"
                     id="post-title"
                     autoComplete="post-title"
                     className="outline-none bg-transparent block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
@@ -42,8 +89,8 @@ const AddBlogPostModal = (props) => {
                 </label>
                 <div className="mt-2">
                   <textarea
-                    id="post-description"
-                    name="post-description"
+                    id="content"
+                    name="content"
                     rows={3}
                     className="resize-none outline-none bg-transparent block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
                     defaultValue={''}
@@ -68,7 +115,7 @@ const AddBlogPostModal = (props) => {
                         className="relative cursor-pointer bg-transparent rounded-md bg-white font-semibold text-blue-600 hover:text-indigo-500"
                       >
                         <span className='bg-transparent'>Upload a file</span>
-                        <input id="post-photo" name="post-photo" type="file" className="outline-none bg-transparent sr-only" />
+                        <input id="post-photo" name="image" type="file" className="outline-none bg-transparent sr-only" />
                       </label>
                       <p className="pl-1">or drag and drop</p>
                     </div>
@@ -77,12 +124,12 @@ const AddBlogPostModal = (props) => {
                 </div>
               </div>
               <div className='flex items-center justify-end'>
-                <button className="flex items-center gap-2 text-sm text-white bg-indigo-500 rounded px-3 py-2 hover:bg-indigo-600 mt-4">
+                <button disabled={loading} className="flex items-center gap-2 text-sm text-white bg-indigo-500 rounded px-3 py-2 hover:bg-indigo-600 mt-4">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
                         <path d="M9.25 13.25a.75.75 0 0 0 1.5 0V4.636l2.955 3.129a.75.75 0 0 0 1.09-1.03l-4.25-4.5a.75.75 0 0 0-1.09 0l-4.25 4.5a.75.75 0 1 0 1.09 1.03L9.25 4.636v8.614Z" />
                         <path d="M3.5 12.75a.75.75 0 0 0-1.5 0v2.5A2.75 2.75 0 0 0 4.75 18h10.5A2.75 2.75 0 0 0 18 15.25v-2.5a.75.75 0 0 0-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5Z" />
                     </svg>
-                    <p>Share Post</p>
+                    <p>{loading? 'posting...':'Post Question'}</p>
                 </button>
               </div>
         </form>

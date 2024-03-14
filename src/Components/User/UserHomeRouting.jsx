@@ -3,6 +3,10 @@ import { Routes, Route } from "react-router-dom";
 import UserSpaceLayout from "./UserSpaceLayout";
 import HeadNav from "../Common/HeadNav";
 import Explore from "./UserSpaceSubComponents/Explore";
+import AdminSpaceLayout from "./UserSpaceSubComponents/AdminSpaceLayout";
+import AdminCheckPosts from "./UserSpaceSubComponents/AdminCheckPosts";
+import AdminCheckUsers from "./UserSpaceSubComponents/AdminCheckUsers";
+import AdminHome from "./UserSpaceSubComponents/AdminHome";
 
 const UserHomeRouting = () => {
     return(
@@ -11,6 +15,13 @@ const UserHomeRouting = () => {
             <Routes>
                 <Route index path="/" element={<UserSpaceLayout/>}/>
                 <Route path="/myspace/*" element={<UserSpaceLayout/>}/>
+                {/* <Route path="/admin-space/*" element={<AdminSpaceLayout/>} /> */}
+                <Route path="/admin-space/*" element={<AdminSpaceLayout/>}>
+                    <Route index element={<AdminHome/>} />       
+                     <Route path="check-posts" element={<AdminCheckPosts/>} />
+                    <Route path="check-users" element={<AdminCheckUsers/>} />
+                </Route>
+
                 <Route path="/*" element={<Explore/>}/>
             </Routes>  
         </div>

@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PaperClipIcon } from '@heroicons/react/20/solid'
-import pfp from '../../../assets/Images/pfp.png'
+import pfp from '../../../assets/Images/pfp.png';
+import { useDataContext } from "../../../utils/useContext";
+const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
 const Portfolio = () => {
-    // states for editing
-    const [userProfileData, setUserProfileData] = useState();
+  const {getUser} =useDataContext();
+  const {auth} =useDataContext();
+  const [user, setUser] = useState();
+  useEffect(() => {
+    getUser(auth.userId).then(res => {
+      setUser(res);
+      console.log("user:", user);
+    })
+ 
+  },[])
+    // const [userProfileData, setUserProfileData] = useState();
 
     return (
             <div className="bg-white p-4">
@@ -14,14 +25,16 @@ const Portfolio = () => {
                         <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">Personal details and application.</p>
                     </div>
                     <div>
-                        <img src={pfp} alt="user" className="w-16 h-16 object-cover shadow-sm rounded-full mr-4"/>
+
+                        <img src={apiUrl+"/"+auth.userImg} alt="user" className="w-16 h-16 object-cover rounded-full mr-4 shadow-sm"/>
+
                     </div>
                 </div>
               <div className="mt-6 border-t border-gray-100">
                 <dl className="divide-y divide-gray-100">
                   <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                    <dt className="text-sm font-medium leading-6 text-gray-900">Full name</dt>
-                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Ahmed Amin</dd>
+                    <dt className="text-sm font-medium leading-6 text-gray-900">UserName</dt>
+                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{auth.userName}</dd>
                   </div>
                   <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt className="text-sm font-medium leading-6 text-gray-900">Studies at</dt>
@@ -29,7 +42,7 @@ const Portfolio = () => {
                   </div>
                   <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt className="text-sm font-medium leading-6 text-gray-900">Email address</dt>
-                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">ahmed@example.com</dd>
+              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{auth.email}</dd>
                   </div>
                   <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt className="text-sm font-medium leading-6 text-gray-900">Identifier</dt>

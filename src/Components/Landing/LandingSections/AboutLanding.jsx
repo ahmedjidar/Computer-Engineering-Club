@@ -1,12 +1,16 @@
 import React from "react";
 import '../../../assets/styles/about.css'
 import dvc from '../../../assets/Images/dvc.png'
+import LandingNavbar from "./LandingNavbar";
 import {Link} from "react-router-dom"
 
+const activeMenu = 'about';
 
-const About = () => {
-    return(
-      
+
+
+const AboutLanding = () => {
+    return(<>
+      <LandingNavbar defaultActiveMenuItem={activeMenu}/>
         <div>
                 <section className="about_section layout_padding">
     <div className="container  ">
@@ -38,15 +42,14 @@ const About = () => {
             </p>
             <Link to='/get-started/login' >
               Get Started
-            </Link>
-          </div>
+            </Link>          </div>
         </div>
       </div>
     </div>
   </section>
         </div>
-        
+        </>
     )
 }
 
-export default About;
+export default AboutLanding;

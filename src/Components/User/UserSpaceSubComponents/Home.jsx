@@ -1,20 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import MembersList from "./HomeSection/MembersList";
 import PostCreation from "./HomeSection/PostCreation";
 import FeedSection from "./HomeSection/FeedSection";
+import getPosts from "/src/utils/getPosts.js"
+import { useDataContext } from "../../../utils/useContext";
 
 const Home = () => {
+
     return(
             <Row>
                 <Col md={8} className="overflow-auto">
                     {/* post creation section */}
-                    <Row>
-                        <PostCreation/>
-                    </Row>
+                    {/* <Row>
+                    </Row> */}
                     {/* feed section */}
-                    <Row>
-                        <FeedSection/>
+                <Row>
+                    <div className="lg:px-[10%]">
+                    <FeedSection   />
+
+                    </div>
                     </Row>
                 </Col>
                 <Col className="sticky top-16 h-full overflow-auto">

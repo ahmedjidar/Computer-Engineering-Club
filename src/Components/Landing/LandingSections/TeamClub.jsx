@@ -2,7 +2,8 @@ import React from 'react';
 import '../../../assets/styles/TeamClub.css';
 import LandingNavbar from './LandingNavbar';
 import pic1 from '../../../assets/Images/GiFamily.jpg';
-import mouadpic from '../../../assets/Images/MouadPic.jpg'
+import mouadpic from '../../../assets/Images/team-2.jpg';
+import hamzapic from '../../../assets/Images/team-4.jpg';
 
 function TeamClub() {
   return (
@@ -15,75 +16,76 @@ function TeamClub() {
 
         </div>
 
-<div class="responsive-container-block outer-container">
-  <div class="responsive-container-block inner-container">
-    <p class="text-blk section-head-text">
+<div className="responsive-container-block outer-container">
+  <div className="responsive-container-block inner-container">
+    <p className="text-blk section-head-text">
       Executive Team Board For 2023/2024
     </p>
-    <p class="text-blk section-subhead-text">
+    <p className="text-blk section-subhead-text">
       The Best is Yet To Come in chaa allah 
     </p>
-    <div class="responsive-container-block">
-      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container">
-        <div class="team-card">
-          <div class="img-wrapper">
-            <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert1.png"/>
+    <div className="responsive-container-block">
+      <div className="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container">
+        <div className="team-card">
+          <div className="img-wrapper">
+            <img className="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert1.png"/>
           </div>
-          <p class="text-blk name">
-            Maxwell Doe
+          <p className="text-blk name">
+            Imane Legsir
           </p>
-          <p class="text-blk position">
-            Instructor
+          <p className="text-blk position">
+            Team Leader
           </p>
-          <div class="social-media-links">
+          <div className="social-media-links">
 
           </div>
         </div>
       </div>
-      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container">
-        <div class="team-card">
-          <div class="img-wrapper">
-            <img class="team-img" src={mouadpic}/>
+      <div className="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container">
+        <div className="team-card">
+          <div className="img-wrapper">
+            <img className="team-img" src={mouadpic}/>
           </div>
-          <p class="text-blk name">
+          <p className="text-blk name">
             KHARTOUCH Mouad
           </p>
-          <p class="text-blk position">
+          <p className="text-blk position">
             Vice Team Leader
           </p>
-          <div class="social-media-links">
+          <div className="social-media-links">
 
           </div>
         </div>
       </div>
-      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container">
-        <div class="team-card">
-          <div class="img-wrapper">
-            <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert1.png"/>
+      <div className="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container">
+        <div className="team-card">
+          <div className="img-wrapper">
+            <img className="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert1.png"/>
           </div>
-          <p class="text-blk name">
-            Maxwell Doe
+          <p className="text-blk name">
+            Person
           </p>
-          <p class="text-blk position">
-            Instructor
+          <p className="text-blk position">
+          general secretary
+
           </p>
-          <div class="social-media-links">
+          <div className="social-media-links">
 
           </div>
         </div>
       </div>
-      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container">
-        <div class="team-card">
-          <div class="img-wrapper">
-            <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
+      <div className="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container">
+        <div className="team-card">
+          <div className="img-wrapper">
+            <img className="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
           </div>
-          <p class="text-blk name">
-            Maxwell Doe
+          <p className="text-blk name">
+            Person
           </p>
-          <p class="text-blk position">
-            Instructor
+          <p className="text-blk position">
+          treasurer
           </p>
-          <div class="social-media-links">
+          <div className="social-media-links">
 
           </div>
         </div>
@@ -91,111 +93,94 @@ function TeamClub() {
 
             {/* -------------- Responsable de Cellules --------------*/}
 
-      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container2">
-        <div class="team-card">
-          <div class="img-wrapper2">
-            <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
+      <div className="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container2">
+        <div className="team-card">
+          <div className="img-wrapper2">
+            <img className="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
           </div>
-          <p class="text-blk name">
-            Maxwell Doe
+          <p className="text-blk name">
+            Person
           </p>
-          <p class="text-blk position">
-            Instructor
+          <p className="text-blk position">
+            Vp Media
           </p>
-          <div class="social-media-links">
-
-          </div>
-        </div>
-      </div>
-
-
-      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container2">
-        <div class="team-card">
-          <div class="img-wrapper2">
-            <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
-          </div>
-          <p class="text-blk name">
-            Maxwell Doe
-          </p>
-          <p class="text-blk position">
-            Instructor
-          </p>
-          <div class="social-media-links">
+          <div className="social-media-links">
 
           </div>
         </div>
       </div>
 
 
-      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container2">
-        <div class="team-card">
-          <div class="img-wrapper2">
-            <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
+      <div className="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container2">
+        <div className="team-card">
+          <div className="img-wrapper2">
+            <img className="team-img" src={hamzapic}/>
           </div>
-          <p class="text-blk name">
-            Maxwell Doe
+          <p className="text-blk name">
+            Khribech Hamza
           </p>
-          <p class="text-blk position">
-            Instructor
+          <p className="text-blk position">
+            Vp. Design
           </p>
-          <div class="social-media-links">
-
-          </div>
-        </div>
-      </div>
-
-
-      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container2">
-        <div class="team-card">
-          <div class="img-wrapper2">
-            <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
-          </div>
-          <p class="text-blk name">
-            Maxwell Doe
-          </p>
-          <p class="text-blk position">
-            Instructor
-          </p>
-          <div class="social-media-links">
-
-          </div>
-        </div>
-      </div>
-
-      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container2">
-        <div class="team-card">
-          <div class="img-wrapper2">
-            <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
-          </div>
-          <p class="text-blk name">
-            Maxwell Doe
-          </p>
-          <p class="text-blk position">
-            Instructor
-          </p>
-          <div class="social-media-links">
+          <div className="social-media-links">
 
           </div>
         </div>
       </div>
 
 
-      <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container2">
-        <div class="team-card">
-          <div class="img-wrapper2">
-            <img class="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
+      <div className="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container2">
+        <div className="team-card">
+          <div className="img-wrapper2">
+            <img className="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
           </div>
-          <p class="text-blk name">
-            Maxwell Doe
+          <p className="text-blk name">
+            Person
           </p>
-          <p class="text-blk position">
-            Instructor
+          <p className="text-blk position">
+            Vp. Logistic
           </p>
-          <div class="social-media-links">
+          <div className="social-media-links">
 
           </div>
         </div>
       </div>
+
+
+      <div className="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container2">
+        <div className="team-card">
+          <div className="img-wrapper2">
+            <img className="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
+          </div>
+          <p className="text-blk name">
+            Person
+          </p>
+          <p className="text-blk position">
+            Vp. Formation
+          </p>
+          <div className="social-media-links">
+
+          </div>
+        </div>
+      </div>
+
+      <div className="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container2">
+        <div className="team-card">
+          <div className="img-wrapper2">
+            <img className="team-img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png"/>
+          </div>
+          <p className="text-blk name">
+            Person
+          </p>
+          <p className="text-blk position">
+            Vp. Redaction
+          </p>
+          <div className="social-media-links">
+
+          </div>
+        </div>
+      </div>
+
 
 
 

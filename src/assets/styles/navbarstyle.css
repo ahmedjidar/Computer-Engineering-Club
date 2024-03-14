@@ -1,7 +1,7 @@
 
 
 .test{
-  background: linear-gradient(130deg, #231a6f, #0f054c);
+  background: rgba(23,37,84,255);
   z-index: 99;
   position: sticky;
 }
