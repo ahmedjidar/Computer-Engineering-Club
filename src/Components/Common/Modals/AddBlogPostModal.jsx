@@ -12,7 +12,7 @@ const AddBlogPostModal = (props) => {
 
     const submitHandler = async (e) => {
     e.preventDefault();
-    // const token = localStorage.getItem('token');
+    // const token = sessionStorage.getItem('token');
     try {
       const formData = new FormData(e.target);
       setLoading(true);
