@@ -1,30 +1,58 @@
 import React, { useEffect, useState } from "react";
 import FullPost from "../BlogPostElements/FullPost";
-import { useSelector } from "react-redux";
-import getPosts from "/src/utils/getPosts.js"
+import { useDataContext } from "../../../../utils/useContext";
+import { fetchPosts } from "../../../../StoreN/blogSlice";
+import PostCreation from "./PostCreation";
+import PostLoader from "../../../Common/Loaders/postLoader";
 
-const FeedSection = ({posts}) => {
-    let p = posts;
+const FeedSection = () => {
+    const {getPosts} =useDataContext();
+     console.log("start in feed section");
     
-     const syncPosts = async() => {
-    //  dispatch(fetchPosts());
-     getPosts().then(posts => {
-         p=posts
-         console.log("new posts:", p);
-      })
-
-        console.log("synced",p)
-       
-}
-    return(
+    const [postData,setPostData]=useState(false)
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        const fetchPost = async () => {
+            setLoading(true)
+            const p = await getPosts();
+            console.log("posts in getposts then", p);
+            setPostData(p);
         
-        <div className="flex flex-col gap-0 ">
+        }
+        fetchPost()
+      .then(() => setLoading(false))
+      .catch(() => {
+      });
+        console.log("posts in feed section", postData)
+        
+        
+    },[])
+    const syncPosts = async () => {
+        console.log("in sync post feed section out",Math.random());
+        setLoading(true)
+        getPosts().then(postts => {
+            console.log("in sync post feed section in", Math.random());
+            setPostData(postts)
+            console.log("new posts:", postData);
+              setLoading(false)
+        }).catch(err => {
+            console.log(err)
+        })
+              setLoading(false)
+       
+    }
+    return (<div className="flex flex-col gap-2">
+           <PostCreation syncPosts={syncPosts}/>
+        
+        {!loading&&postData ?<div  className="flex flex-col gap-0 ">
             
-            {p.slice().reverse().map((post) => {
+            {postData.slice().reverse().map((post) => {
                 return (
                     <FullPost key={post._id} postt={post} syncPosts={syncPosts} />)
-           }) }
-        </div>
+    
+            })}
+            </div>:<PostLoader/>}
+    </div>
     )
 }
 

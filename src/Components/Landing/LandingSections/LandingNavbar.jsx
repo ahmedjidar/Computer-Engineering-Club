@@ -1,23 +1,22 @@
+/* eslint-disable react/no-unknown-property */
 import React, { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import logo from '../../../assets/Images/gi.png';
 import '../../../assets/Styles/navbarstyle.css';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { logout } from "/src/Store/authSlice.js";
+import { useDataContext } from '../../../utils/useContext';
 
 const LandingNavbar = ({ defaultActiveMenuItem }) => {
   const [activeMenuItem, setActiveMenuItem] = useState(defaultActiveMenuItem);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const handleMenuItemClick = (menuItem) => {
     setActiveMenuItem(menuItem);
   };
+const {logout,auth} =useDataContext();
 
-  const auth = useSelector(state => state.auth);
-  console.log(auth);
+  console.log("in landing page",auth);
 
   return (
     <div className='test'>
@@ -73,7 +72,7 @@ const LandingNavbar = ({ defaultActiveMenuItem }) => {
                   <li className={`nav-item ${activeMenuItem === 'login' ? 'active' : ''}`}>
                     <div className="nav-link" onClick={() => {
                       handleMenuItemClick('logout');
-                      return dispatch(logout());
+                      return logout();
                     }}>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                       <span style={{ marginRight: '8px' , cursor : 'pointer'}} className='d-flex flex-row'>Logout

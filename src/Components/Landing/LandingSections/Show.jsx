@@ -61,6 +61,7 @@ function Show() {
             <div className="hero-text">
                 <h1>{text}</h1>
                 <p>Live Your Best Experiences</p>
+
                 <button className="btn-default" onClick={navigateToLogin}>
       Explore
     </button>
@@ -68,7 +69,7 @@ function Show() {
             </div>
 
             <svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="-300 0 950 270" >
-              <path d="M-314,267 C105,364 400,100 812,279" fill="none" stroke="white" stroke-width="120" stroke-linecap="round"/>
+              <path d="M-314,267 C105,364 400,100 812,279" fill="none" stroke="white" strokeWidth="120" strokeLinecap="round"/>
             </svg>
         </div>
 

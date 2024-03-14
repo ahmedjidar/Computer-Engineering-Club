@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import layers from '../../assets/Images/layers.png'
-import { useSelector } from "react-redux";
-import { login } from "../../Store/authSlice";
-import { useDispatch } from "react-redux";
+import { useDataContext } from "../../utils/useContext";
+
 const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
 const Login = () => {
-  const dispatch = useDispatch();
-const auth = useSelector(state => state.auth);
-  console.log(auth.hi);
+const {setLogin,auth} =useDataContext();
   const [err, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
@@ -50,9 +47,8 @@ const auth = useSelector(state => state.auth);
           setError('');
           setLoading(false);
           setMsg("You loged in successfully!");
-          const loginData = { userId: data.id, userName: data.userName, email: data.email,userImg:data.userImg, token: data.token, isAdmin: data.isAdmin };
-          console.log(loginData)
-          dispatch(login(loginData));
+          // const loginData = { userId: data.id, userName: data.userName, email: data.email, userImg: data.userImg, token: data.token, isAdmin: data.isAdmin };
+           setLogin(data.id,data.userName,data.email,data.userImg,data.token,data.isAdmin)
           setTimeout(() => {
             navigate('/');
           }, 2000);
