@@ -4,14 +4,23 @@ import courses from '../../../../Constants/courses';
 
 const CourseDetailsComponent = () => {
   const { id } = useParams();
-  const selectedCourse = courses.find(course => course.id === id);
+  let selectedCourse;
+
+  for (let category in courses) {
+    const course = courses[category].find(course => course.id === id);
+    
+    if (course) {
+      selectedCourse = course;
+      break;
+    }
+  }
 
   return (
     <div className='p-4'>
       {selectedCourse && (
         <div>
           <p className='text-xl font-semibold'>{selectedCourse.title}</p>
-          {/* display related content (exams, practicals, etc.) for this course */}
+          {/* display related content assi khalil (exams, practicals, etc.) for this course */}
         </div>
       )}
     </div>
@@ -19,3 +28,4 @@ const CourseDetailsComponent = () => {
 };
 
 export default CourseDetailsComponent;
+

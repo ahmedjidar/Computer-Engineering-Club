@@ -21,13 +21,13 @@ export const DataProvider = ({ children }) => {
     isAdmin: null,
   });
   const initiateLogin = () => {
-    const isLogged = window.localStorage.getItem("isLogged") === "true"; // Convert to boolean
-    const userId = window.localStorage.getItem("userId") || null; // Convert to boolean
-    const userImg = window.localStorage.getItem("userImg");
-    const userName = window.localStorage.getItem("userName");
-    const email = window.localStorage.getItem("email");
-    const token = window.localStorage.getItem("token");
-    const isAdmin = window.localStorage.getItem("isAdmin");
+    const isLogged = window.sessionStorage.getItem("isLogged") === "true"; // Convert to boolean
+    const userId = window.sessionStorage.getItem("userId") || null; // Convert to boolean
+    const userImg = window.sessionStorage.getItem("userImg");
+    const userName = window.sessionStorage.getItem("userName");
+    const email = window.sessionStorage.getItem("email");
+    const token = window.sessionStorage.getItem("token");
+    const isAdmin = window.sessionStorage.getItem("isAdmin");
 
     // Set the authentication data in state
     setAuth({
@@ -51,13 +51,13 @@ export const DataProvider = ({ children }) => {
       email: email,
       isAdmin: isAdmin,
     });
-    window.localStorage.setItem("token", token);
-    window.localStorage.setItem("userId", userId);
-    window.localStorage.setItem("userImg", userImg);
-    window.localStorage.setItem("userName", userName);
-    window.localStorage.setItem("email", email);
-    window.localStorage.setItem("isAdmin", isAdmin);
-    window.localStorage.setItem("isLogged", true);
+    window.sessionStorage.setItem("token", token);
+    window.sessionStorage.setItem("userId", userId);
+    window.sessionStorage.setItem("userImg", userImg);
+    window.sessionStorage.setItem("userName", userName);
+    window.sessionStorage.setItem("email", email);
+    window.sessionStorage.setItem("isAdmin", isAdmin);
+    window.sessionStorage.setItem("isLogged", true);
   };
   const logout = async () => {
     setAuth({
@@ -69,16 +69,16 @@ export const DataProvider = ({ children }) => {
       token: "",
       isAdmin: false,
     });
-    localStorage.removeItem("token");
-    localStorage.removeItem("userId");
-    localStorage.removeItem("userImg");
-    localStorage.removeItem("userName");
-    localStorage.removeItem("email");
-    localStorage.removeItem("isAdmin");
-    localStorage.removeItem("isLogged");
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("userId");
+    sessionStorage.removeItem("userImg");
+    sessionStorage.removeItem("userName");
+    sessionStorage.removeItem("email");
+    sessionStorage.removeItem("isAdmin");
+    sessionStorage.removeItem("isLogged");
   };
   const getauth = async () => {
-    const status = (await window.localStorage.getItem("status")) === "true";
+    const status = (await window.sessionStorage.getItem("status")) === "true";
     return status;
   };
   const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
@@ -112,7 +112,7 @@ export const DataProvider = ({ children }) => {
   const getUser = async (id) => {
     console.log("start in fetch user with id:",id)
     try {
-      const response = await fetch(apiUrl + "/user/" + id);
+      const response = await fetch(apiUrl + "/user/" + id+"/get");
 
       if (!response.ok) {
         console.log("err ok");
@@ -133,7 +133,7 @@ export const DataProvider = ({ children }) => {
   const getUsers = async () => {
     console.log("start in fetch users:",)
     try {
-      const response = await fetch(apiUrl + "/user/all");
+      const response = await fetch(apiUrl + "/user/users/all");
 
       if (!response.ok) {
         console.log("err ok");
@@ -151,30 +151,123 @@ export const DataProvider = ({ children }) => {
       console.log(err);
     }
   };
-  //  const acceptUser = async ( userId) => {
-  //   console.log("start in do like");
-  //   try {
-  //     // setLoading(true);
-  //     const response = await fetch(
-  //       apiUrl + "/admin/post/" + postId + "?uId=" + userId,
-  //       {
-  //         method: "POST",
-  //       }
-  //     );
+   const acceptUser = async ( id) => {
+    console.log("start in do like");
+    try {
+      // setLoading(true);
+      const response = await fetch(
+        apiUrl + "/admin/user/"+id+"/accept",
+        {
+          method: "POST",
+        }
+      );
 
-  //     if (!response.ok) {
-  //       console.log("err ok");
-  //     } else {
-  //       const data = await response.json();
-  //       if (data.success === true) {
-  //         console.log("added in do like");
-  //         // syncPosts();
-  //       }
-  //     }
-  //   } catch (error) {
-  //     console.log("fetch problem" + error);
-  //   }
-  // };
+      if (!response.ok) {
+        console.log("err ok");
+      } else {
+        const data = await response.json();
+        if (data.success === true) {
+          console.log("accepted user ");
+        }
+      }
+    } catch (error) {
+      console.log("fetch problem" + error);
+    }
+  };
+   const refuseUser = async ( id) => {
+    console.log("start in do like");
+    try {
+      // setLoading(true);
+      const response = await fetch(
+        apiUrl + "/admin/user/"+id+"/refuse",
+        {
+          method: "POST",
+        }
+      );
+
+      if (!response.ok) {
+        console.log("err ok");
+      } else {
+        const data = await response.json();
+        if (data.success === true) {
+          console.log("accepted user ");
+        }
+      }
+    } catch (error) {
+      console.log("fetch problem" + error);
+    }
+  };
+  // ===
+  const refusePost = async ( id) => {
+    console.log("start in do like");
+    try {
+      // setLoading(true);
+      const response = await fetch(
+        apiUrl + "/admin/post/"+id+"/refuse",
+        {
+          method: "POST",
+        }
+      );
+
+      if (!response.ok) {
+        console.log("err ok");
+      } else {
+        const data = await response.json();
+        if (data.success === true) {
+          console.log("accepted user ");
+        }
+      }
+    } catch (error) {
+      console.log("fetch problem" + error);
+    }
+  };
+  const acceptPost = async ( id) => {
+    console.log("start in do like");
+    try {
+      // setLoading(true);
+      const response = await fetch(
+        apiUrl + "/admin/post/"+id+"/accept",
+        {
+          method: "POST",
+        }
+      );
+
+      if (!response.ok) {
+        console.log("err ok");
+      } else {
+        const data = await response.json();
+        if (data.success === true) {
+          console.log("accepted user ");
+        }
+      }
+    } catch (error) {
+      console.log("fetch problem" + error);
+    }
+  };
+   const deletePost = async ( id) => {
+    console.log("start in do like");
+    try {
+      // setLoading(true);
+      const response = await fetch(
+        apiUrl + "/admin/post/"+id+"/delete",
+        {
+          method: "POST",
+        }
+      );
+
+      if (!response.ok) {
+        console.log("err ok");
+      } else {
+        const data = await response.json();
+        if (data.success === true) {
+          console.log("accepted user ");
+        }
+      }
+    } catch (error) {
+      console.log("fetch problem" + error);
+    }
+  };
+  // ====
   const doLike = async (postId, userId) => {
     console.log("start in do like");
     try {
@@ -258,6 +351,12 @@ const doreplyLike = async (postId,commentId,replyId,userId) => {
       value={{
         auth,
         getPosts,
+        acceptPost,
+        refusePost,
+        getUsers,
+        deletePost,
+        acceptUser,
+        refuseUser,
         getUser,
         doCommentLike,
         doreplyLike,
