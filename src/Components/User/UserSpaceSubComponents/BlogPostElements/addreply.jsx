@@ -10,7 +10,7 @@ export function AddRepley({userImg,syncPosts,userId,postId,commentId }) {
   
   const submitHandler = async (e) => {
     e.preventDefault();
-    // const token = sessionStorage.getItem('token');
+    // const token = localStorage.getItem('token');
     try {
       const formData = new FormData(e.target);
        console.log("add coment forndata",formData)

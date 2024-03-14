@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import LandingRouting from './Landing/LandingRouting'
 import AuthRouting from './Authentification/AuthRouting'
 import UserHomeRouting from './User/UserHomeRouting'
+import UserSpaceProvider from "./User/securityProviders/UserSpaceProvider";
 
 const GeneralRoutes = () => {
 
@@ -16,7 +17,7 @@ const GeneralRoutes = () => {
             <Route path="get-started/*" element={<AuthRouting/>}/>
 
             {/* default route */}
-            <Route path="user/*" element={<UserHomeRouting/>}/>
+            <Route path="user/*" element={<UserSpaceProvider><UserHomeRouting/></UserSpaceProvider>}/>
             
         </Routes>
         </div>

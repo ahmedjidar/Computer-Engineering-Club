@@ -16,7 +16,7 @@ const PostCreation = ({syncPosts}) => {
 
      const submitHandler = async (e) => {
     e.preventDefault();
-    // const token = sessionStorage.getItem('token');
+    // const token = localStorage.getItem('token');
     try {
       const formData = new FormData(e.target);
       setLoading(true);

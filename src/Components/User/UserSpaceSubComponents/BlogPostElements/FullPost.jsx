@@ -7,93 +7,12 @@ import { useDataContext } from "../../../../utils/useContext";
 import { formatDate } from "../../../../utils/timeFormater";
 const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
-// function formatDate(inputDate) {
-//   const options = {
-//     day: "numeric",
-//     month: "long",
-//     hour: "numeric",
-//     minute: "numeric",
-//     timeZoneName: "short",
-//   };
-//   const date = new Date(inputDate);
-//   const formattedDate = date.toLocaleDateString("en-US", options);
-//   return formattedDate;
-// }
-
-// const demoComments = [
-//   {
-//     id: 1,
-//     user: {
-//       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHjjX6Sq1VDru7NmOo5f1T6N5ls9gCILFMeg&usqp=CAU",
-//       name: "Hamza kharatich",
-//     },
-//     comment: {
-//       text: "akhoya wlh manmonter makn3refch l design ana😂",
-//       date: "Nov.29,2010",
-//       likes: 20,
-//     },
-//   },
-//   {
-//     id: 1,
-//     user: {
-//       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHjjX6Sq1VDru7NmOo5f1T6N5ls9gCILFMeg&usqp=CAU",
-//       name: "mohamed kharatich",
-//     },
-//     comment: {
-//       text: "madert walo a mr knt saket how li jbadni ama ana kent mtabe3 walakin dakxi rah mofid machi ze3ma ola chi haja🫣",
-//       date: "Nov.29,2010",
-//       likes: 1,
-//     },
-//   },
-//   {
-//     id: 1,
-//     user: {
-//       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHjjX6Sq1VDru7NmOo5f1T6N5ls9gCILFMeg&usqp=CAU",
-//       name: "khalil 3en9ni",
-//     },
-//     comment: {
-//       text: " deal with it bro hna nass dyl E-commerce odakxi deal with it ana  bdit 7yati b 1 milion lxher bdit bohdi oknt knfi9 bohdi kola nhar okanfter ",
-//       date: "Nov.29,2010",
-//       likes: 2,
-//     },
-//   },
-//   {
-//     id: 1,
-//     user: {
-//       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHjjX6Sq1VDru7NmOo5f1T6N5ls9gCILFMeg&usqp=CAU",
-//       name: "hmed jidar",
-//     },
-//     comment: {
-//       text: "hadouk lklaab haydo mn tema 333 3aw 3aw  wlh wnxed xi wahd tanaklo",
-//       date: "Nov.29,2010",
-//       likes: 10,
-//     },
-//   },
-// ];
-
-// const demoPostData =
-//   {
-//       user: { name: "user", img: "" },
-//       post: {
-//       date: "",
-//       text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-//           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-//           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-//           aliquip ex ea commodo consequat. Duis aute irure dolor in
-//           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-//           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-//           culpa qui officia deserunt mollit anim id est laborum.`,
-//       imgs:["https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg","https://www.referenseo.com/wp-content/uploads/2019/03/image-attractive.jpg","https://aprimariavsg.com/wp-content/uploads/2019/10/escola-de-salut-768x435.jpg"],
-//       likes: 99,
-//       comments: demoComments,
-//       },
-//   };
 
 const FullPost = ({ postt, syncPosts }) => {
   
   const { auth, doLike } = useDataContext();
   const post = postt ? postt : {};
-  const postOwner = post.postowner;
+  // const postOwner = ;
   console.log("post in full", post);
 
   const [addComment, setAddComment] = useState(false);
@@ -116,7 +35,11 @@ const FullPost = ({ postt, syncPosts }) => {
   //   syncPosts().then(res =>
   //   console.log("res"));
   // }, [post]);
+  const postowner = post.postowner;
 
+  console.log('post owner==================================', postowner)
+  console.log('post owner==================================', postowner&&postowner.image)
+  console.log('post owner==================================', postowner&&postowner.name)
   const setLlike = () => {
     doLike(post._id, auth.userId);
     setLike((prevLike) => !prevLike);
@@ -127,13 +50,13 @@ const FullPost = ({ postt, syncPosts }) => {
       <div className="gap-2 mb-[rem] p-4 h-fit ">
         <div className="w-full bg-white ring-1 ring-gray-300 rounded">
           <div className="flex gap-2 items-center justify-start p-4">
-            <img
+           {postowner? <img
               className="w-12 h-12 rounded-full object-cover"
-              src={apiUrl + "/" + postOwner.image}
-            />
+              src={apiUrl + "/" +postowner.image}
+              />:<p>prblm</p>}
             <div>
               <p className="block font-medium text-base leading-snug text-gray-900 ">
-                {postOwner.name + " " + postOwner.familyName}
+                {postowner && postowner.name}&nbsp;{postowner&&postowner.familyName}
               </p>
               <p className="block text-sm text-gray-500 font-light">
                 {formatDate(post.createdAt)}
