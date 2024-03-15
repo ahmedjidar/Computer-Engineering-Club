@@ -94,10 +94,10 @@ const UserFeedback = () => {
               </div>
               <div className="ml-6 grow">
                 <p className="mb-2 font-bold dark:text-black">
-                  Sales questions
+                  FAQ questions
                 </p>
                 <p className="text-neutral-500 dark:text-neutral-500">
-                  sales@example.com
+                  qst@example.com
                 </p>
                 <p className="text-neutral-500 dark:text-neutral-500">
                   +1 234-567-89
