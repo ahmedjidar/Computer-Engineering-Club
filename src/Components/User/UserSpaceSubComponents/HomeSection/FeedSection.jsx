@@ -10,13 +10,14 @@ const FeedSection = () => {
      console.log("start in feed section");
     
     const [postData,setPostData]=useState(false)
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         const fetchPost = async () => {
             setLoading(true)
             const p = await getPosts();
+            const filteredPosts = p.filter(post => post.public === true);
             console.log("posts in getposts then", p);
-            setPostData(p);
+            setPostData(filteredPosts);
         
         }
         fetchPost()

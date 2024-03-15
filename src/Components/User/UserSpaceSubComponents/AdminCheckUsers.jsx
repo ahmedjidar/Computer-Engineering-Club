@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { useDataContext } from "../../../utils/useContext";
 import { formatDate } from "../../../utils/timeFormater";
 import { ImageSwiper } from "./BlogPostElements/imgeSlider";
+import UserModal from "./userModal";
 const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
 function getNumberOfPages(rowCount, rowsPerPage) {
@@ -24,45 +25,20 @@ function toPages(pages) {
   return results;
 }
 
-// const data = [
+function confirmDelete(text) {
+    // Prompt the user for confirmation and store the result
+    const userInput = prompt("To confirm deletion, please enter '"+ text+"'");
 
-//     {
-//         id: 1,
-//         title: "mouad",
-//         Description: "2222",
-//         created_at: "xyrtudazadzadzadzzadzadzadz",
-//         posterImages: "zdaadzadzazadzadz",
-//         status: "Pending"
-
-//       },
-//       {
-//         id: 2,
-//         title: "hamza",
-//         Description: "2222",
-//         created_at: "xyrtuyuhnj,ma",
-//         posterImages: "zdaadzadzazadzadz",
-//         status: "Pending"
-
-//       },
-//       {
-//         id: 3,
-//         title: "khalil",
-//         Description: "2222",
-//         created_at: "xyrtuyuadzadzadza",
-//         posterImages: "zdaadzadzazadzadz",
-//         status: "Pending"
-
-//       },
-//       {
-//         id: 4,
-//         title: "ahmed",
-//         Description: "2222",
-//         created_at: "xyrtuyuhadzadzadza",
-//         posterImages: "zdaadzadzazadzadz",
-//         status: "Pending"
-//       },
-
-//     ]
+    // Check if the user input matches the expected string
+    if (userInput === text) {
+        // If the input matches, return true
+        return true;
+    } else {
+        // If the input does not match, show an alert and return false
+        alert("Incorrect input. Please try again.");
+        return false;
+    }
+}
 
 const BootyCheckbox = React.forwardRef(({ onClick, ...rest }, ref) => (
   <div className="form-check">
@@ -238,12 +214,12 @@ function AdminCheckUsers() {
   const handleRowAccept = async(row) => {
 
     console.log(row._id, row);
-    const fetchPost = async () => {
+    const accepting = async () => {
       const p = await acceptUser(row._id);
       // console.log("posts in getposts then", p);
       // setPostData(p);
     };
-    fetchPost()
+    accepting()
       .then(() => console.log("xi haja"))
       .catch(() => { });
     setTimeout(() => {
@@ -263,12 +239,12 @@ function AdminCheckUsers() {
   };
   const handleRowRefuse = (row) => {
 
-    const fetchPost = async () => {
+    const refusing = async () => {
       const p = await refuseUser(row._id);
       // console.log("posts in getposts then", p);
       // setPostData(p);
     };
-    fetchPost()
+    refusing()
       .then(() => console.log("xi haja"))
       .catch(() => {});
     setTimeout(() => {
@@ -286,12 +262,13 @@ function AdminCheckUsers() {
   };
   const handleRowDelete = (row) => {
 
-    const fetchPost = async () => {
+    const deleting = async () => {
       const p = await deleteUser(row._id);
       // console.log("posts in getposts then", p);
       // setPostData(p);
     };
-    fetchPost()
+    if (confirmDelete('I am sure i want to delete ' + row.name)) {
+      deleting()
       .then(() => console.log("xi haja"))
       .catch(() => {});
       setTimeout(() => {
@@ -306,6 +283,8 @@ function AdminCheckUsers() {
      setTimeout(() => {
       syncPosts();
     }, 2000);
+    }
+    
   };
   //  console.log("start in feed section");
 
@@ -363,7 +342,7 @@ function AdminCheckUsers() {
   return (
     <>
       <div className=" mt-5">
-        <h1 className="text-center mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl ">
+        <h1 className="text-center mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl  ">
           Check Pending Posts
         </h1>
         
@@ -413,93 +392,10 @@ function AdminCheckUsers() {
                     aria-label="Close"
                   ></button>
                 </div>
-                <div className="modal-body">
+                <div className="modal-body min-h-[500px] w-[100%]">
                   {selectedRow && (
                     <>
-                      <div className="gap-2 mb-[rem] p-4 h-fit ">
-                        <div className="w-full bg-white ring-1 ring-gray-300 rounded">
-                          <div className="flex gap-2 items-center justify-start p-4">
-                            <img
-                              className="w-12 h-12 rounded-full object-cover"
-                              src={apiUrl + "/" + selectedRow.postowner.image}
-                            />
-                            <div>
-                              <p className="block font-medium text-base leading-snug text-gray-900 ">
-                                {selectedRow.postowner.name +
-                                  " " +
-                                  selectedRow.postowner.familyName}
-                              </p>
-                              <p className="block text-sm text-gray-500 font-light">
-                                {formatDate(selectedRow.createdAt)}
-                              </p>
-                            </div>
-                          </div>
-                          <p className="text-gray-800 font-bold  leading-snug md:leading-normal px-3">
-                            |{selectedRow.title}|
-                          </p>
-                          <p className="text-gray-700 leading-snug md:leading-normal p-3">
-                            {selectedRow.content}
-                          </p>
-                          {selectedRow.images &&
-                            selectedRow.images.length > 0 && (
-                              <ImageSwiper
-                                images={
-                                  selectedRow.images && selectedRow.images
-                                }
-                              />
-                            )}
-                          <div>
-                            <div className="px-2 flex justify-between items-center text-sm text-gray-400 mt-5 py-2">
-                              <div>{selectedRow.likes.length} likes</div>
-                              <div className="ml-1  font-light">
-                                {selectedRow.comments &&
-                                  selectedRow.comments.length}{" "}
-                                commentaires
-                              </div>
-                            </div>
-                            <hr className="" />
-                            <div className="flex  items-center ">
-                              <div
-                                className={`w-1/2 p-2 text-center border-r-2 cursor-pointer  flex items-center justify-center 
-            }`}
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  strokeWidth="01.5"
-                                  stroke="currentColor"
-                                  className="w-6 h-6 p-0 m-0"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
-                                  />
-                                </svg>
-                                Like
-                              </div>
-                              <div className="w-1/2 p-2 text-center cursor-pointer  flex items-center justify-center">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  strokeWidth={1.5}
-                                  stroke="currentColor"
-                                  className="w-6 h-6"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 0 1 1.037-.443 48.282 48.282 0 0 0 5.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z"
-                                  />
-                                </svg>
-                                Comment
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      <UserModal id={selectedRow._id} />
                     </>
                   )}
                 </div>

@@ -14,7 +14,20 @@ const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 function getNumberOfPages(rowCount, rowsPerPage) {
   return Math.ceil(rowCount / rowsPerPage);
 }
+function confirmDelete(text) {
+    // Prompt the user for confirmation and store the result
+    const userInput = prompt("To confirm deletion, please enter '"+ text+"'");
 
+    // Check if the user input matches the expected string
+    if (userInput === text) {
+        // If the input matches, return true
+        return true;
+    } else {
+        // If the input does not match, show an alert and return false
+        alert("Incorrect input. Please try again.");
+        return false;
+    }
+}
 function toPages(pages) {
   const results = [];
 
@@ -94,19 +107,27 @@ function AdminCheckPosts() {
       sortable: true,
       maxWidth: "300px",
     },
+      {
+      name: "img",
+      selector: (row) => row.images[0]?'Yes':'No',
+      sortable: true,
+      maxWidth: "100px",
+    },
     {
       name: "content",
       selector: (row) => row.content && row.content,
       sortable: true,
-      maxWidth: "500px",
+      maxWidth: "650px",
       // cell: (row) => (
       //   <span title={row.content} style={{ lineHeight: "1.1" }}>{row.content}</span>
       // ),
     },
     {
-      name: "createdAt",
+      name: "time",
       selector: (row) => formatDate(row.createdAt),
       sortable: true,
+      maxWidth: "100px",
+
     },
     {
       name: "likes",
@@ -218,18 +239,43 @@ function AdminCheckPosts() {
  const [postsData, setPostData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedRow, setSelectedRow] = useState(null); // Add state for selected row
+  
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertResult, setAlertResult] = useState(null);
+
+  const handleAlertConfirm = (result) => {
+    setAlertResult(result);
+    setShowAlert(false);
+  };
+
+  const handleButtonClick = () => {
+    setShowAlert(true);
+  };
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   const handleRowDetails = (row) => {
     setSelectedRow(row);
   };
   const handleRowAccept = async(row) => {
 
     console.log(row._id, row);
-    const fetchPost = async () => {
+    const accepting = async () => {
       const p = await acceptPost(row._id);
       // console.log("posts in getposts then", p);
       // setPostData(p);
     };
-    fetchPost()
+       accepting()
       .then(() => console.log("xi haja"))
       .catch(() => { });
      setTimeout(() => {
@@ -244,6 +290,8 @@ function AdminCheckPosts() {
      setTimeout(() => {
       syncPosts();
     }, 2000);
+    
+   
 
    
   };
@@ -272,15 +320,17 @@ function AdminCheckPosts() {
   };
   const handleRowDelete = (row) => {
 
-    const fetchPost = async () => {
+    const deleting = async () => {
       const p = await deletePost(row._id);
       // console.log("posts in getposts then", p);
       // setPostData(p);
     };
-    fetchPost()
+   
+    if (confirmDelete('I am sure About deleting it')) {
+       deleting()
       .then(() => console.log("xi haja"))
-      .catch(() => {});
-      setTimeout(() => {
+      .catch(() => { });
+     setTimeout(() => {
       syncPosts();
       }, 200);
       setTimeout(() => {
@@ -292,6 +342,7 @@ function AdminCheckPosts() {
      setTimeout(() => {
       syncPosts();
     }, 2000);
+    }
   };
   //  console.log("start in feed section");
 
@@ -345,8 +396,9 @@ function AdminCheckPosts() {
 
   return (
     <>
+      
       <div className="container mt-5">
-        <h1 className="text-center mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+        <h1 className="text-center mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
           Check Pending Posts
         </h1>
         
@@ -384,9 +436,9 @@ function AdminCheckPosts() {
           subHeaderAlign="left"
         />
       
-          <div className="modal" tabIndex="-1" id="myModal">
+          <div className="modal w-screen " tabIndex="-1" id="myModal">
             {/* Modify the modal content based on the selected row */}
-            <div className="modal-dialog">
+            <div className="modal-">
               <div className="modal-content">
                 <div className="modal-header">
                   <button

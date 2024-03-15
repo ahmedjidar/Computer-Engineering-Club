@@ -4,12 +4,12 @@ import pfp from "../../../assets/Images/pfp.png";
 import { useDataContext } from "../../../utils/useContext";
 const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
-const Portfolio = () => {
+const UserModal = ({id}) => {
   const { getUser } = useDataContext();
   const { auth } = useDataContext();
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
-  const userId = window.localStorage.getItem('userId');
+  const userId = id;
     console.log('start in portfolio with useiD is ',userId)
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const Portfolio = () => {
     fetchUser();
     }
 
-  }, []);
+  }, [id]);
 
   // const [userProfileData, setUserProfileData] = useState();
 
@@ -166,4 +166,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default UserModal;

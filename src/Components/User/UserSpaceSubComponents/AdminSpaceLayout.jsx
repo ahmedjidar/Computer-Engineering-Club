@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useState, useEffect } from "react";
@@ -34,7 +35,7 @@ const AdminSpaceLayout = () => {
                 {/* toggle sidebar based on the screen size */}
                 {isSmallScreen && (
                     <div className="absolute z-[50] w-fit">
-                    <div className="w-full flex items-center justify-start bg-indigo-50 p-2">
+                    <div className="w-full flex items-center justify-start bg-transparent p-2">
                         
                         <button className="flex  items-center text-white bg-indigo-600 hover:bg-indigo-700 p-2 hover:py-4 hover:transition-all rounded" onClick={toggleSidebar}>
                             {!showSidebar ? 
@@ -54,7 +55,7 @@ const AdminSpaceLayout = () => {
                     </div>
                     </div>
                 )}
-                <div  md={3} className={`overflow-y-auto absolute w-full md:w-[30%] top-[10%] pt-[50px] h-full border border-gray-800 bg-white shadow-sm ${isSmallScreen && !showSidebar ? 'hidden' : 'block z-20'}`} >
+                <div  md={3} className={`overflow-y-auto absolute w-full md:w-[30%] top-[5%] pt-[50px] h-full border border-gray-800 bg-white shadow-sm ${isSmallScreen && !showSidebar ? 'hidden' : 'block z-20'}`} >
                     <AdminSidebar setShowSidebar={setShowSidebar}/>
                 </div>
 
