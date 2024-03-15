@@ -6,13 +6,18 @@ import PostCreation from "./PostCreation";
 import PostLoader from "../../../Common/Loaders/postLoader";
 
 const FeedSection = () => {
-    const {getPosts} =useDataContext();
+    const {getPosts,auth} =useDataContext();
      console.log("start in feed section");
-    
+    const A = window.localStorage.getItem("A") === 'true';
     const [postData,setPostData]=useState(false)
     const [loading, setLoading] = useState(true);
+    const [active, setActive] = useState(A);
+    console.log(A)
     useEffect(() => {
-        const fetchPost = async () => {
+        if(!active){setLoading(false)}
+        if (active) {
+            setActive(true);
+             const fetchPost = async () => {
             setLoading(true)
             const p = await getPosts();
             const filteredPosts = p.filter(post => post.public === true);
@@ -26,6 +31,9 @@ const FeedSection = () => {
       });
         console.log("posts in feed section", postData)
         
+        }
+        
+       
         
     },[])
     const syncPosts = async () => {
@@ -42,18 +50,23 @@ const FeedSection = () => {
               setLoading(false)
        
     }
-    return (<div className="flex flex-col gap-2">
+    return (
+        <div>
+              {active?<> 
+        <div className="flex flex-col gap-2">
            <PostCreation syncPosts={syncPosts}/>
         
         {!loading&&postData ?<div  className="flex flex-col gap-0 ">
-            
+        
             {postData.slice().reverse().map((post) => {
                 return (
                     <FullPost key={post._id} postt={post} syncPosts={syncPosts} />)
     
             })}
             </div>:<PostLoader/>}
-    </div>
+            </div></>
+                : <p className="p-[100px] font-semibold"> you are not accepted yet wait until we will accept your join request ,after checking your informations</p>}
+            </div>
     )
 }
 

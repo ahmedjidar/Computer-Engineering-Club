@@ -18,7 +18,8 @@ const UserHomeRouting = () => {
                 <Route index path="/" element={<UserSpaceLayout/>}/>
                 <Route path="/myspace/*" element={<UserSpaceLayout/>}/>
                 {/* <Route path="/admin-space/*" element={<AdminSpaceLayout/>} /> */}
-                <Route path="/admin-space/*" element={<AdminSpaceProvider><AdminSpaceLayout/></AdminSpaceProvider>}>
+                {/* <Route path="/admin-space/*" element={<AdminSpaceProvider><AdminSpaceLayout/></AdminSpaceProvider>}> */}
+                <Route path="/admin-space/*" element={<AdminSpaceLayout/>}>
                     <Route index element={<AdminHome/>} />       
                      <Route path="check-posts" element={<AdminCheckPosts/>} />
                     <Route path="check-users" element={<AdminCheckUsers/>} />

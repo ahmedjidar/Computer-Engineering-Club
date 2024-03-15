@@ -456,13 +456,13 @@ function AdminCheckPosts() {
                           <div className="flex gap-2 items-center justify-start p-4">
                             <img
                               className="w-12 h-12 rounded-full object-cover"
-                              src={apiUrl + "/" + selectedRow.postowner.image}
+                              src={apiUrl + "/" + selectedRow.postowner&&selectedRow.postowner.image}
                             />
                             <div>
                               <p className="block font-medium text-base leading-snug text-gray-900 ">
-                                {selectedRow.postowner.name +
+                                {selectedRow.postowner&&selectedRow.postowner.name +
                                   " " +
-                                  selectedRow.postowner.familyName}
+                                 selectedRow.postowner&&selectedRow.postowner.familyName}
                               </p>
                               <p className="block text-sm text-gray-500 font-light">
                                 {formatDate(selectedRow.createdAt)}
