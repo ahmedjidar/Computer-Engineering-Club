@@ -48,7 +48,7 @@ const {setLogin,auth} =useDataContext();
           setLoading(false);
           setMsg("You loged in successfully!");
           // const loginData = { userId: data.id, userName: data.userName, email: data.email, userImg: data.userImg, token: data.token, isAdmin: data.isAdmin };
-          setLogin(data.id, data.userName, data.email, data.userImg, data.token, data.isAdmin)
+          setLogin(data.id, data.userName, data.email, data.userImg, data.token, data.isAdmin,data.active)
           console.log("start in lpgin infos",data)
           setTimeout(() => {
             navigate('/');

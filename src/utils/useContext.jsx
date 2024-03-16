@@ -19,6 +19,7 @@ export const DataProvider = ({ children }) => {
     userImg: null,
     email: null,
     isAdmin: null,
+    A: false,
   });
   const initiateLogin = () => {
     const isLogged = window.localStorage.getItem("isLogged") === "true"; // Convert to boolean
@@ -28,6 +29,7 @@ export const DataProvider = ({ children }) => {
     const email = window.localStorage.getItem("email");
     const token = window.localStorage.getItem("token");
     const isAdmin = window.localStorage.getItem("isAdmin");
+    const A = window.localStorage.getItem("A");
 
     // Set the authentication data in state
     setAuth({
@@ -38,10 +40,11 @@ export const DataProvider = ({ children }) => {
       userImg: userImg,
       email: email,
       isAdmin: isAdmin,
+      A: A,
     });
   };
-  const setLogin = async (userId, userName, email, userImg, token, isAdmin) => {
-    console.log("in usecontext setLogin",userId, userName, email, userImg, token, isAdmin);
+  const setLogin = async (userId, userName, email, userImg, token, isAdmin,A) => {
+    console.log("in usecontext setLogin",userId, userName, email, userImg, token, isAdmin,A);
     setAuth({
       isLogged: true,
       userId: userId,
@@ -50,7 +53,9 @@ export const DataProvider = ({ children }) => {
       userImg: userImg,
       email: email,
       isAdmin: isAdmin,
+      A:A,
     });
+    localStorage.clear();
     window.localStorage.setItem("token", token);
     window.localStorage.setItem("userId", userId);
     window.localStorage.setItem("userImg", userImg);
@@ -58,6 +63,7 @@ export const DataProvider = ({ children }) => {
     window.localStorage.setItem("email", email);
     window.localStorage.setItem("isAdmin", isAdmin);
     window.localStorage.setItem("isLogged", true);
+    window.localStorage.setItem("A", A);
   };
   const logout = async () => {
     setAuth({
@@ -68,6 +74,7 @@ export const DataProvider = ({ children }) => {
       email: "",
       token: "",
       isAdmin: false,
+      A: false,
     });
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
@@ -76,6 +83,7 @@ export const DataProvider = ({ children }) => {
     localStorage.removeItem("email");
     localStorage.removeItem("isAdmin");
     localStorage.removeItem("isLogged");
+    localStorage.removeItem("A");
   };
   const getauth = async () => {
     const status = (await window.localStorage.getItem("status")) === "true";
@@ -175,7 +183,7 @@ export const DataProvider = ({ children }) => {
     }
   };
    const refuseUser = async ( id) => {
-    console.log("start in do like");
+    console.log("refuse user ");
     try {
       // setLoading(true);
       const response = await fetch(

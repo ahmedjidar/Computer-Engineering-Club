@@ -1,12 +1,12 @@
 /* eslint-disable react/no-unknown-property */
 import React, { useState } from "react";
-import { AddBlogPostModal } from "../../../Common/index";
-import pfp from "../../../../assets/Images/pfp.png";
+import { AddBlogPostModal } from "../../Common/index";
+// import pfp from "../../../../assets/Images/pfp.png";
 import { useNavigate } from "react-router-dom";
-import { useDataContext } from "../../../../utils/useContext";
+import { useDataContext } from "../../../utils/useContext";
 const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
-const PostCreation = ({ syncPosts,setPostCreated }) => {
+const ForumPostCreation = ({ syncPosts ,setPostCreated}) => {
   // state to handle the modal
   const navigate = useNavigate();
   const [modalShow, setModalShow] = useState(false);
@@ -49,7 +49,6 @@ const PostCreation = ({ syncPosts,setPostCreated }) => {
       // setErr("fetch problem");
     }
     setPostCreated(true)
-
   };
   return (
     <div className="p-4">
@@ -57,58 +56,40 @@ const PostCreation = ({ syncPosts,setPostCreated }) => {
         <img
           src={apiUrl + "/" + auth.userImg}
           alt="user"
-          className="w-12 h-12 rounded-full ring-2 ring-indigo-600  object-cover"
+          className="w-12 h-12 rounded ring-2 ring-indigo-600  object-cover"
         />
-        <p className="text-sm font-medium text-indigo-500 mb-2 bg-indigo-50 p-4 rounded">
-          What do you think about?
+        <p className="text-sm font-medium text-indigo-500 mb-2  p-4 rounded">
+          What technical inquiry do you have?
         </p>
       </div>
       {/* add content area */}
-      <div className="relative">
+      <div className="relative ">
         <form
           id="myForm"
           onSubmit={submitHandler}
           encType="multipart/form-data"
         >
           <input type="hidden" name="ownerid" value={auth.userId} />
-          <input type="hidden" name="forum" value={false} />
-
+          <input type="hidden" name="forum" value={true} />
           {/* <input type="hidden" name="title" value={"Question!"} /> */}
+          <div className=" flex flex-col gap-1">
 
-          <textarea
+            <input type="text" name='title' required class="resize-none outline-none block w-full  rounded-t-md px-3 py-[10px] border-0 text-gray-100 ring-1 ring-inset  placeholder:text-gray-400 focus:ring-2 bg-[#10213a]  focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6" placeholder=" A breif title of your question"  />
+         <textarea
             name="content"
             id="postContent"
             cols="20"
-            rows="5"
-            placeholder="Start a community question"
-            className="resize-none outline-none block w-full rounded-md px-4 py-3 border-0 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+              rows="5"
+              required
+            placeholder="Start a technical question"
+            className="resize-none outline-none block w-full rounded-b-md px-4 py-3 border-0 text-gray-100 ring-1 ring-inset  placeholder:text-gray-400 focus:ring-2 bg-[#10213a]  focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
           />
-          <div className="absolute bottom-4 left-6 flex items-center gap-2">
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setModalShow(true);
-              }}
-              className="flex items-center gap-2 text-sm text-white bg-indigo-500 rounded px-3 py-2 hover:bg-indigo-600"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-5 h-5"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
-                />
-              </svg>
-              <p>Write a Post</p>
-            </button>
+          </div>
+        
+          <div className="absolute  w-full pr-[50px] bottom-4 left-6 flex justify-end items-center gap-2">
           
-            <select name="title"
+          
+            {/* <select name="title"
               className="flex items-center gap-2 text-sm  text-blue-500 rounded px-3 py-2 hover:bg-gray-200"
             >
               <option selected>Question</option>
@@ -116,7 +97,7 @@ const PostCreation = ({ syncPosts,setPostCreated }) => {
               <option value="Salutation">Salutation</option>
               <option value="Informaton">Snformaton</option>
               <option value="News">News</option>
-              </select>
+              </select> */}
              
             <button
               type="submit"
@@ -124,21 +105,15 @@ const PostCreation = ({ syncPosts,setPostCreated }) => {
               className="flex items-center gap-2 border-gray-500 bg-blue-500 text-sm text-white rounded px-4 py-2 hover:bg-blue-700  "
             >
               {" "}
-              {loading ? "posting..." : "Post"}
+              {loading ? "sending..." : "Ask"}
             </button>
           </div>
         </form>
       </div>
       {/* modal to render */}
-      <AddBlogPostModal
-        show={modalShow}
-        onHide={() => {
-          syncPosts();
-          setModalShow(false);
-        }}
-      />
+      
     </div>
   );
 };
 
-export default PostCreation;
+export default ForumPostCreation;

@@ -6,7 +6,7 @@ import { formatDate } from "../../../../utils/timeFormater";
 
 const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
-export function Comment({ postId, owner, comment, time, user ,syncPosts}) {
+export function Comment({ postId, owner, comment, time, user ,syncPosts,forum}) {
   const { doCommentLike } = useDataContext();
 
   const [like, setLike] = useState( comment.likes.some((like) => like == user));
@@ -20,10 +20,10 @@ export function Comment({ postId, owner, comment, time, user ,syncPosts}) {
   console.log('comment.replies',comment.replies);
   return (
     <>
-      <div className="flex bg-white gap-2  px-3 pt-2">
+      <div className={`flex ${ forum?'bg-[#0b2739]':'bg-white'} gap-2  px-3 pt-2`}>
         <div className="pt-1 w-[20%">
           <img
-            className=" w-10 h-10   rounded-full object-cover"
+            className={` w-10 h-10 ${ forum?' rounded':'rounded-full'}    object-cover`}
             src={apiUrl + "/" + owner.image}
             alt={owner.image}
           />
@@ -32,21 +32,21 @@ export function Comment({ postId, owner, comment, time, user ,syncPosts}) {
         <article className=" rounded-2xl   w-[83%]">
           <div className=" flex w-full  flex-grow">
             <div className="flex flex-col flex-grow ">
-              <div className="flex flex-col bg-[#eceef0] w-fit py-2 pl-2 pr-10 flex-grow rounded-2xl">
-                <p className=" text-gray-700 font-semibold text-[0.85rem] ">
+              <div className={`flex flex-col ${ forum?'bg-[#093753] rounded':'bg-[#eceef0] rounded-2xl w-fit'}  py-2 pl-2 pr-10 flex-grow `}>
+                <p className={`${ forum?'text-white':' text-gray-700'} font-semibold text-[0.85rem]`}>
                   {owner.username}
                 </p>
-                <p className="p-0 m-0 text-gray-600 font-serif">{comment.content}</p>
+                <p className={`p-0 m-0 ${ forum?'text-white':' text-gray-600'}  font-serif`}>{comment.content}</p>
               </div>
               <div className="flex items-center justify-between gap-2">
-                <div className="px-2 flex items-center justify-start gap-2">
-                   <p className=" w-[25px]  text-[13px] text-gray-600 dark:text-gray-400 ">
+                <div className={`px-2 flex items-center justify-start gap-2 ${ forum?'text-gray-400':'text-gray-600'} `}>
+                   <p className={`w-[25px]  text-[13px]   `}>
                   {time}
                 </p>
                 <p
-                  className={` text-[14px] text-gray-600 ${
-                    like && " text-red-500"
-                  } hover:text-red-400 cursor-pointer `}
+                  className={` text-[14px] ${ forum?'text-gray-400':'text-gray-600'} ${
+                    like && forum?'text-[#2bb1f0]':'text-gray-600'}
+                  } ${ forum?'hover:text-[#2bb1f0]':'hover:text-red-400'}  cursor-pointer `}
                   onClick={() => {
                     setLike((prv) => !prv);
                     setLlike();
@@ -55,7 +55,7 @@ export function Comment({ postId, owner, comment, time, user ,syncPosts}) {
                   Like
                 </p>
                  <p
-                  className={` text-[14px] text-gray-600 flex justify-center items-center cursor-pointer 
+                  className={` text-[14px] ${ forum?'text-gray-400':'text-gray-600'} flex justify-center items-center cursor-pointer 
                   ${
                         repley && " font-bold"
                       } 
@@ -70,7 +70,8 @@ export function Comment({ postId, owner, comment, time, user ,syncPosts}) {
                 
                   <li className="flex items-center  cursor-pointer p-1">
                     <div
-                      className={`flex items-center justify-start w-fit     text-sm `}
+                      className={`flex items-center ${like && ( forum ? 'text-[#2bb1f0]' : 'text-red-500')}
+                      } text-sm `}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -107,6 +108,7 @@ export function Comment({ postId, owner, comment, time, user ,syncPosts}) {
                       reply={rep}
                       time={formatDate(rep.createdAt)}
                       user={user}
+                      forum={forum}
                     />
                 )
               })
@@ -119,6 +121,8 @@ export function Comment({ postId, owner, comment, time, user ,syncPosts}) {
                   userId={user.userId}
                   postId={postId}
                   commentId={comment._id}
+                  forum={forum}
+
                 />
                 </div>}
             </div>
