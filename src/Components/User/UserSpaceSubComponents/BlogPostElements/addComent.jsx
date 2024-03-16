@@ -1,7 +1,7 @@
 import { useState } from "react";
 const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
-export function Commentadd({userImg,syncPosts,userId,postId }) {
+export function Commentadd({userImg,syncPosts,userId,postId,forum }) {
   const [content, setContent] = useState("");
   // const [img, setImg] = useState("");
       const [loading, setLoading] = useState(false);
@@ -60,9 +60,9 @@ export function Commentadd({userImg,syncPosts,userId,postId }) {
        onSubmit={submitHandler} 
         className="p-2 md:px-3  w-full flex items-center justify-center gap-2 rounded"
       >
-        <div className=" rounded-full  overflow-hidden ">
+        <div className={`${forum ? 'rounded' : 'rounded-full'}   overflow-hidden `}>
            <img
-          className="w-12 h-12   rounded-full object-cover"
+            className={`w-12 h-12 ${forum ? 'rounded' : 'rounded-full'}   object-cover`}
           src={apiUrl+"/"+userImg}
         />
         </div>
@@ -70,12 +70,12 @@ export function Commentadd({userImg,syncPosts,userId,postId }) {
           <input type="hidden" name="postId" value={postId}/>
          <input type="text" name="content" value={content}
           onChange={(e) => {setContent(e.target.value)}}
-          className="this no w-[80%] bg-gray-100 rounded-full px-3 m-0 p-0 py-2 border"
+          className={`this no w-[80%]${forum?' bg-[#10213a] rounded px-2 text-white ':' bg-gray-100 rounded-full px-3 border'}  m-0 p-0 py-2 `}
           placeholder="write something ..."
         />
         <button type="submit" className="m-0 p-0 max-w-fit" >
           {loading ? '...' :
-         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+         <svg xmlns="http://www.w3.org/2000/svg" fill={forum?"#5d7291":'none'} viewBox="0 0 24 24" strokeWidth={forum?1:1.2} stroke="currentColor" className="w-6 h-6">
   <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
 </svg>
 

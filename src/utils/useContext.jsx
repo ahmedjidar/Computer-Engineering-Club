@@ -55,6 +55,7 @@ export const DataProvider = ({ children }) => {
       isAdmin: isAdmin,
       A:A,
     });
+    localStorage.clear();
     window.localStorage.setItem("token", token);
     window.localStorage.setItem("userId", userId);
     window.localStorage.setItem("userImg", userImg);

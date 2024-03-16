@@ -10,6 +10,7 @@ export function Reply({
   reply,
   time,
   user,
+  forum
 }) {
   const { doreplyLike ,getUser} = useDataContext();
 
@@ -39,10 +40,10 @@ export function Reply({
     
   return (
     <>
-      <div className="flex bg-white gap-2  px-3 pt-2">
+      <div className={`flex ${ forum?'bg-[#0b2739]':'bg-white'} gap-2  px-3 pt-2`}>
         <div className="pt-1 w-[20%">
           <img
-            className=" w-10 h-10   rounded-full object-cover"
+            className={` w-10 h-10 ${ forum?' rounded':'rounded-full'}    object-cover`}
             src={apiUrl + "/" + owner.image}
             alt={owner.image}
           />
@@ -51,36 +52,33 @@ export function Reply({
         <article className=" rounded-2xl   w-[83%]">
           <div className=" flex w-full  flex-grow">
             <div className="flex flex-col flex-grow ">
-              <div className="flex flex-col bg-[#eceef0] w-full p-2 flex-grow rounded-2xl">
-                <p className=" text-gray-700 font-semibold text-[0.85rem] ">
+              <div className={`flex flex-col ${ forum?'bg-[#093753] rounded':'bg-[#eceef0] rounded-2xl w-fit'}  py-2 pl-2 pr-10 flex-grow `}>
+                <p className={`${ forum?'text-white':' text-gray-700'} font-semibold text-[0.85rem]`}>
                   {owner.username}
                 </p>
-                <p className="p-0 m-0 text-gray-600 font-serif">
+                <p className={`p-0 m-0 ${ forum?'text-white':' text-gray-600'}  font-serif`}>
                   {reply.content}
                 </p>
               </div>
-              <div className="px-1 flex items-center justify-start gap-2">
-                <p className="  text-[13px] text-gray-600 dark:text-gray-400 ">
+                <div className={`px-2 flex items-center justify-start gap-2 ${ forum?'text-gray-400':'text-gray-600'} `}>
+                   <p className={`w-[25px]  text-[13px]   `}>
                   {time}
                 </p>
-                <p
-                  className={` text-[14px] text-gray-600 ${
-                    like && " text-red-500"
-                  } hover:text-red-400 cursor-pointer `}
+               <p
+                  className={` text-[14px] ${ forum?'text-gray-400':'text-gray-600'} ${
+                    like && forum?'text-[#2bb1f0]':'text-gray-600'}
+                  } ${ forum?'hover:text-[#2bb1f0]':'hover:text-red-400'}  cursor-pointer `}
                   onClick={() => {
-                    setLlike()
                     setLike((prv) => !prv);
-                  }
-                  }
-                >
-                  Like
+                    setLlike();
+                  }}
+                >Like
                 </p>
 
                 <div className=" w-full flex items-center  p-2">
                   <li className="flex items-center cursor-pointer">
                     <div
-                      className={`flex items-center ${
-                        like && " text-red-500"
+                      className={`flex items-center ${like && ( forum ? 'text-[#2bb1f0]' : 'text-red-500')}
                       } text-sm `}
                     >
                       <svg

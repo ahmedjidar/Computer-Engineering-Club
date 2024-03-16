@@ -438,7 +438,7 @@ function AdminCheckPosts() {
       
           <div className="modal w-screen " tabIndex="-1" id="myModal">
             {/* Modify the modal content based on the selected row */}
-            <div className="modal-">
+            <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
                   <button
