@@ -37,6 +37,7 @@ const CourseDetailsComponent = () => {
                         <span className="relative before:h-[0.16em] before:absolute before:w-full before:content-[''] before:bg-[#6C3082] group-hover:before:bg-[white] duration-300 before:bottom-0 before:left-0">Discover More</span>
                         <i className="fa-solid fa-arrow-right"></i>
                       </button>
+                      
                       <h1 className="z-20 font-bold font-Poppin group-hover:text-white duration-500 text-[1.4em]">{module.name}</h1>
                     </div>
                   </a>
