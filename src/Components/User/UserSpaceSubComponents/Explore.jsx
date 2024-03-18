@@ -14,6 +14,8 @@ const Explore = () => {
     const [postData,setPostData]=useState(false)
     const [loading, setLoading] = useState(false);
     const [active, setActive] = useState(true);
+    const [user, setUser] = useState({});
+
 
     useEffect(() => {
     const userId = window.localStorage.getItem('userId')
@@ -22,7 +24,7 @@ const Explore = () => {
     const fetchUser = async () => {
       setLoading(true);
       const userr = await getUser(userId);
-    //   setUser(userr);
+      setUser(userr);
         setLoading(false);
         setActive(userr.active)
     console.log('userr ',userr)
@@ -92,7 +94,7 @@ const Explore = () => {
                 <Route path="/courses" element={<MyCourses/>}/>
                 <Route path="/courses/:id" element={<CourseDetailsComponent/>}/>
                 <Route path="/roadmaps/*" element={<RoadmapsSubRoutes/>}/>
-                <Route path="/forum" element={<CommunityForum active={active} loading={loading} postData={postData} syncPosts={syncPosts} />}/>
+                <Route path="/forum" element={<CommunityForum active={active} loading={loading} postData={postData} syncPosts={syncPosts} user={user}/>}/>
             </Routes>
         </div>
     )

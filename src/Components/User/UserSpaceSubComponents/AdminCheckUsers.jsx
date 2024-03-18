@@ -206,6 +206,7 @@ function AdminCheckUsers() {
   ];
   const { getUsers, acceptUser, refuseUser, deleteUser } = useDataContext();
  const [usersData, setUsersData] = useState([]);
+ const [displayedData, setDisplayedData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null); // Add state for selected row
   const handleRowDetails = (row) => {
@@ -298,6 +299,8 @@ function AdminCheckUsers() {
       const p = await getUsers();
      p.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
       setUsersData(p);
+      setDisplayedData(p);
+
     };
     fetchPost()
       .then(() => setLoading(false))
@@ -310,6 +313,7 @@ function AdminCheckUsers() {
       // Sort the fetched posts by createdAt field in descending order
      p.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
       setUsersData(p);
+      setDisplayedData(p);
     };
     fetchPost()
       .then(() => console.log('done'))
@@ -318,10 +322,10 @@ function AdminCheckUsers() {
   };
   const handleFilter = (e) => {
     const newData = usersData.filter((row) => {
-      return row.title.toLowerCase().includes(e.target.value.toLowerCase());
+      return row.email.toLowerCase().includes(e.target.value.toLowerCase());
     });
     console.log(newData);
-    setUsersData(newData);
+    setDisplayedData(newData);
   };
 
   const tableHeaderstyle = {
@@ -343,13 +347,13 @@ function AdminCheckUsers() {
     <>
       <div className=" mt-5">
         <h1 className="text-center mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl  ">
-          Check Pending Posts
+          Check Pending Users
         </h1>
         
        {!loading ? ( <div>  <DataTable
           customStyles={tableHeaderstyle}
           columns={columns}
-          data={usersData}
+          data={displayedData}
           defaultSortFieldID={1}
           pagination
           fixedHeader
@@ -380,7 +384,7 @@ function AdminCheckUsers() {
           subHeaderAlign="left"
         />
       
-          <div className="modal" tabIndex="-1" id="myModal">
+          <div className="modal  lg:[800rem]" tabIndex="-1" id="myModal">
             {/* Modify the modal content based on the selected row */}
             <div className="modal-dialog">
               <div className="modal-content">
@@ -392,7 +396,7 @@ function AdminCheckUsers() {
                     aria-label="Close"
                   ></button>
                 </div>
-                <div className="modal-body min-h-[500px] w-[100%]">
+                <div className="modal-body min-h-[500px] ">
                   {selectedRow && (
                     <>
                       <UserModal id={selectedRow._id} />

@@ -7,7 +7,7 @@ import ForumPostCreation from './forumPostCreation';
 import ForumFullPost from './forumFullPost';
 import PostLoader from '../../Common/Loaders/postLoader';
 
-const CommunityForum = ({active,postData,loading,syncPosts}) => {
+const CommunityForum = ({active,postData,loading,syncPosts,user}) => {
   console.log('in comunity  forum', postData);
     const [postCreated, setPostCreated] = useState(false);
   useEffect(() => {
@@ -27,12 +27,12 @@ const CommunityForum = ({active,postData,loading,syncPosts}) => {
         
             {postData.slice().reverse().map((post) => {
                 return (
-                    <ForumFullPost key={post._id} postt={post} syncPosts={syncPosts} />)
+                    <ForumFullPost key={post._id} postt={post} syncPosts={syncPosts} user={user} />)
     
             })}
-            </div>:<PostLoader/>}
+            </div> : <PostLoader forum={true} />}
             </div></>
-                : <p className="p-[100px] font-semibold"> you are not accepted yet wait until we will accept your join request ,after checking your informations</p>}
+                : <p className="p-[100px] font-semibold text-white text-center"> you are not accepted yet wait until we will accept your join request ,after checking your informations</p>}
       </div>
     </div>
   );

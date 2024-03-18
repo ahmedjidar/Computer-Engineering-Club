@@ -253,7 +253,7 @@ export const DataProvider = ({ children }) => {
     }
   };
    const deletePost = async ( id) => {
-    console.log("start in do like");
+    console.log("start in delete",id);
     try {
       // setLoading(true);
       const response = await fetch(
@@ -282,6 +282,30 @@ export const DataProvider = ({ children }) => {
       // setLoading(true);
       const response = await fetch(
         apiUrl + "/userSpace/post/like/" + postId + "?uId=" + userId,
+        {
+          method: "POST",
+        }
+      );
+
+      if (!response.ok) {
+        console.log("err ok");
+      } else {
+        const data = await response.json();
+        if (data.success === true) {
+          console.log("added in do like");
+          // syncPosts();
+        }
+      }
+    } catch (error) {
+      console.log("fetch problem" + error);
+    }
+  };
+  const doSave = async (postId, userId) => {
+    console.log("start in do save");
+    try {
+      // setLoading(true);
+      const response = await fetch(
+        apiUrl + "/userSpace/post/"+userId+"/save/"+postId,
         {
           method: "POST",
         }
@@ -368,7 +392,7 @@ const doreplyLike = async (postId,commentId,replyId,userId) => {
         getUser,
         doCommentLike,
         doreplyLike,
-        doLike,
+        doLike,doSave,
         setLogin,
         initiateLogin,
         logout,
