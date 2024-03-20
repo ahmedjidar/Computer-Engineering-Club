@@ -83,11 +83,6 @@ const Portfolio = () => {
                       disabled={!isEditing["name"]} 
                       className={`rounded border-none ${isEditing["name"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : "ring-1 ring-gray-400"}`}
                     />
-                    <button 
-                      onClick={() => handleEditClick("name")} 
-                      className="rounded font-medium p-2 ring-1 ring-gray-400 hover:bg-gray-50">
-                        Edit
-                    </button>
                   </dd>
                 </div>
 
@@ -102,11 +97,6 @@ const Portfolio = () => {
                       disabled={!isEditing["familyName"]} 
                       className={`rounded border-none ${isEditing["familyName"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : "ring-1 ring-gray-400"}`}
                     />
-                    <button 
-                      onClick={() => handleEditClick("familyName")} 
-                      className="rounded font-medium p-2 ring-1 ring-gray-400 hover:bg-gray-50">
-                        Edit
-                    </button>
                   </dd>
                 </div>
 
@@ -121,11 +111,6 @@ const Portfolio = () => {
                       disabled={!isEditing["email"]} 
                       className={`rounded border-none ${isEditing["email"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : "ring-1 ring-gray-400"}`}
                     />
-                    <button 
-                      onClick={() => handleEditClick("email")} 
-                      className="rounded font-medium p-2 ring-1 ring-gray-400 hover:bg-gray-50">
-                        Edit
-                    </button>
                   </dd>
                 </div>
 
@@ -140,11 +125,6 @@ const Portfolio = () => {
                       disabled={!isEditing["promo"]} 
                       className={`rounded border-none ${isEditing["promo"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : "ring-1 ring-gray-400"}`}
                     />
-                    <button 
-                      onClick={() => handleEditClick("promo")} 
-                      className="rounded font-medium p-2 ring-1 ring-gray-400 hover:bg-gray-50">
-                        Edit
-                    </button>
                   </dd>
                 </div>
 
@@ -153,12 +133,17 @@ const Portfolio = () => {
                     Status
                   </dt>
                   <dd className="flex items-center justify-between mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                    <input 
+                    <select 
                       value={user["status"]} 
                       onChange={(e) => setUser({...user, ["status"]: e.target.value})} 
                       disabled={!isEditing["status"]} 
                       className={`rounded border-none ${isEditing["status"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : "ring-1 ring-gray-400"}`}
-                    />
+                    >
+                      <option value="student">Student</option>
+                      <option value="engineer">Engineer</option>
+                      <option value="tester">Tester</option>
+                      {/* Add more options as needed */}
+                    </select>
                     <button 
                       onClick={() => handleEditClick("status")} 
                       className="rounded font-medium p-2 ring-1 ring-gray-400 hover:bg-gray-50">
@@ -256,47 +241,6 @@ const Portfolio = () => {
                     </button>
                   </dd>
                 </div>
-
-              <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                <dt className="text-sm font-medium leading-6 text-gray-900">
-                  UserName
-                </dt>
-                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                  {user.username}
-                </dd>
-              </div>
-              <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                <dt className="text-sm font-medium leading-6 text-gray-900">
-                  About
-                </dt>
-                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                  {user.about}
-                </dd>
-              </div>
-              <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                <dt className="text-sm font-medium leading-6 text-gray-900">
-                  Studies at
-                </dt>
-                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                  ENSAO
-                </dd>
-              </div>
-              <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                <dt className="text-sm font-medium leading-6 text-gray-900">
-                  Email address
-                </dt>
-                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                  {user.email}
-                </dd>
-              </div>
-              <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                <dt className="text-sm font-medium leading-6 text-gray-900">
-                  LinkedIn
-                </dt>
-                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                 <a className="underline text-blue-500" href={user.contact&&user.contact.linkedin}>{user.contact&&user.contact.linkedin};</a>
-                </dd>
-              </div>
               
               <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                 <dt className="text-sm font-medium leading-6 text-gray-900">
