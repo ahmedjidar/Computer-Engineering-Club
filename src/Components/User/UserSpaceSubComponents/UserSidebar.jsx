@@ -36,29 +36,51 @@ const UserSidebar = ({ onSearch, setShowSidebar }) => {
                     <p className="text-sm">Home</p>
                 </Link>
 
+               
                 <Link to="#" className="mt-2 flex items-center justify-between p-2">
                     <div className="gap-3 flex items-center text-gray-600 font-medium">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
                         </svg>
-                        <p className="text-sm">Feed</p>
+                        <p className="text-sm">Saved</p>
                     </div>
                     <Dropdown drop="start">
                         <Dropdown.Toggle id="dropdown-basic" className="ml-2 text-sm border-none bg-blue-50 text-gray-600 hover:bg-blue-100 hover:text-blue-600 active:bg-blue-100 active:text-blue-600 focus:text-blue-600 focus:bg-blue-50">
-                            From
+                            
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu className="absolute text-sm border-none ring-2 ring-blue-600">
                             <Dropdown.Item>
-                                <Link to="/user/myspace/myblogs" onClick={() => setShowSidebar(false)}>My Blogs</Link>
+                                <Link to="/user/myspace/myblogs" onClick={() => setShowSidebar(false)}>Posts</Link>
                             </Dropdown.Item>
                             <Dropdown.Item>
-                                <Link to="/user/myspace/globalfeed" onClick={() => setShowSidebar(false)}>Community Feed</Link>
+                                <Link to="/user/myspace/globalfeed" onClick={() => setShowSidebar(false)}>Community Questions</Link>
+                            </Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                    </Link>
+                     <Link to="#" className="mt-2 flex items-center justify-between p-2">
+                    <div className="gap-3 flex items-center text-gray-600 font-medium">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
+                        </svg>
+                        <p className="text-sm">My</p>
+                    </div>
+                    <Dropdown drop="start">
+                        <Dropdown.Toggle id="dropdown-basic" className="ml-2 text-sm border-none bg-blue-50 text-gray-600 hover:bg-blue-100 hover:text-blue-600 active:bg-blue-100 active:text-blue-600 focus:text-blue-600 focus:bg-blue-50">
+                            
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu className="absolute text-sm border-none ring-2 ring-blue-600">
+                            <Dropdown.Item>
+                                <Link to="/user/myspace/myblogs" onClick={() => setShowSidebar(false)}>Posts</Link>
+                            </Dropdown.Item>
+                            <Dropdown.Item>
+                                <Link to="/user/myspace/globalfeed" onClick={() => setShowSidebar(false)}>Community Questions</Link>
                             </Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </Link>
-
                 <Link to="/user/myspace/calendar" onClick={() => setShowSidebar(false)} className="mt-2 flex items-center p-2 gap-3 text-gray-600 font-medium focus:text-blue-600 focus:bg-blue-50 hover:bg-blue-50 hover:text-blue-700 hover:rounded active:bg-blue-100 active:rounded">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
