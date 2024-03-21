@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import layers from '../../assets/Images/layers.png'
 import { useDataContext } from "../../utils/useContext";
 
 const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
 const Login = () => {
+  //  const params = useSearchParams();
+  // const red = params.get('red');
+  // console.log(red)
 const {setLogin,auth} =useDataContext();
   const [err, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -46,12 +49,12 @@ const {setLogin,auth} =useDataContext();
         } else {
           setError('');
           setLoading(false);
-          setMsg("You loged in successfully!");
+          setMsg("You logged in successfully!");
           // const loginData = { userId: data.id, userName: data.userName, email: data.email, userImg: data.userImg, token: data.token, isAdmin: data.isAdmin };
           setLogin(data.id, data.userName, data.email, data.userImg, data.token, data.isAdmin,data.active)
           console.log("start in lpgin infos",data)
           setTimeout(() => {
-            navigate('/');
+            navigate('/user/myspace');
           }, 2000);
 
         }

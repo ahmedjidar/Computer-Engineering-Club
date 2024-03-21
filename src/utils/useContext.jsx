@@ -28,7 +28,7 @@ export const DataProvider = ({ children }) => {
     const userName = window.localStorage.getItem("userName");
     const email = window.localStorage.getItem("email");
     const token = window.localStorage.getItem("token");
-    const isAdmin = window.localStorage.getItem("isAdmin");
+    const isAdmin = window.localStorage.getItem("isAdmin")=='true';
     const A = window.localStorage.getItem("A");
 
     // Set the authentication data in state

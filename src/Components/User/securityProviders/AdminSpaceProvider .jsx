@@ -52,9 +52,9 @@ function AdminSpaceProvider({children}) {
           setAuth(false)
           setLoading(false);
            setTimeout(() => {
-            //  logout();
-            //  navigate('/login?red=/admin')
-            }, 5000);
+             logout();
+             navigate('/get-started/login')
+            }, 2000);
        
         } else if (data.success === true) {
           console.log('in sucsses true')
@@ -76,9 +76,6 @@ function AdminSpaceProvider({children}) {
       return <PageLoader msg="check Admin Access" />;
     } else if (!auth) {
       return <div className="w-full h-full mt-[100px]  ">
-        <p className="text-red-500 font-bold text-xl text-center w-full">
-          {err}
-        </p>
         <PageLoader msg="check Admin Access" />;
       </div>
     } else {
