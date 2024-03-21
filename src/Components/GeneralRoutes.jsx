@@ -17,8 +17,8 @@ const GeneralRoutes = () => {
             <Route path="get-started/*" element={<AuthRouting/>}/>
 
             {/* default route */}
-            {/* <Route path="user/*" element={<UserSpaceProvider><UserHomeRouting/></UserSpaceProvider>}/> */}
-            <Route path="user/*" element={<UserHomeRouting/>}/>
+            <Route path="user/*" element={<UserSpaceProvider><UserHomeRouting/></UserSpaceProvider>}/>
+            {/* <Route path="user/*" element={<UserHomeRouting/>}/> */}
             
         </Routes>
         </div>

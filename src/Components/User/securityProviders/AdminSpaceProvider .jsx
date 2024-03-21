@@ -75,7 +75,7 @@ function AdminSpaceProvider({children}) {
     if (loading) {
       return <PageLoader msg="check Admin Access" />;
     } else if (!auth) {
-      return <div className="w-full h-full mt-[100px] bg-red-500 ">
+      return <div className="w-full h-full mt-[100px]  ">
         <p className="text-red-500 font-bold text-xl text-center w-full">
           {err}
         </p>
