@@ -4,6 +4,18 @@
 
 
 
-.tes{
-
+.fontGi{
+  font-family: "Smooch Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
 }
+.fontGiTitle{
+  
+        font-family: "Gabarito", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+      
+  }
+
