@@ -6,11 +6,24 @@ import { Comment } from "./comment";
 import { useDataContext } from "../../../../utils/useContext";
 import { formatDate } from "../../../../utils/timeFormater";
 const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
+function confirmDelete(text) {
+    // Prompt the user for confirmation and store the result
+    const userInput = prompt("To confirm deletion, please enter '"+ text+"'");
 
+    // Check if the user input matches the expected string
+    if (userInput === text) {
+        // If the input matches, return true
+        return true;
+    } else {
+        // If the input does not match, show an alert and return false
+        alert("Incorrect input. Please try again.");
+        return false;
+    }
+}
 
-const FullPost = ({ postt, syncPosts }) => {
+const FullPost = ({ postt, syncPosts,user }) => {
   
-  const { auth, doLike } = useDataContext();
+  const { auth, doLike,doSave,deletePost } = useDataContext();
   const post = postt ? postt : {};
   // const postOwner = ;
   console.log("post in full", post);
@@ -20,8 +33,35 @@ const FullPost = ({ postt, syncPosts }) => {
   //   console.log(like)
   //   return like === auth.userId
   // }))
+    const handleRowDelete = () => {
+
+    const deleting = async () => {
+      const p = await deletePost(postt._id);
+      // console.log("posts in getposts then", p);
+      // setPostData(p);
+    };
+   
+    if (confirmDelete('I am sure About deleting it')) {
+       deleting()
+      .then(() => console.log("xi haja"))
+      .catch(() => { });
+      syncPosts();
+      setTimeout(() => {
+      syncPosts();
+      }, 200);
+      setTimeout(() => {
+      syncPosts();
+      }, 500);
+       setTimeout(() => {
+      syncPosts();
+       }, 1000);
+    }
+  };
   const [like, setLike] = useState(
     post.likes.some((like) => like._id == auth.userId)
+  );
+    const [save, setSave] = useState(
+    user.savedPosts.some((post) => post.post == postt._id)
   );
   const [likesCount, setLikesCount] = useState(post.likes.length);
   console.log(post.title, likesCount);
@@ -45,11 +85,16 @@ const FullPost = ({ postt, syncPosts }) => {
     setLike((prevLike) => !prevLike);
     like ? setLikesCount((prv) => --prv) : setLikesCount((prv) => ++prv);
   };
+   const toggleSaveHandler = () => {
+    doSave(post._id, user._id);
+    setSave((prv) => !prv);
+  };
   return (
     <>
-      <div className="gap-2 mb-[rem] p-4 h-fit ">
+      <div className="gap-1 mb-[rem] px-4 h-fit  ">
         <div className="w-full bg-white ring-1 ring-gray-300 rounded">
-          <div className="flex gap-2 items-center justify-start p-4">
+          <div className="w-full  flex justify-between items-start">
+             <div className="flex w-full  gap-2 items-center justify-start p-4">
            {postowner? <img
               className="w-12 h-12 rounded-full object-cover"
               src={apiUrl + "/" +postowner.image}
@@ -61,41 +106,55 @@ const FullPost = ({ postt, syncPosts }) => {
               <p className="block text-sm text-gray-500 font-light">
                 {formatDate(post.createdAt)}
               </p>
-            </div>
+              </div>
+              <div className={`w-full flex justify-end text-gray cursor-pointer`} onClick={toggleSaveHandler}>
+                 <svg className=" block w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill={save?"#ff9900":'none'} viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" >
+                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+                 </svg>
+
+
+             </div>
+             {postowner._id==user._id&&  <div className="cursor-pointer" onClick={handleRowDelete}>
+                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-8">
+  <path strokeLinecap="round" strokeLinejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+</svg>
+        </div>}
           </div>
-          <p className="text-gray-800 font-bold  leading-snug md:leading-normal px-3">
-            |{post.title}|
-          </p>
-          <p className="text-gray-700 leading-snug md:leading-normal p-3">
-            {post.content.length < 260 ? (
-              <p>{post.content}</p>
-            ) : splitText ? (
-              <p
-                onClick={() => {
-                  setSplitText(false);
-                }}
-                className="p-0 m-0 inline-block cursor-pointer"
-              >
-                {post.content.slice(0, 260)}
-                <p className="p-0 m-0 text-blue-400 inline-block">
-                  &nbsp;
-                  see more...
+         </div>
+           
+              <div className="pl-2 flex flex-col gap-0"> 
+                 <p className="text-gray-400 w-fit px-2 py-1 font-bold bg-white   leading-snug md:leading-normal ">
+              {post.title}
+            </p>
+            <p className="text-gray-600 leading-snug md:leading-normal">
+              {post.content.length < 260 ? (
+                    <p className="max-w-[95%] flex flex-wrap text-break pl-2">{post.content}</p>
+              ) : splitText ? (
+                <p
+                  onClick={() => {
+                    setSplitText(false);
+                  }}
+                  className="p-0 m-0 inline-block cursor-pointer"
+                >
+                  {post.content.slice(0, 260)}
+                  <p className="p-0 m-0 text-blue-400 inline-block">
+                    &nbsp;
+                    see more...
+                  </p>
                 </p>
-              </p>
-            ) : (
-              <p
-                onClick={() => {
-                  setSplitText(true);
-                }}
-                className="p-0 m-0 inline-block cursor-pointer"
-              >
-                {post.content}
-                <p className="p-0 m-0 text-blue-400 inline-block">
-                 &nbsp; see less
+              ) : (
+                <p
+                  onClick={() => {
+                    setSplitText(true);
+                  }}
+                  className="p-0 m-0 inline-block cursor-pointer"
+                >
+                          {post.content}
+                  <p className="p-0 m-0 text-blue-400 inline-block"> &nbsp;see less</p>
                 </p>
-              </p>
-            )}
-          </p>
+              )}
+            </p>
+           </div>
           {post.images.length > 0 && <ImageSwiper images={post.images} />}
           <div>
             <div className="px-2 flex justify-between items-center text-sm text-gray-400 mt-5 py-2">

@@ -102,6 +102,12 @@ function AdminCheckPosts() {
       maxWidth: "150px",
     },
     {
+      name: "Type",
+      selector: (row) => row.forum && row.forum?'Forum':'Post',
+      sortable: true,
+      maxWidth: "130px",
+    },
+    {
       name: "title",
       selector: (row) => row.title && row.title,
       sortable: true,
@@ -117,7 +123,7 @@ function AdminCheckPosts() {
       name: "content",
       selector: (row) => row.content && row.content,
       sortable: true,
-      maxWidth: "650px",
+      maxWidth: "350px",
       // cell: (row) => (
       //   <span title={row.content} style={{ lineHeight: "1.1" }}>{row.content}</span>
       // ),
@@ -237,33 +243,11 @@ function AdminCheckPosts() {
   ];
   const { getPosts, acceptPost, refusePost, deletePost } = useDataContext();
  const [postsData, setPostData] = useState([]);
+ const [displayedData, setDisplayedData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedRow, setSelectedRow] = useState(null); // Add state for selected row
-  
-  const [showAlert, setShowAlert] = useState(false);
-  const [alertResult, setAlertResult] = useState(null);
 
-  const handleAlertConfirm = (result) => {
-    setAlertResult(result);
-    setShowAlert(false);
-  };
 
-  const handleButtonClick = () => {
-    setShowAlert(true);
-  };
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   const handleRowDetails = (row) => {
     setSelectedRow(row);
   };
@@ -355,6 +339,7 @@ function AdminCheckPosts() {
       setLoading(true);
       const p = await getPosts();
      p.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      setDisplayedData(p);
       setPostData(p);
     };
     fetchPost()
@@ -367,6 +352,7 @@ function AdminCheckPosts() {
       const p = await getPosts();
       // Sort the fetched posts by createdAt field in descending order
      p.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      setDisplayedData(p);
       setPostData(p);
     };
     fetchPost()
@@ -379,7 +365,7 @@ function AdminCheckPosts() {
       return row.title.toLowerCase().includes(e.target.value.toLowerCase());
     });
     console.log(newData);
-    setPostData(newData);
+      setDisplayedData(newData);
   };
 
   const tableHeaderstyle = {
@@ -405,7 +391,7 @@ function AdminCheckPosts() {
        {!loading ? ( <div>  <DataTable
           customStyles={tableHeaderstyle}
           columns={columns}
-          data={postsData}
+          data={displayedData}
           defaultSortFieldID={1}
           pagination
           fixedHeader
@@ -456,7 +442,7 @@ function AdminCheckPosts() {
                           <div className="flex gap-2 items-center justify-start p-4">
                             <img
                               className="w-12 h-12 rounded-full object-cover"
-                              src={apiUrl + "/" + selectedRow.postowner&&selectedRow.postowner.image}
+                              src={apiUrl + "/" +selectedRow.postowner.image}
                             />
                             <div>
                               <p className="block font-medium text-base leading-snug text-gray-900 ">
@@ -479,7 +465,7 @@ function AdminCheckPosts() {
                             selectedRow.images.length > 0 && (
                               <ImageSwiper
                                 images={
-                                  selectedRow.images && selectedRow.images
+                                  selectedRow.images && selectedRow.images[0]
                                 }
                               />
                             )}
