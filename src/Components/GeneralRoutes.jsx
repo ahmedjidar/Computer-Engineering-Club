@@ -8,6 +8,7 @@ import UserSpaceProvider from "./User/securityProviders/UserSpaceProvider";
 const GeneralRoutes = () => {
 
     return(
+        
         <div> 
         <Routes>
             {/* Landing */}
@@ -17,8 +18,8 @@ const GeneralRoutes = () => {
             <Route path="get-started/*" element={<AuthRouting/>}/>
 
             {/* default route */}
-            {/* <Route path="user/*" element={<UserSpaceProvider><UserHomeRouting/></UserSpaceProvider>}/> */}
-            <Route path="user/*" element={<UserHomeRouting/>}/>
+            <Route path="user/*" element={<UserSpaceProvider><UserHomeRouting/></UserSpaceProvider>}/>
+            {/* <Route path="user/*" element={<UserHomeRouting/>}/> */}
             
         </Routes>
         </div>

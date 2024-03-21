@@ -19,8 +19,8 @@ const {logout,auth} =useDataContext();
   console.log("in landing page",auth);
 
   return (
-    <div className='test'>
-      <header className="header_section">
+    <div className='test '>
+      <header className="header_section ">
         <div className="container-fluid">
           <Navbar className="navbar-expand-lg custom_nav-container" expand="lg">
             <Navbar.Brand href="/">
