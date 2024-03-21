@@ -19,8 +19,8 @@ const {logout,auth} =useDataContext();
   console.log("in landing page",auth);
 
   return (
-    <div className='test'>
-      <header className="header_section">
+    <div className='test '>
+      <header className="header_section ">
         <div className="container-fluid">
           <Navbar className="navbar-expand-lg custom_nav-container md:h-[75px]" expand="lg">
             <Navbar.Brand href="/">
@@ -47,13 +47,13 @@ const {logout,auth} =useDataContext();
                     Activities
                   </Link>
                 </li>
-                {auth.isLogged && (
+                
                   <li className={`nav-item ${activeMenuItem === 'my space' ? 'active' : ''}`}>
                     <Link to="/user/myspace" className="nav-link" onClick={() => handleMenuItemClick('my space')}>
                       My Space
                     </Link>
                   </li>
-                )}
+                
                 <li className={`nav-item ${activeMenuItem === 'team' ? 'active' : ''}`}>
                   <Link to="/team" className="nav-link" onClick={() => handleMenuItemClick('team')}>
                     Team

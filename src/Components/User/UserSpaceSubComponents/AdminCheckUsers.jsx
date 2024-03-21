@@ -10,6 +10,7 @@ import { useDataContext } from "../../../utils/useContext";
 import { formatDate } from "../../../utils/timeFormater";
 import { ImageSwiper } from "./BlogPostElements/imgeSlider";
 import UserModal from "./userModal";
+import PageLoader from "../../Common/Loaders/pageLoader";
 const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
 function getNumberOfPages(rowCount, rowsPerPage) {
@@ -417,7 +418,7 @@ function AdminCheckUsers() {
           </div>
         
           </div>) : (
-          <p>loading</p>
+          <PageLoader/>
           )}
       </div>
     </>

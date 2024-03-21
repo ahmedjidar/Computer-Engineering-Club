@@ -8,8 +8,8 @@ const About = () => {
     return(
       
         <div>
-                <section className="about_section layout_padding">
-    <div className="container  ">
+                <section className="about_section layout_padding shadow-none">
+    <div className="container shadow-none ">
       <div className="heading_container heading_center">
         <h2>
           About <span>Us</span>
