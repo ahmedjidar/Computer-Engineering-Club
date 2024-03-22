@@ -19,7 +19,7 @@ function UserSpaceProvider({children}) {
       if (state==false) {
         console.log('res', state)
        
-        navigate('/login?red=/admin')    
+        // navigate('')    
       }
   }
     getStatus().then(res => {
@@ -53,8 +53,8 @@ function UserSpaceProvider({children}) {
           setLoading(false);
            setTimeout(() => {
              logout();
-             navigate('/login?red=/admin')
-            }, 5000);
+             navigate('/get-started/login')
+            }, 2000);
        
         } else if (data.success === true) {
           console.log('in sucsses true')
@@ -75,10 +75,7 @@ function UserSpaceProvider({children}) {
     if (loading) {
       return <PageLoader msg="check Admin Access" />;
     } else if (!auth) {
-      return <div className=" w-full h-full mt-[100px] bg-red-500 ">
-        <p className="text-red-500 font-bold text-xl text-center w-full">
-          {err}
-        </p>
+      return <div className=" w-full h-full mt-[100px] ">
         <PageLoader msg="check Admin Access" />;
       </div>
     } else {

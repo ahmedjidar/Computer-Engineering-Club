@@ -48,7 +48,7 @@ const HeadNav = () => {
                 </Link>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
-                    {navigation.map((item) => (
+                {    navigation.map((item) => (
                       <Link
                         key={item.name}
                         to={item.href}
@@ -61,6 +61,16 @@ const HeadNav = () => {
                         {item.name}
                       </Link>
                     ))}
+                      {auth.isAdmin &&<Link
+                        to="/user/admin-space"
+                        className={classNames(
+                          'text-gray-300 hover:bg-blue-900 hover:text-white',
+                          'rounded-md px-3 py-2 text-sm font-medium focus:text-white focus:bg-blue-900'
+                        )}
+                        aria-current={ undefined}
+                      >
+                        Admin Space
+                      </Link>}
                   </div>
                 </div>
                 </div>

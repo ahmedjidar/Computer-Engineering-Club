@@ -19,14 +19,14 @@ const {logout,auth} =useDataContext();
   console.log("in landing page",auth);
 
   return (
-    <div className='test'>
-      <header className="header_section">
+    <div className='test '>
+      <header className="header_section ">
         <div className="container-fluid">
-          <Navbar className="navbar-expand-lg custom_nav-container" expand="lg">
+          <Navbar className="navbar-expand-lg custom_nav-container md:h-[75px]" expand="lg">
             <Navbar.Brand href="/">
               <span className="logo-container">
-                <img src={logo} className='logo' width={70} alt="GI Club Logo" />
-                <span className="logo-text">GI Club</span>
+                <img src={logo} className='logo h-[65px] w-[65px]' alt="GI Club Logo" />
+                <h1 className="fontGi  mb-4 my-4 text-4xl font-extrabold leading-none tracking-tight text-white-900 md:text-3xl lg:text-4xl dark:text-white">Gi <mark class="px-1 py-0 h-fit fontGi text-white bg-green-600 rounded">Club</mark></h1>
               </span>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarSupportedContent" className="navbar-toggler" />
@@ -47,13 +47,13 @@ const {logout,auth} =useDataContext();
                     Activities
                   </Link>
                 </li>
-                {auth.isLogged && (
+                
                   <li className={`nav-item ${activeMenuItem === 'my space' ? 'active' : ''}`}>
                     <Link to="/user/myspace" className="nav-link" onClick={() => handleMenuItemClick('my space')}>
                       My Space
                     </Link>
                   </li>
-                )}
+                
                 <li className={`nav-item ${activeMenuItem === 'team' ? 'active' : ''}`}>
                   <Link to="/team" className="nav-link" onClick={() => handleMenuItemClick('team')}>
                     Team

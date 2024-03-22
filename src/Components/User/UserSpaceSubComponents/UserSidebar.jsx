@@ -51,7 +51,7 @@ const UserSidebar = ({ onSearch, setShowSidebar }) => {
 
                         <Dropdown.Menu className="absolute text-sm border-none ring-2 ring-blue-600">
                             <Dropdown.Item>
-                                <Link to="/user/myspace/myblogs" onClick={() => setShowSidebar(false)}>Posts</Link>
+                                <Link to="/user/myspace?ext=true&save=true" onClick={() => setShowSidebar(false)}>Posts</Link>
                             </Dropdown.Item>
                             <Dropdown.Item>
                                 <Link to="/user/myspace/globalfeed" onClick={() => setShowSidebar(false)}>Community Questions</Link>
@@ -73,7 +73,7 @@ const UserSidebar = ({ onSearch, setShowSidebar }) => {
 
                         <Dropdown.Menu className="absolute text-sm border-none ring-2 ring-blue-600">
                             <Dropdown.Item>
-                                <Link to="/user/myspace/myblogs" onClick={() => setShowSidebar(false)}>Posts</Link>
+                                <Link to="/user/myspace?ext=true&myp=true" onClick={() => setShowSidebar(false)}>Posts</Link>
                             </Dropdown.Item>
                             <Dropdown.Item>
                                 <Link to="/user/myspace/globalfeed" onClick={() => setShowSidebar(false)}>Community Questions</Link>
@@ -86,8 +86,19 @@ const UserSidebar = ({ onSearch, setShowSidebar }) => {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
                     </svg>
                     <p className="text-sm">Calendar</p>
+                    </Link>
+                    <Link to="/user/myspace?t=save" onClick={() => setShowSidebar(false)} className="mt-2 flex items-center p-2 gap-3 text-gray-600 font-medium focus:text-blue-600 focus:bg-blue-50 hover:bg-blue-50 hover:text-blue-700 hover:rounded active:bg-blue-100 active:rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                    </svg>
+                    <p className="text-sm">saved Posts</p>
                 </Link>
-
+                <Link to="/user/myspace?t=myp" onClick={() => setShowSidebar(false)} className="mt-2 flex items-center p-2 gap-3 text-gray-600 font-medium focus:text-blue-600 focus:bg-blue-50 hover:bg-blue-50 hover:text-blue-700 hover:rounded active:bg-blue-100 active:rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                    </svg>
+                    <p className="text-sm">My Own posts</p>
+                </Link>
                 <p className="mt-4 text-[.9rem] text-gray-400 font-medium text-xs">Performance Focus</p>
                 <Link to="/user/myspace/portfolio" onClick={() => setShowSidebar(false)} className="mt-2 flex items-center p-2 gap-3 text-gray-600 font-medium rounded focus:text-blue-600 focus:bg-blue-50 hover:bg-blue-50 hover:text-blue-700 hover:rounded active:bg-blue-100 active:rounded">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

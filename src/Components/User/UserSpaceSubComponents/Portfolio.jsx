@@ -76,12 +76,12 @@ const Portfolio = () => {
                   <dt className="text-sm font-medium leading-6 text-gray-900">
                     Firstname
                   </dt>
-                  <dd className="flex items-center justify-between mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                  <dd className="flex items-center justify-between mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 ">
                     <input 
                       value={user["name"]} 
                       onChange={(e) => setUser({...user, ["name"]: e.target.value})} 
                       disabled={!isEditing["name"]} 
-                      className={`rounded border-none ${isEditing["name"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : "ring-1 ring-gray-400"}`}
+                      className={`rounded border-none outline-none  ${isEditing["name"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : " ring-gray-400"}`}
                     />
                   </dd>
                 </div>
@@ -95,7 +95,7 @@ const Portfolio = () => {
                       value={user["familyName"]} 
                       onChange={(e) => setUser({...user, ["familyName"]: e.target.value})} 
                       disabled={!isEditing["familyName"]} 
-                      className={`rounded border-none ${isEditing["familyName"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : "ring-1 ring-gray-400"}`}
+                      className={`rounded border-none ${isEditing["familyName"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : " ring-gray-400"}`}
                     />
                   </dd>
                 </div>
@@ -109,7 +109,7 @@ const Portfolio = () => {
                       value={user["email"]} 
                       onChange={(e) => setUser({...user, ["email"]: e.target.value})} 
                       disabled={!isEditing["email"]} 
-                      className={`rounded border-none ${isEditing["email"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : "ring-1 ring-gray-400"}`}
+                      className={`rounded border-none ${isEditing["email"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : " ring-gray-400"}`}
                     />
                   </dd>
                 </div>
@@ -123,7 +123,7 @@ const Portfolio = () => {
                       value={user["promo"]} 
                       onChange={(e) => setUser({...user, ["promo"]: e.target.value})} 
                       disabled={!isEditing["promo"]} 
-                      className={`rounded border-none ${isEditing["promo"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : "ring-1 ring-gray-400"}`}
+                      className={`rounded border-none ${isEditing["promo"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : " ring-gray-400"}`}
                     />
                   </dd>
                 </div>
@@ -137,7 +137,7 @@ const Portfolio = () => {
                       value={user["status"]} 
                       onChange={(e) => setUser({...user, ["status"]: e.target.value})} 
                       disabled={!isEditing["status"]} 
-                      className={`rounded border-none ${isEditing["status"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : "ring-1 ring-gray-400"}`}
+                      className={`rounded border-none ${isEditing["status"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : " ring-gray-400"}`}
                     >
                       <option value="student">Student</option>
                       <option value="engineer">Engineer</option>
@@ -161,7 +161,7 @@ const Portfolio = () => {
                       value={user["about"]} 
                       onChange={(e) => setUser({...user, ["about"]: e.target.value})} 
                       disabled={!isEditing["about"]} 
-                      className={`rounded border-none ${isEditing["about"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : "ring-1 ring-gray-400"}`}
+                      className={`rounded border-none ${isEditing["about"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : " ring-gray-400"}`}
                     />
                     <button 
                       onClick={() => handleEditClick("about")} 
@@ -180,7 +180,7 @@ const Portfolio = () => {
                       value={user["city"]} 
                       onChange={(e) => setUser({...user, ["city"]: e.target.value})} 
                       disabled={!isEditing["city"]} 
-                      className={`rounded border-none ${isEditing["city"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : "ring-1 ring-gray-400"}`}
+                      className={`rounded border-none ${isEditing["city"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : " ring-gray-400"}`}
                     />
                     <button 
                       onClick={() => handleEditClick("city")} 
@@ -206,7 +206,7 @@ const Portfolio = () => {
                         setUser(updatedUser);
                       }} 
                       disabled={!isEditing["contact.linkedin"]} 
-                      className={`rounded border-none ${isEditing["contact.linkedin"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : "ring-1 ring-gray-400"}`}
+                      className={`rounded border-none ${isEditing["contact.linkedin"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : " ring-gray-400"}`}
                     />
                     <button 
                       onClick={() => handleEditClick("contact.linkedin")} 
@@ -232,7 +232,7 @@ const Portfolio = () => {
                         setUser(updatedUser);
                       }} 
                       disabled={!isEditing["contact.phone"]} 
-                      className={`rounded border-none ${isEditing["contact.phone"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : "ring-1 ring-gray-400"}`}
+                      className={`rounded border-none ${isEditing["contact.phone"] ? "ring-2 ring-purple-400 focus:ring-2 focus:ring-purple-400" : " ring-gray-400"}`}
                     />
                     <button 
                       onClick={() => handleEditClick("contact.phone")} 
@@ -242,7 +242,7 @@ const Portfolio = () => {
                   </dd>
                 </div>
               
-              <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+              {/* <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                 <dt className="text-sm font-medium leading-6 text-gray-900">
                   Attachments
                 </dt>
@@ -301,7 +301,7 @@ const Portfolio = () => {
                     </li>
                   </ul>
                 </dd>
-              </div>
+              </div> */}
             </dl>
           </div>
         </>

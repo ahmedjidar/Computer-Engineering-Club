@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { useDataContext } from "../../../utils/useContext";
 import { formatDate } from "../../../utils/timeFormater";
 import { ImageSwiper } from "./BlogPostElements/imgeSlider";
+import PageLoader from "../../Common/Loaders/pageLoader";
 const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
 function getNumberOfPages(rowCount, rowsPerPage) {
@@ -538,7 +539,7 @@ function AdminCheckPosts() {
           </div>
         
           </div>) : (
-          <p>loading</p>
+          <PageLoader/>
           )}
       </div>
     </>

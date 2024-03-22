@@ -28,7 +28,7 @@ export const DataProvider = ({ children }) => {
     const userName = window.localStorage.getItem("userName");
     const email = window.localStorage.getItem("email");
     const token = window.localStorage.getItem("token");
-    const isAdmin = window.localStorage.getItem("isAdmin");
+    const isAdmin = window.localStorage.getItem("isAdmin")=='true';
     const A = window.localStorage.getItem("A");
 
     // Set the authentication data in state
@@ -96,6 +96,32 @@ export const DataProvider = ({ children }) => {
 
     try {
         const response = await fetch(apiUrl + "/userSpace/posts");
+
+        if (!response.ok) {
+            console.error("Error in fetching posts:", response.statusText);
+            throw new Error("Failed to fetch posts");
+        }
+
+        const data = await response.json();
+
+        if (data && data.length > 0) {
+            console.log("Posts fetched successfully:", data);
+            return data;
+        } else {
+            console.warn("No posts found");
+        }
+    } catch (err) {
+        console.error("Error in getPosts:", err);
+        throw err; // Rethrow the error for the caller to handle if necessary
+    }
+
+    console.log("Out of getPosts");
+  };
+    const getSavedPosts = async (uId) => {
+    console.log("in getsavesPosts",uId);
+
+    try {
+        const response = await fetch(apiUrl + "/userSpace/saved/posts?uId="+uId);
 
         if (!response.ok) {
             console.error("Error in fetching posts:", response.statusText);
@@ -397,6 +423,7 @@ const doreplyLike = async (postId,commentId,replyId,userId) => {
         initiateLogin,
         logout,
         getauth,
+        getSavedPosts
       }}
     >
       {children}

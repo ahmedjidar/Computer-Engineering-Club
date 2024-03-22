@@ -1,6 +1,7 @@
 import React from 'react'
 import '../../../assets/styles/show.css'
 import { useEffect , useState } from 'react';
+import pic from '../../../assets/Images/Csday2324.jpg'
 
 function Show() {
 
@@ -58,13 +59,13 @@ function Show() {
         </div> */}
 
         <div className='backgr'>
-            <div className="hero-text">
-                <h1>{text}</h1>
-                <p>Live Your Best Experiences</p>
+            <div className="hero-text fontGi">
+                <h1 className="fontGiTitle">{text}</h1>
+                <p className='h-[100px] min-h-[100px]'>Live Your Best Experiences</p>
 
-                <button className="btn-default" onClick={navigateToLogin}>
+                {/* <button className="btn-default" onClick={navigateToLogin}>
       Explore
-    </button>
+    </button> */}
 
     
             </div>
