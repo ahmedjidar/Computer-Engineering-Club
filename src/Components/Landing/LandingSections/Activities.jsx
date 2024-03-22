@@ -4,6 +4,7 @@ import image1 from '../../../assets/Images/ensao.jpg';
 import image2 from '../../../assets/Images/slider-bg.jpg';
 import picjourne from '../../../assets/Images/picjournée.jpeg'
 import picprosolving from '../../../assets/Images/probsolvcover.jpg';
+import csday2324 from '../../../assets/Images/Csday2324.jpg';
 import '../../../assets/styles/activitiesstyle.css';
 import LandingNavbar from './LandingNavbar';
 import Footer from './Footer';
@@ -26,6 +27,19 @@ function Activities() {
             </div>
 
               <Carousel fade>
+                
+                <Carousel.Item>
+                    <img
+                      className="d-block w-100"
+                      src={csday2324}
+                      alt="Second slide"
+                    />
+                    <Carousel.Caption>
+                      <h3 className='activities-names'>Cs Day 2023/2024 </h3>
+                      <button className="button-37" role="button" onClick={() =>navigator('/activities/Cs-Day3')}>View More</button>
+                    </Carousel.Caption>
+                </Carousel.Item>
+
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
@@ -33,32 +47,9 @@ function Activities() {
                     alt="First slide"
                   />
                   <Carousel.Caption>
-                    <h3 className='activities-names text-md'>CS Day 2021/2022</h3>
+                    <h3 className='activities-names text-md'>CS Day 2022/2023</h3>
                     <button className="button-37" role="button" onClick={() =>navigator('/activities/Cs-Day1')}>View More</button>
 
-                  </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src={image1}
-                    alt="Second slide"
-                  />
-                  <Carousel.Caption>
-                    <h3 className='activities-names'>CS Day 2022/2023</h3>
-                    <button className="button-37" role="button" onClick={() =>navigator('/activities/Cs-Day2')}>View More</button>
-                  </Carousel.Caption>
-                </Carousel.Item>
-
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src={image1}
-                    alt="Second slide"
-                  />
-                  <Carousel.Caption>
-                    <h3 className='activities-names'>Cs Day 2023/2024 </h3>
-                    <button className="button-37" role="button" onClick={() =>navigator('/activities/Cs-Day3')}>View More</button>
                   </Carousel.Caption>
                 </Carousel.Item>
 
