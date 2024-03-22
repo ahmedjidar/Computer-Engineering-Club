@@ -49,7 +49,7 @@ const {logout,auth} =useDataContext();
                 </li>
                 
                   <li className={`nav-item ${activeMenuItem === 'my space' ? 'active' : ''}`}>
-                    <Link to="/user/myspace" className="nav-link" onClick={() => handleMenuItemClick('my space')}>
+                    <Link to="/get-started/login" className="nav-link" onClick={() => handleMenuItemClick('my space')}>
                       My Space
                     </Link>
                   </li>
