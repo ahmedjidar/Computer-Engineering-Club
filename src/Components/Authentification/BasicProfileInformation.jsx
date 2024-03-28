@@ -31,12 +31,13 @@ const BasicProfileInformation = () => {
 
  const {auth} =useDataContext();
 
-  console.log(auth);
   const submitHandler = async (e) => {
     e.preventDefault();
     // const token = localStorage.getItem('token');
     try {
       const formData = new FormData(e.target);
+    console.log("run save...",formData)
+
       setLoading(true);
       const response = await fetch(apiUrl+"/signup", {
         method: "POST",
@@ -84,13 +85,13 @@ const BasicProfileInformation = () => {
         className="w-1/6 h-auto bg-slate-100 rounded-full sm:w-1/12" 
       />
       <form
-        onSubmit={submitHandler}
+         onSubmit={submitHandler}
         className="sm:p-20 p-8 sm:border-x-4 sm:border-sky-600 rounded-xl"
         encType="multipart/form-data"
       >
         <div className="">
-        { !nextStep ? (
-        <>
+      
+        <div className={`${nextStep?'hidden':'block'}`}>
           <div className="border-b border-gray-900/10 pb-12">
           <h2 className="text-xl font-semibold leading-7 text-gray-900">
             Profile
@@ -110,7 +111,8 @@ const BasicProfileInformation = () => {
                 First name
               </label>
               <div className="mt-2">
-                <input
+                      <input
+                        required
                   type="text"
                   name="name"
                   id="first-name"
@@ -129,6 +131,7 @@ const BasicProfileInformation = () => {
               </label>
               <div className="mt-2">
                 <input
+                        required
                   type="text"
                   name="familyName"
                   id="last-name"
@@ -147,6 +150,7 @@ const BasicProfileInformation = () => {
               </label>
               <div className="mt-2">
                 <textarea
+                        required
                   id="about"
                   name="about"
                   rows={3}
@@ -175,7 +179,7 @@ const BasicProfileInformation = () => {
                 <input
                   type="file"
                   id="photo"
-                  name="photo"
+                  name="image"
                   className="hidden"
                   onChange={handleImageChange}
                 />
@@ -183,12 +187,12 @@ const BasicProfileInformation = () => {
                   htmlFor="photo"
                   className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 active:ring-2 active:ring-inset active:ring-blue-600"
                 >
-                  Change
+                  upload
                 </label>
               </div>
             </div>
 
-            <div className="col-span-full">
+            {/* <div className="col-span-full">
               <label
                 htmlFor="cover-photo"
                 className="block text-sm font-medium leading-6 text-gray-900"
@@ -208,6 +212,7 @@ const BasicProfileInformation = () => {
                     >
                       <span>Upload a file</span>
                       <input
+                        required
                         id="file-upload"
                         name="image"
                         type="file"
@@ -222,7 +227,7 @@ const BasicProfileInformation = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
           </div>
         </div>
@@ -284,6 +289,7 @@ const BasicProfileInformation = () => {
               </label>
               <div className="mt-2">
                 <input
+                        required
                   type="number"
                   name="promo"
                   id="street-address"
@@ -302,11 +308,12 @@ const BasicProfileInformation = () => {
               </label>
               <div className="mt-2">
                 <select
+                        required
                   name="status"
                   id="status"
                   className="outline-none block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
                 >
-                  <option value="">Select status</option>
+                  <option value="student">Select status</option>
                   <option value="student">Student</option>
                   <option value="laureate">Laureate</option>
                   <option value="professor">Professor</option>
@@ -421,6 +428,7 @@ const BasicProfileInformation = () => {
                 <div className="flex rounded-md ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-600 sm:max-w-md">
                   <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm"></span>
                   <input
+                        required
                     type="text"
                     name="linkedin"
 
@@ -460,8 +468,8 @@ const BasicProfileInformation = () => {
             </div>
           </div>
         </div>
-          </>) : (
-            <div>
+          </div > 
+            <div className={`${!nextStep?'hidden':'block'}`}>
             <h2 className="text-xl font-semibold leading-7 text-gray-900 mb-2">
               Authentication Information
             </h2>
@@ -475,6 +483,7 @@ const BasicProfileInformation = () => {
                 </label>
                 <div className="mt-2">
                   <input
+                        required
                     id="email"
                     name="email"
                     type="email"
@@ -493,6 +502,7 @@ const BasicProfileInformation = () => {
                 </label>
                 <div className="mt-2">
                   <input
+                        required
                     id="password"
                     name="password"
                     type="password"
@@ -510,6 +520,7 @@ const BasicProfileInformation = () => {
                 </label>
                 <div className="mt-2">
                   <input
+                        required
                     id="rpassword"
                     name="rpassword"
                     type="password"
@@ -525,10 +536,55 @@ const BasicProfileInformation = () => {
                 Go Back
               </button>
         </div>      
-          )}
+        
 
 
-          {/* <div className="border-b border-gray-900/10 pb-12">
+        
+        </div>
+        <div className=" flex flex-col w-full items-center justify-evenly ">
+          
+        <div className="mt-6 flex items-center justify-end gap-x-6">
+          <button
+            type="button"
+            className="text-sm font-semibold leading-6 text-gray-900"
+          >
+            Cancel
+          </button>
+         <button
+              
+              className={`${nextStep?'hidden':'block'} rounded-md bg-sky-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600`}
+              onClick={
+                handleNextStep
+              }
+          >
+           Next
+            </button>
+            <button
+              type="submit"
+            className={`${!nextStep?'hidden':'block'} rounded-md bg-sky-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600`}
+          //  onClick={submitHandler}
+          >
+          {loading? 'saving ...':'save'}
+
+          </button>
+          
+          </div>
+          {nextStep&&<div className="mt-6 w-full   ">
+          <p className="text-red-500 font-bold text-md text-center w-full">
+            {err}
+        </p>
+          <p className="text-green-500 font-bold text-md text-center w-full">
+            {msg}
+          </p>
+        </div>}
+       </div>
+      </form>
+    </div>
+  );
+};
+
+export default BasicProfileInformation;
+  {/* <div className="border-b border-gray-900/10 pb-12">
             <h2 className="text-xl font-semibold leading-7 text-gray-900">
               Notifications
             </h2>
@@ -663,38 +719,3 @@ const BasicProfileInformation = () => {
               </fieldset>
             </div>
           </div> */}
-        </div>
-        <div className=" flex flex-col w-full items-center justify-evenly ">
-          
-        <div className="mt-6 flex items-center justify-end gap-x-6">
-          <button
-            type="button"
-            className="text-sm font-semibold leading-6 text-gray-900"
-          >
-            Cancel
-          </button>
-          <button
-            type="submit"
-            className="rounded-md bg-sky-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-            onClick={handleNextStep}
-          >
-           {/* {loading? 'saving ...':'save'} */}
-           Next
-          </button>
-          
-          </div>
-          <div className="mt-6 flex items-center justify-start ">
-          <p className="text-red-500 font-bold text-md text-center w-full">
-            {err}
-        </p>
-          <p className="text-green-500 font-bold text-md text-center w-full">
-            {msg}
-          </p>
-        </div>
-       </div>
-      </form>
-    </div>
-  );
-};
-
-export default BasicProfileInformation;

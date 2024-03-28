@@ -4,6 +4,7 @@ import { AddBlogPostModal } from "../../../Common/index";
 import pfp from "../../../../assets/Images/pfp.png";
 import { useNavigate } from "react-router-dom";
 import { useDataContext } from "../../../../utils/useContext";
+import { postTypes } from "../../../../Constants/postOptions";
 const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
 const PostCreation = ({ syncPosts,setPostCreated }) => {
@@ -55,7 +56,7 @@ const PostCreation = ({ syncPosts,setPostCreated }) => {
     <div className="p-4">
       <div className="flex gap-2 items-end justify-start mb-2">
         <img
-          src={apiUrl + "/" + auth.userImg}
+          src={auth.userImg}
           alt="user"
           className="w-12 h-12 rounded-full ring-2 ring-indigo-600  object-cover"
         />
@@ -109,13 +110,13 @@ const PostCreation = ({ syncPosts,setPostCreated }) => {
             </button>
           
             <select name="title"
-              className="flex items-center gap-2 text-sm  text-blue-500 rounded px-3 py-2 hover:bg-gray-200"
+              className="pl-4 flex items-center gap-2 text-sm  text-blue-500 rounded  py-2 hover:bg-gray-200"
             >
-              <option selected>Question</option>
-              <option value="Offre de Stage">Offre de Stage</option>
-              <option value="Salutation">Salutation</option>
-              <option value="Informaton">Snformaton</option>
-              <option value="News">News</option>
+              {postTypes.map((type) => (
+                  <option key={type.value} value={type.value}>
+                    {type.label}
+                  </option>
+                ))}
               </select>
              
             <button

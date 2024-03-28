@@ -54,7 +54,7 @@ const ForumPostCreation = ({ syncPosts ,setPostCreated}) => {
     <div className="p-4">
       <div className="flex gap-2 items-end justify-start mb-2">
         <img
-          src={apiUrl + "/" + auth.userImg}
+          src={auth.userImg}
           alt="user"
           className="w-12 h-12 rounded ring-2 ring-indigo-600  object-cover"
         />

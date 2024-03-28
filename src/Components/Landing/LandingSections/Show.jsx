@@ -60,8 +60,8 @@ function Show() {
 
         <div className='backgr'>
             <div className="hero-text fontGi">
-                <h1 className="fontGiTitle">{text}</h1>
-                <p className='h-[100px] min-h-[100px]'>Live Your Best Experiences</p>
+                <h1 className="fontGiTitle  min-h-[100px]">{text}</h1>
+                <p className=''>Live Your Best Experiences</p>
 
                 {/* <button className="btn-default" onClick={navigateToLogin}>
       Explore

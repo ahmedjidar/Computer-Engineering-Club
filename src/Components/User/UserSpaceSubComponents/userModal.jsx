@@ -47,7 +47,7 @@ const UserModal = ({id}) => {
             <p className="font-bold">{user && user.name +" "+user.familyName}</p>
 
               <img
-                src={apiUrl + "/" + user.image}
+                src={user.image}
                 alt="user"
                 className="w-16 h-16 object-cover rounded-full mr-4 shadow-sm"
               />

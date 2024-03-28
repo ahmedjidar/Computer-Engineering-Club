@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { MyBlogs, CommunityFeed, UserFeedback, Portfolio, Calendar, Progress, Settings, Home, MyCourses, CommunityForum } from '../index';
+import SavedPosts from "./HomeSection/savedPosts";
+import OwnPosts from "./HomeSection/ownPosts";
 
 const UserSubRoutes = () => {
   useEffect(() => {
@@ -13,6 +15,8 @@ const UserSubRoutes = () => {
                 <Route index path="/" element={<Home   />}/>
                 <Route path="/myblogs" element={<MyBlogs/>}/>
                 <Route path="/globalfeed" element={<CommunityFeed  />}/>
+                <Route path="/savedPosts" element={<SavedPosts  />}/>
+                <Route path="/ownPosts" element={<OwnPosts  />}/>
                 <Route path="/calendar" element={<Calendar/>}/>
                 <Route path="/portfolio" element={<Portfolio/>}/>
                 <Route path="/myprogress" element={<Progress/>}/>

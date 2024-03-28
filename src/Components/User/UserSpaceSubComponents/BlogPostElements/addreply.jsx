@@ -64,7 +64,7 @@ export function AddRepley({userImg,syncPosts,userId,postId,commentId ,forum}) {
         <div className={`${forum ? 'rounded' : 'rounded-full'}   overflow-hidden `}>
            <img
           className={`w-10 h-10 ${forum ? 'rounded' : 'rounded-full'}   object-cover`}
-          src={apiUrl+"/"+userImg}
+          src={userImg}
         />
         </div>
          <input type="hidden" name="userId" value={userId}/>
