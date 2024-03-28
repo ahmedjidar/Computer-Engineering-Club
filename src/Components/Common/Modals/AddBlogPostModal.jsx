@@ -67,6 +67,7 @@ const AddBlogPostModal = (props) => {
         <form id="myForm" onSubmit={submitHandler} encType="multipart/form-data">
           {/* post title */}
                 <input type="hidden" name="ownerid" value={auth.userId}/>
+          <input type="hidden" name="forum" value={false} />
           
             <div className="sm:col-span-3 mb-3">
                 <label htmlFor="post-title" className="block text-sm font-medium leading-6 text-gray-600">

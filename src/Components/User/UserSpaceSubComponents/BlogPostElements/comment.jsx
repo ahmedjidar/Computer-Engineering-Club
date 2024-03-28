@@ -24,7 +24,7 @@ export function Comment({ postId, owner, comment, time, user ,syncPosts,forum}) 
         <div className="pt-1 w-[20%">
           <img
             className={` w-10 h-10 ${ forum?' rounded':'rounded-full'}    object-cover`}
-            src={apiUrl + "/" + owner.image}
+            src={owner.image}
             alt={owner.image}
           />
         </div>

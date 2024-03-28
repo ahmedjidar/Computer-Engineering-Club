@@ -63,7 +63,7 @@ export function Commentadd({userImg,syncPosts,userId,postId,forum }) {
         <div className={`${forum ? 'rounded' : 'rounded-full'}   overflow-hidden `}>
            <img
             className={`w-12 h-12 ${forum ? 'rounded' : 'rounded-full'}   object-cover`}
-          src={apiUrl+"/"+userImg}
+          src={userImg}
         />
         </div>
          <input type="hidden" name="userId" value={userId}/>

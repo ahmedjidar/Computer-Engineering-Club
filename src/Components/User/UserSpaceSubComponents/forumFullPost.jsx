@@ -20,7 +20,7 @@ function confirmDelete(text) {
         return false;
     }
 }
-const ForumFullPost = ({ postt, syncPosts,user }) => {
+const ForumFullPost = ({ postt, syncPosts,user,own }) => {
     const { auth, doLike,doSave,deletePost } = useDataContext();
 
   const post = postt ? postt : {};
@@ -75,15 +75,7 @@ const ForumFullPost = ({ postt, syncPosts,user }) => {
   // }, [post]);
   const postowner = post.postowner;
 
-  console.log("post owner==================================", postowner);
-  console.log(
-    "post owner==================================",
-    postowner && postowner.image
-  );
-  console.log(
-    "post owner==================================",
-    postowner && postowner.name
-  );
+  
   const setLlike = () => {
     doLike(post._id, auth.userId);
     setLike((prevLike) => !prevLike);
@@ -96,7 +88,23 @@ const ForumFullPost = ({ postt, syncPosts,user }) => {
   return (
     <>
       <div className="  p-4 w-full ">
+         {own && <div className="flex justify-center items-center bg-[#103850] rounded-t-md text-gray-300">
+          {postt.public ?
+            <div className="flex justify-center items-center">
+              <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-green-400 w-5 h-5">
+  <path strokeLinecap="round" strokeLinejoin="round" d="m6.115 5.19.319 1.913A6 6 0 0 0 8.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 0 0 2.288-4.042 1.087 1.087 0 0 0-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 0 1-.98-.314l-.295-.295a1.125 1.125 0 0 1 0-1.591l.13-.132a1.125 1.125 0 0 1 1.3-.21l.603.302a.809.809 0 0 0 1.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 0 0 1.528-1.732l.146-.292M6.115 5.19A9 9 0 1 0 17.18 4.64M6.115 5.19A8.965 8.965 0 0 1 12 3c1.929 0 3.716.607 5.18 1.64" />
+</svg>
+<p>Live now</p></div> :
+            <div className="flex justify-center items-center gap-1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-gray-400 w-5 h-5">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+</svg>
+
+<p>Still in review...</p></div>
+          }
+        </div>}
         <div className="w-full bg-[#0b2739] py-3    rounded flex  ">
+  
           <div className="flex flex-column  gap-2  items-center justify-start pl-4 py-1">
             {postowner ? (
               <div className="flex flex-col items-center">
@@ -126,18 +134,21 @@ const ForumFullPost = ({ postt, syncPosts,user }) => {
                 posted {formatDate(post.createdAt)} ago
               </p>
               </div>
-               <div className={`w-full flex justify-end text-white cursor-pointer`} onClick={toggleSaveHandler}>
-                 <svg className=" block w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill={save?"#ff9900":'none'} viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" >
+              <div className="flex justify-start items-center w-full translate-y-[-40px]">
+ <div className={`w-full flex justify-end text-[#5d7291] cursor-pointer`} onClick={toggleSaveHandler}>
+                 <svg className=" block w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill={save?'#5d7291':'none'} viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" >
                      <path strokeLinecap="round" strokeLinejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
                  </svg>
 
 
              </div>
-             {postowner._id==user._id&&  <div className="cursor-pointer text-white" onClick={handleRowDelete}>
+             {postowner._id==user._id&&  <div className="cursor-pointer text-[#5d7291] " onClick={handleRowDelete}>
                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-8">
   <path strokeLinecap="round" strokeLinejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
 </svg>
         </div>}
+              </div>
+              
               <div>
                  <p className="text-white w-fit px-2 py-1 font-bold bg-[#103750]  leading-snug md:leading-normal ">
               {post.title}

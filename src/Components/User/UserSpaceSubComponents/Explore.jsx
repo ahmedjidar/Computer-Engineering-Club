@@ -5,6 +5,8 @@ import RoadmapsSubRoutes from "./Roadmaps/RoadmapsSubRoutes";
 import CourseDetailsComponent from "./Courses&Related/CourseDetailsComponent";
 import AdminSpaceLayout from "./AdminSpaceLayout";
 import { useDataContext } from "../../../utils/useContext";
+import SavedForum from "./savedForum";
+import OwnForum from "./ownForum";
 
 
 const Explore = () => {
@@ -18,6 +20,8 @@ const Explore = () => {
                 <Route path="/courses/:id" element={<CourseDetailsComponent/>}/>
                 <Route path="/roadmaps/*" element={<RoadmapsSubRoutes/>}/>
                 <Route path="/forum" element={<CommunityForum />}/>
+                <Route path="/forum/saved" element={<SavedForum />}/>
+                <Route path="/forum/own" element={<OwnForum />}/>
             </Routes>
         </div>
     )

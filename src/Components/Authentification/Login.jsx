@@ -155,6 +155,12 @@ const {setLogin,auth} =useDataContext();
               Sign up and set a profile
             </a>
           </p>
+          <p className="mt-1 text-center text-sm text-gray-500">
+            Go back &nbsp;
+            <a href="/" className="text-gray-700 leading-6  font-bold underline">
+              Home
+            </a>
+          </p>
         </div>
       </div>
     )
